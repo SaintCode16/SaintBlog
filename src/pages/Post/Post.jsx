@@ -1,5 +1,52 @@
 import s from "./Post.module.scss";
 
 export const Post = () => {
-  return <div></div>;
+  let data = new Date();
+  return (
+    <div className={s.post}>
+      <h1 className={s.post__title}>Thema</h1>
+      <div className={s.post__div}>
+        <p className={s.post__data}>{data.toLocaleDateString()}</p>
+        <p className={s.post__kat}>kategoria</p>
+        <p className={s.post__text}>
+          <img
+            className={s.post__img}
+            src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Sinusv%C3%A5g_400px.png"
+            alt=""
+          />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+          voluptatibus incidunt quasi atque quos sunt consectetur quibusdam
+          reprehenderit iste voluptatum earum molestiae accusantium animi in
+          minus, mollitia libero reiciendis sapiente. Dolorum voluptatibus
+          expedita, assumenda voluptatum corrupti fugiat nihil aliquid hic
+          asperiores molestias excepturi et vitae debitis cupiditate libero
+          saepe ipsum aperiam voluptate magni beatae omnis atque ut ea.
+          Deleniti, porro! At quos culpa tempore labore repudiandae maxime,
+          voluptatum consectetur harum necessitatibus. Voluptas qui similique
+          eos numquam necessitatibus a, aliquid voluptates, tempore molestiae
+          vero dolore facere fugit mollitia, nemo accusamus quidem. Facilis
+          alias perspiciatis nulla provident! Obcaecati et quos culpa, tenetur
+          nemo quaerat, consequatur nobis recusandae minima aliquam corrupti
+          quae repellat officia aperiam dolore dicta excepturi cumque
+          reiciendis? Reiciendis, consequatur necessitatibus. Debitis nobis illo
+          minus dignissimos expedita commodi quas recusandae atque numquam
+          suscipit quia amet enim iure inventore nihil, nisi eligendi. Eos
+          possimus maiores harum repellat ullam a eius, adipisci pariatur!
+          Inventore eligendi earum facilis voluptatem exercitationem cumque
+          quisquam sunt corrupti unde aliquid dolorem molestiae quia doloremque,
+          magni eaque a, beatae iusto et? Doloribus, recusandae? Tempora rerum
+          dignissimos perferendis ullam quas!
+        </p>
+      </div>
+
+      <div className={s.post__btn}>
+        <div>
+          <button className={s.post__button}>like</button>
+          <button className={s.post__favorites}>StarOutline</button>
+        </div>
+        <p className={s.post__username}>@username</p>
+        <button className={s.post__button}>back</button>
+      </div>
+    </div>
+  );
 };
