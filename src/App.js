@@ -1,6 +1,10 @@
 function App() {
-  console.log("dsdsd");
-  return <div className="App"></div>;
+  console.log("Lalala");
+  return (
+    <div>
+      <h1>SaintBlog</h1>
+    </div>
+  );
 }
 
 export default App;
