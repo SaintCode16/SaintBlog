@@ -1,13 +1,53 @@
 {
   "posts": [
-    { "id": "1", "title": "a title" },
-    { "id": "2", "title": "another title" }
+    {
+      "id": "1",
+      "title": "Redux Toolkit",
+      "date": "2024-01-13T13:06:54.281Z",
+      "subtitle": "The official, opinionated, batteries-included toolset for efficient Redux development",
+      "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti ducimus expedita, eius nobis tempora repellendus, cupiditate veritatis nulla quaerat perferendis provident blanditiis. Voluptatibus velit, voluptate possimus placeat numquam saepe! Dignissimos blanditiis perspiciatis vero totam aperiam obcaecati quibusdam? Esse magni, accusamus dolorem eius facere architecto possimus vel iste quibusdam, iure asperiores, qui culpa obcaecati cupiditate? A sed aliquam autem delectus provident maxime voluptatum, odit officiis porro iste pariatur dignissimos? Excepturi itaque debitis modi voluptate cumque saepe omnis quasi natus illo atque velit, soluta quaerat? Quam, laboriosam aut magnam inventore dolorum modi quod voluptas perspiciatis, itaque expedita laborum facilis autem nobis delectus.",
+      "tags": ["redux", "development", "frontend"],
+      "img": {
+        "img2x": "https://placehold.co/800x500",
+        "img1x": "https://placehold.co/400x250"
+      },
+      "author": "@codeoverdose",
+      "likes": 0
+    },
+    {
+      "id": "2",
+      "title": "Material UI - Overview",
+      "date": "2024-01-15T13:06:54.281Z",
+      "subtitle": "Material UI is an open-source React component library that implements Google's Material Design. It's comprehensive and can be used in production out of the box.",
+      "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti ducimus expedita, eius nobis tempora repellendus, cupiditate veritatis nulla quaerat perferendis provident blanditiis. Voluptatibus velit, voluptate possimus placeat numquam saepe! Dignissimos blanditiis perspiciatis vero totam aperiam obcaecati quibusdam? Esse magni, accusamus dolorem eius facere architecto possimus vel iste quibusdam, iure asperiores, qui culpa obcaecati cupiditate? A sed aliquam autem delectus provident maxime voluptatum, odit officiis porro iste pariatur dignissimos? Excepturi itaque debitis modi voluptate cumque saepe omnis quasi natus illo atque velit, soluta quaerat? Quam, laboriosam aut magnam inventore dolorum modi quod voluptas perspiciatis, itaque expedita laborum facilis autem nobis delectus.",
+      "tags": ["mui", "development", "frontend"],
+      "img": {
+        "img2x": "https://placehold.co/800x500",
+        "img1x": "https://placehold.co/400x250"
+      },
+      "author": "@kek",
+      "likes": 100
+    },
+    {
+      "id": "3",
+      "title": "ESLint",
+      "date": "2024-01-17T13:06:54.281Z",
+      "subtitle": "Find and fix problems in your JavaScript code",
+      "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti ducimus expedita, eius nobis tempora repellendus, cupiditate veritatis nulla quaerat perferendis provident blanditiis. Voluptatibus velit, voluptate possimus placeat numquam saepe! Dignissimos blanditiis perspiciatis vero totam aperiam obcaecati quibusdam? Esse magni, accusamus dolorem eius facere architecto possimus vel iste quibusdam, iure asperiores, qui culpa obcaecati cupiditate? A sed aliquam autem delectus provident maxime voluptatum, odit officiis porro iste pariatur dignissimos? Excepturi itaque debitis modi voluptate cumque saepe omnis quasi natus illo atque velit, soluta quaerat? Quam, laboriosam aut magnam inventore dolorum modi quod voluptas perspiciatis, itaque expedita laborum facilis autem nobis delectus.",
+      "tags": ["eslint", "development"],
+      "img": {
+        "img2x": "https://placehold.co/800x500",
+        "img1x": "https://placehold.co/400x250"
+      },
+      "author": "@codeoverdose",
+      "likes": 54
+    }
   ],
   "comments": [
     { "id": "1", "text": "a comment about post 1", "postId": "1" },
     { "id": "2", "text": "another comment about post 1", "postId": "1" }
   ],
   "profile": {
-    "name": "typicode"
+    "name": "Mariam"
   }
 }
