@@ -1,5 +1,5 @@
 function App() {
-  console.log("dsdsd")
+  console.log("dsdsd");
   return <div className="App"></div>;
 }
 
