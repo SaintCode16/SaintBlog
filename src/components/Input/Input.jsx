@@ -1,8 +1,6 @@
-import React from 'react'
-import s from './Input.module.scss'
+import React from "react";
+import s from "./Input.module.scss";
 
 export const Input = () => {
-  return (
-    <div>Input</div>
-  )
-}
+  return <div>Input</div>;
+};
