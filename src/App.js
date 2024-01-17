@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 function App() {
-  console.log("Lalala");
+  useEffect(() => {
+    fetch("http://localhost:7000/posts")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
   return (
     <div>
       <h1>SaintBlog</h1>
