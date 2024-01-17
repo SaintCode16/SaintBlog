@@ -1,4 +1,8 @@
 import s from "./Post.module.scss";
+import IconButton from "@mui/material/IconButton";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import StarOutline from "@mui/icons-material/StarSharp";
+import Button from "@mui/material/Button";
 
 export const Post = () => {
   let data = new Date();
@@ -40,12 +44,19 @@ export const Post = () => {
       </div>
 
       <div className={s.post__btn}>
-        <div>
-          <button className={s.post__button}>like</button>
-          <button className={s.post__favorites}>StarOutline</button>
-        </div>
         <p className={s.post__username}>@username</p>
-        <button className={s.post__button}>back</button>
+        <Button variant="contained" color="error" size="small">
+          Back
+        </Button>
+        <div className={s.post__choice}>
+          <button className={s.post__button}>
+            <ThumbUpIcon />
+          </button>
+
+          <IconButton color="error" size="large">
+            <StarOutline />
+          </IconButton>
+        </div>
       </div>
     </div>
   );
