@@ -1,18 +1,26 @@
-.PreviewPost {
-}
 .text {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -moz-box;
   -moz-box-orient: vertical;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
-  line-clamp: 3;
+  line-clamp: 10;
   box-orient: vertical;
+  text-align: justify;
 }
-.peper {
-  margin: 0 auto;
+.previewPost {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
+}
+.displayFlex {
+  display: flex;
+}
+.btn {
+  padding: 0 15px !important;
+}
+.content {
+  padding: 10px 15px !important;
 }
