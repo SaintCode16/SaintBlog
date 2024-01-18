@@ -3,25 +3,15 @@ import {
   Button,
   Checkbox,
   FormHelperText,
-  FormLabel,
   Radio,
   TextField,
   Typography,
 } from "@mui/material";
-import css from "./Main.module.css";
+import css from "./Main.module.scss";
 import { useState } from "react";
 
 export const Main = () => {
   const [modal, setModal] = useState(false);
-  const [name, setName] = useState("");
-  const [nickName, setNickName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [nameError, setNameError] = useState(false);
-  const [nickNameError, setNickNameError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const [accept, setAccept] = useState(false);
 
   return (
     <>
@@ -34,19 +24,14 @@ export const Main = () => {
         onSubmit={(ev) => {
           ev.preventDefault();
           setModal(true);
-          if (name && nickName && email && password) {
-            console.log("авторизация прошла");
-          }
         }}
       >
         <div className={css.inputWrapper}>
           <TextField
-            onChange={(ev) => setName(ev.target.value)}
             sx={{ width: 528, height: 49 }}
             label="Имя"
             id="outlined-size-normal"
             required
-            error={nameError}
           />
 
           <TextField
@@ -57,28 +42,22 @@ export const Main = () => {
             rows={4}
           />
           <TextField
-            onChange={(ev) => setNickName(ev.target.value)}
             sx={{ width: 528, height: 49 }}
             label="Никнейм"
             id="outlined-size-normal"
             required
-            error={nickNameError}
           />
           <TextField
-            onChange={(ev) => setEmail(ev.target.value)}
             sx={{ width: 528, height: 49 }}
             label="Почта"
             id="outlined-size-normal"
             required
-            error={emailError}
           />
           <TextField
-            onChange={(ev) => setPassword(ev.target.value)}
             sx={{ width: 528, height: 49 }}
             label="Пароль"
             id="outlined-size-normal"
             required
-            error={passwordError}
           />
         </div>
 
