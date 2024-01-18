@@ -1,4 +1,13 @@
-import { Avatar, Button, Checkbox, TextField, Typography } from "@mui/material";
+import {
+  Avatar,
+  Button,
+  Checkbox,
+  FormHelperText,
+  FormLabel,
+  Radio,
+  TextField,
+  Typography,
+} from "@mui/material";
 import css from "./Main.module.css";
 import { useState } from "react";
 
@@ -72,6 +81,20 @@ export const Main = () => {
             error={passwordError}
           />
         </div>
+
+        <Typography variant="h6">
+          Для чего вы хотите использовать приложение
+        </Typography>
+
+        <div>
+          <Radio />
+          <Typography variant="subtitle1">Для себя</Typography>
+          <FormHelperText children="fsadffsd" />
+        </div>
+
+        <Radio />
+        <Typography variant="subtitle1">Для бизнеса</Typography>
+
         <div
           onClick={() => console.log("checkbox checked")}
           className={css.acceptWrapper}
@@ -86,7 +109,7 @@ export const Main = () => {
           color="primary"
           disableElevation
         >
-          АВТОРИЗОВАТЬСЯ
+          ЗАРЕГИСТРИРОВАТЬСЯ
         </Button>
       </form>
     </>
