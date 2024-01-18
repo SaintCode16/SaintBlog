@@ -1,0 +1,24 @@
+.avatarWrapper {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  gap: 7px;
+}
+
+.inputWrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.acceptWrapper {
+  cursor: pointer;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  margin-top: 16px;
+}
