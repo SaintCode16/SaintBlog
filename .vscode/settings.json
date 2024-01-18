@@ -1,0 +1,42 @@
+{
+  "folderTemplates.structures": [
+    {
+      "name": "ReactTemplate",
+      "customVariables": [],
+      "omitParentDirectory": true,
+      "structure": [
+        {
+          "fileName": "<FTName>/<FTName>.jsx",
+          "template": "import s from './<FTName>.module.scss'\n\nexport const <FTName> = () => {return <div></div>}"
+        },
+        {
+          "fileName": "<FTName>/<FTName>.module.scss",
+          "template": ".<FTName> {}"
+        },
+        {
+          "fileName": "<FTName>/index.js",
+          "template": "export {<FTName>} from './<FTName>'"
+        }
+      ]
+    },
+    {
+      "name": "ReactTsTemplate",
+      "customVariables": [],
+      "omitParentDirectory": true,
+      "structure": [
+        {
+          "fileName": "<FTName>/<FTName>.tsx",
+          "template": "import s from './<FTName>.module.scss'\n\nexport const <FTName> = () => {return <div></div>}"
+        },
+        {
+          "fileName": "<FTName>/<FTName>.module.scss",
+          "template": ".<FTName> {}"
+        },
+        {
+          "fileName": "<FTName>/index.ts",
+          "template": "export {<FTName>} from './<FTName>'"
+        }
+      ]
+    }
+  ]
+}
