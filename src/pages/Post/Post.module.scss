@@ -18,7 +18,7 @@
       "Helvetica Neue",
       sans-serif;
     font-size: 40px;
-    text-align: center;
+    text-align: left;
   }
   &__text {
     font-family:
@@ -38,10 +38,13 @@
   }
   &__img {
     background-color: lightgray;
-    width: 300px;
-    height: 300px;
-    float: right;
-    margin: 7px 0 7px 7px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__divimg {
+    width: 100%;
+    height: 500px;
   }
   &__btn {
     display: flex;

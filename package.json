@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "json-server-auth --watch db.json --port 7000 -r routes.json",
-    "dev": "concurrently \"react-scripts start\" \"json-server-auth --watch db.json --port 7000\"",
+    "dev": "concurrently \"react-scripts start\" \"json-server-auth --watch db.json --port 7000 -r routes.json\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
