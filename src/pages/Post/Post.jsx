@@ -8,6 +8,9 @@ export const Post = () => {
   let data = new Date();
   return (
     <div className={s.post}>
+      <Button className={s.btnr} variant="contained" color="error" size="small">
+        Back
+      </Button>
       <h1 className={s.post__title}>Thema</h1>
       <div className={s.post__div}>
         <p className={s.post__data}>{data.toLocaleDateString()}</p>
@@ -45,9 +48,7 @@ export const Post = () => {
 
       <div className={s.post__btn}>
         <p className={s.post__username}>@username</p>
-        <Button variant="contained" color="error" size="small">
-          Back
-        </Button>
+
         <div className={s.post__choice}>
           <button className={s.post__button}>
             <ThumbUpIcon />
