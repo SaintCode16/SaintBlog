@@ -3,8 +3,8 @@ import s from "./Main.module.scss";
 
 export const Main = () => {
   return (
-    <Container maxWidth="lg">
-      <main className={s.main}>Основная страница</main>;
-    </Container>
+    <main className={s.main}>
+      <Container maxWidth="lg">ОСНОВНАЯ СТРАНИЦА</Container>
+    </main>
   );
 };
