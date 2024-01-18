@@ -89,7 +89,7 @@ export const Main = () => {
         <div>
           <Radio />
           <Typography variant="subtitle1">Для себя</Typography>
-          <FormHelperText children="fsadffsd" />
+          <FormHelperText />
         </div>
 
         <Radio />
