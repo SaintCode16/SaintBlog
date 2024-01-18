@@ -6,7 +6,6 @@ export const Header = () => {
   return (
     <header className={s.header}>
       <Container maxWidth="lg">sdsdsd</Container>
-      
     </header>
   );
 };
