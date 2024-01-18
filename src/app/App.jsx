@@ -1,10 +1,10 @@
-import { Main } from "../components/Registration/Main/Main";
+import { Signup } from "../components/Registration/Signup/Signup";
 import "./styles/global.scss";
 
 function App() {
   return (
     <>
-      <Main />
+      <Signup />
     </>
   );
 }

@@ -10,9 +10,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import css from "./Main.module.scss";
+import css from "./Signup.module.scss";
 
-export const Main = () => {
+export const Signup = () => {
   return (
     <>
       <Container maxWidth="sm">
