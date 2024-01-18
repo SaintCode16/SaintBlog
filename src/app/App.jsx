@@ -1,15 +1,10 @@
-import PreviewPost from "../components/PreviewPost/PreviewPost";
-import { Post } from "../pages/Post/Post";
 import "./styles/global.scss";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./providers/router/routes";
+import { Main } from "../components/Main";
 
 function App() {
-  return (
-    <>
-      <h1>SaintBlog</h1>
-      <PreviewPost />
-      {/* <Post /> */}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
