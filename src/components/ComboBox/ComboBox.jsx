@@ -1,5 +1,5 @@
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 export default function ComboBox() {
   return (
@@ -16,11 +16,11 @@ export default function ComboBox() {
 }
 
 const category = [
-  { label: 'Спорт' },
-  { label: 'Путешествие' },
-  { label: 'Еда' },
-  { label: 'Уборка' },
-  { label: 'Лайфхак' },
-  { label: 'Книги' },
-  { label: 'Покупки' },
+  { label: "Спорт" },
+  { label: "Путешествие" },
+  { label: "Еда" },
+  { label: "Уборка" },
+  { label: "Лайфхак" },
+  { label: "Книги" },
+  { label: "Покупки" },
 ];

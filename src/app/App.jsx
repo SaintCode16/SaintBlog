@@ -1,6 +1,6 @@
-import { AddPost } from '../pages/AddPost/AddPost';
-import { Post } from '../pages/Post/Post';
-import './styles/global.scss';
+import { AddPost } from "../pages/AddPost/AddPost";
+import { Post } from "../pages/Post/Post";
+import "./styles/global.scss";
 
 function App() {
   return (

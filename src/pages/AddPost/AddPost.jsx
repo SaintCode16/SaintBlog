@@ -1,8 +1,8 @@
-import { Container, TextField, TextareaAutosize, Button } from '@mui/material';
-import s from './AddPost.module.scss';
-import UploadButton from '../../components/UploadButton/UploadButton';
-import ComboBox from '../../components/ComboBox/ComboBox';
-import ClickAway from '../../components/ClickAway/ClickAway';
+import { Container, TextField, TextareaAutosize, Button } from "@mui/material";
+import s from "./AddPost.module.scss";
+import UploadButton from "../../components/UploadButton/UploadButton";
+import ComboBox from "../../components/ComboBox/ComboBox";
+import ClickAway from "../../components/ClickAway/ClickAway";
 
 export const AddPost = () => {
   return (
@@ -27,12 +27,12 @@ export const AddPost = () => {
                 label="Название блога"
                 placeholder="мин - 10 символов макс - 50 символов"
                 sx={{
-                  width: '600px',
-                  minWidth: '30%',
-                  maxWidth: '100%',
-                  position: 'relative',
-                  '& input': {
-                    padding: '16.5px 40px 16.5px 14px ',
+                  width: "600px",
+                  minWidth: "30%",
+                  maxWidth: "100%",
+                  position: "relative",
+                  "& input": {
+                    padding: "16.5px 40px 16.5px 14px ",
                   },
                 }}
               />
@@ -45,14 +45,14 @@ export const AddPost = () => {
             minRows={10}
             placeholder="Ваш текст. Минимум 200 символов "
             style={{
-              maxWidth: '100%',
-              minWidth: '30%',
-              margin: '20px 0',
-              borderRadius: '5px',
-              padding: '20px',
-              fontSize: '15px',
-              '&::placeholder': {
-                color: 'red',
+              maxWidth: "100%",
+              minWidth: "30%",
+              margin: "20px 0",
+              borderRadius: "5px",
+              padding: "20px",
+              fontSize: "15px",
+              "&::placeholder": {
+                color: "red",
               },
             }}
           />
@@ -61,7 +61,7 @@ export const AddPost = () => {
           <UploadButton />
           <Button
             variant="contained"
-            style={{ marginTop: '20px', width: '200px', height: '60px' }}
+            style={{ marginTop: "20px", width: "200px", height: "60px" }}
           >
             Опубликовать
           </Button>
