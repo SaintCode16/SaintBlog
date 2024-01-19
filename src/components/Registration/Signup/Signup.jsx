@@ -11,8 +11,23 @@ import {
   Typography,
 } from "@mui/material";
 import css from "./Signup.module.scss";
+import { useForm } from "react-hook-form";
 
 export const Signup = () => {
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+    reset,
+  } = useForm({
+    mode: "onBlur",
+  });
+
+  const onSubmit = (data) => {
+    console.log(JSON.stringify(data));
+    reset();
+  };
+
   return (
     <>
       <Container maxWidth="sm">
@@ -34,46 +49,12 @@ export const Signup = () => {
             <Button href="#text-buttons">Загрузить фото</Button>
           </div>
 
-          <div className={css.inputWrapper}>
-            <TextField
-              sx={{ width: 528, height: 49 }}
-              label="Имя"
-              id="outlined-size-normal"
-              required
-            />
-            <TextField
-              sx={{ width: 528 }}
-              label="О себе"
-              id="outlined-size-normal"
-              multiline
-              rows={4}
-            />
-            <TextField
-              sx={{ width: 528, height: 49 }}
-              label="Никнейм"
-              id="outlined-size-normal"
-              required
-            />
-            <TextField
-              sx={{ width: 528, height: 49 }}
-              label="Почта"
-              id="outlined-size-normal"
-              required
-            />
-            <TextField
-              sx={{ width: 528, height: 49 }}
-              label="Пароль"
-              id="outlined-size-normal"
-              required
-            />
-          </div>
-
           <div className={css.survey}>
             <Typography variant="h6">
               Для чего вы хотите использовать приложение
             </Typography>
             <div className={css.radioWrapper}>
-              <Radio />
+              <Radio onChange={() => console.log("fdsfds")} />
               <div>
                 <Typography variant="subtitle1">Для себя</Typography>
                 <FormHelperText>
@@ -82,7 +63,7 @@ export const Signup = () => {
               </div>
             </div>
             <div className={css.radioWrapper}>
-              <Radio />
+              <Radio onChange={() => console.log("fdsfds")} />
               <div>
                 <Typography variant="subtitle1">Для бизнеса</Typography>
                 <FormHelperText>
@@ -92,22 +73,103 @@ export const Signup = () => {
             </div>
           </div>
 
-          <div
-            onClick={() => console.log("checkbox checked")}
-            className={css.acceptWrapper}
+          <form
+            onSubmit={() => {
+              handleSubmit(onSubmit);
+            }}
+            noValidate
           >
-            <Checkbox />
-            <Typography variant="h9">Я принимаю правила и условия</Typography>
-          </div>
-          <Button
-            className={css.btn}
-            sx={{ width: 528 }}
-            variant="contained"
-            color="primary"
-            disableElevation
-          >
-            ЗАРЕГИСТРИРОВАТЬСЯ
-          </Button>
+            <div className={css.inputWrapper}>
+              <TextField
+                {...register("name", {
+                  required: "введите имя",
+                })}
+                sx={{ width: 528, height: 49 }}
+                label="Имя"
+                id="outlined-size-normal"
+                required
+              />
+              {errors?.name && (
+                <p className={css.err}>{errors?.name?.message}</p>
+              )}
+
+              <TextField
+                {...register("bio", {
+                  required: true,
+                })}
+                sx={{ width: 528 }}
+                label="О себе"
+                id="outlined-size-normal"
+                multiline
+                rows={4}
+              />
+
+              <TextField
+                {...register("nickname", {
+                  required: "введите никнейм",
+                })}
+                sx={{ width: 528, height: 49 }}
+                label="Никнейм"
+                id="outlined-size-normal"
+                required
+              />
+              {errors?.nickname && (
+                <p className={css.err}>{errors?.nickname?.message}</p>
+              )}
+
+              <TextField
+                {...register("email", {
+                  required: "введите почту",
+                })}
+                sx={{ width: 528, height: 49 }}
+                label="Почта"
+                id="outlined-size-normal"
+                required
+              />
+              {errors?.email && (
+                <p className={css.err}>{errors?.email?.message}</p>
+              )}
+
+              <TextField
+                {...register("password", {
+                  required: "введите пароль",
+                })}
+                sx={{ width: 528, height: 49 }}
+                label="Пароль"
+                id="outlined-size-normal"
+                required
+              />
+              {errors?.password && (
+                <p className={css.err}>{errors?.password?.message}</p>
+              )}
+            </div>
+            <div className={css.acceptWrapper}>
+              <input className={css.checkbox} type="checkbox"></input>
+              <Typography
+                {...register("accept", {
+                  required: "вы не приняли условия и правила",
+                })}
+                variant="h9"
+              >
+                Я принимаю правила и условия
+              </Typography>
+
+              {errors?.accept && (
+                <p className={css.err}>{errors?.accept?.message}</p>
+              )}
+            </div>
+            <Button
+              type="submit"
+              className={css.btn}
+              sx={{ width: 528 }}
+              variant="contained"
+              color="primary"
+              disableElevation
+              disabled={!isValid}
+            >
+              ЗАРЕГИСТРИРОВАТЬСЯ
+            </Button>
+          </form>
         </div>
       </Container>
     </>
