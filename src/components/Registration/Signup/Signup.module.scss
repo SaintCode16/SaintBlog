@@ -1,0 +1,78 @@
+.avatarWrapper {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  gap: 7px;
+}
+
+.inputWrapper {
+  padding-top: 19px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.acceptWrapper {
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  margin-top: 18px;
+}
+
+.survey {
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+.holder {
+  padding: 30px 0;
+}
+
+.err {
+  color: #bb0630;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 166%;
+  letter-spacing: 0.4px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.mainTitle {
+  margin-top: 17px;
+}
+
+.radioGroup {
+  margin-top: 14px;
+}
+
+.radioWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 13px;
+}
+
+.radioHolder {
+  display: flex;
+  align-items: center;
+}
+
+.radioDescr {
+  margin-left: 12px;
+}
+
+.radio {
+  width: 16px;
+  height: 16px;
+}

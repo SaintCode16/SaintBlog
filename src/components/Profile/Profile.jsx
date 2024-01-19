@@ -1,9 +1,7 @@
 import s from "./Profile.module.scss";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-// import { prepareForSlot } from "@mui/base/utils";
-// import Link from "next/link";
-// const LinkSlot = prepareForSlot(Link);
+
 export const Profile = () => {
   return (
     <div className={s.profile}>

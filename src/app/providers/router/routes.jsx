@@ -9,6 +9,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Posts } from "../../../pages/Posts/Posts";
 import { Layout } from "../../../layouts/Layout";
 import { Main } from "../../../components/Main";
+import { Outlet } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
@@ -26,27 +27,6 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/posts",
-        element: <Posts />,
-        children: [
-          {
-            path: "all",
-            element: <Post />,
-          },
-
-          {
-            path: "favorites",
-            element: <Favorites />,
-          },
-
-          {
-            path: "feed",
-            element: <MyFeed />,
-          },
-        ],
-      },
-
-      {
         path: "new",
         element: <WritePost />,
       },
@@ -54,6 +34,32 @@ export const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+    ],
+  },
+
+  {
+    path: "/posts",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Main />,
+      },
+
+      {
+        path: "post",
+        element: <Post />,
+      },
+
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
+
+      {
+        path: "feed",
+        element: <MyFeed />,
       },
     ],
   },

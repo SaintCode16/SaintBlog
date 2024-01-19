@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 export default function PreviewPost() {
   return (
@@ -17,9 +18,12 @@ export default function PreviewPost() {
           title="green iguana"
         />
         <CardContent className={s.content}>
-          <Typography gutterBottom variant="h5" component="div">
-            Тема
-          </Typography>
+          <Link to={"/posts/post"}>
+            <Typography gutterBottom variant="h5" component="div">
+              Тема
+            </Typography>
+          </Link>
+
           <Typography
             sx={{ width: 600, height: 200 }}
             className={s.text}
@@ -45,9 +49,12 @@ export default function PreviewPost() {
             widespread group of squamate reptiles, with over 6,000 species,
             ranging across all continents except Antarctica
           </Typography>
-          <CardActions className={s.btn}>
-            <Button size="small">Подробнее</Button>
-          </CardActions>
+
+          <Link to={"/posts/post"}>
+            <CardActions className={s.btn}>
+              <Button size="small">Подробнее</Button>
+            </CardActions>
+          </Link>
         </CardContent>
       </Card>
     </div>
