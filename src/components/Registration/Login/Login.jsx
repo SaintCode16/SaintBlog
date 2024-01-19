@@ -26,7 +26,7 @@ export const Login = ({ setRegistrtion }) => {
           </Button>
           <span>/</span>
           <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
-       
+
           <div className={css.title}>
             <Typography variant="h5">Вход</Typography>
           </div>
