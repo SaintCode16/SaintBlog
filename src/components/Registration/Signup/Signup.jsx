@@ -138,10 +138,14 @@ export const Signup = ({ setRegistrtion }) => {
                 <p className={css.err}>введите никнейм</p>
               )}
               {errors.nickname && errors.nickname.type === "maxLength" && (
-                <p className={css.err}>никнейм должен быть менее 128 символов</p>
+                <p className={css.err}>
+                  никнейм должен быть менее 128 символов
+                </p>
               )}
               {errors.nickname && errors.nickname.type === "minLength" && (
-                <p className={css.err}>никнейм должен быть не менее 2 символов</p>
+                <p className={css.err}>
+                  никнейм должен быть не менее 2 символов
+                </p>
               )}
 
               <TextField
