@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import css from "./Signup.module.scss";
-import { Link as LinkRRD} from "react-router-dom";
+import { Link as LinkRRD } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
@@ -40,14 +40,11 @@ export const Signup = () => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Button>
-            ЗАРЕГИСТРИРОВАТЬСЯ
-          </Button>
+          <Button>ЗАРЕГИСТРИРОВАТЬСЯ</Button>
           <span>/</span>
-            <LinkRRD to={"/authtorize"}>
-                  <Button>ВОЙТИ</Button>
-            </LinkRRD>
-
+          <LinkRRD to={"/authtorize"}>
+            <Button>ВОЙТИ</Button>
+          </LinkRRD>
 
           <div className={css.mainTitle}>
             <Typography variant="h5">Регистрация</Typography>
