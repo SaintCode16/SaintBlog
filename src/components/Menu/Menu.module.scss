@@ -1,2 +1,8 @@
-.Menu {
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  // gap: 20px;
+  list-style: none;
+  width: 100%;
 }
