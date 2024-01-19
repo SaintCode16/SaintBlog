@@ -1,0 +1,13 @@
+.main {
+  min-height: 600px;
+  background: lemonchiffon;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+
+  padding-top: 15px !important;
+}
