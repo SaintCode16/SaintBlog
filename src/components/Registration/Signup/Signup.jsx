@@ -126,40 +126,60 @@ export const Signup = ({ setRegistrtion }) => {
               <TextField
                 {...register("nickname", {
                   required: "введите никнейм",
+                  maxLength: 128,
+                  minLength: 2,
                 })}
                 sx={{ width: 528, height: 49 }}
                 label="Никнейм"
                 id="outlined-size-normal"
                 required
               />
-              {errors?.nickname && (
-                <p className={css.err}>{errors?.nickname?.message}</p>
+              {errors.nickname && errors.nickname.type === "required" && (
+                <p className={css.err}>введите никнейм</p>
+              )}
+              {errors.nickname && errors.nickname.type === "maxLength" && (
+                <p className={css.err}>никнейм должен быть менее 128 символов</p>
+              )}
+              {errors.nickname && errors.nickname.type === "minLength" && (
+                <p className={css.err}>никнейм должен быть не менее 2 символов</p>
               )}
 
               <TextField
                 {...register("email", {
                   required: "введите почту",
+                  maxLength: 256,
                 })}
                 sx={{ width: 528, height: 49 }}
                 label="Почта"
                 id="outlined-size-normal"
                 required
               />
-              {errors?.email && (
-                <p className={css.err}>{errors?.email?.message}</p>
+              {errors.email && errors.email.type === "required" && (
+                <p className={css.err}>введите почту</p>
+              )}
+              {errors.email && errors.email.type === "maxLength" && (
+                <p className={css.err}>почта должна быть менее 256 символов</p>
               )}
 
               <TextField
                 {...register("password", {
                   required: "введите пароль",
+                  maxLength: 128,
+                  minLength: 8,
                 })}
                 sx={{ width: 528, height: 49 }}
                 label="Пароль"
                 id="outlined-size-normal"
                 required
               />
-              {errors?.password && (
-                <p className={css.err}>{errors?.password?.message}</p>
+              {errors.password && errors.password.type === "required" && (
+                <p className={css.err}>введите пароль</p>
+              )}
+              {errors.password && errors.password.type === "maxLength" && (
+                <p className={css.err}>пароль должен быть менее 128 символов</p>
+              )}
+              {errors.password && errors.password.type === "minLength" && (
+                <p className={css.err}>пароль должен быть более 8 символов</p>
               )}
             </div>
             <div className={css.acceptWrapper}>
