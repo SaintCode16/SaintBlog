@@ -5,7 +5,9 @@ export const Menu = () => {
   return (
     <ul className={s.menu}>
       <li className={s.menu__item}>
-        <a href="#">Всё</a>
+        <Link to={"/posts"}>
+          <a href="#">Всё</a>
+        </Link>
       </li>
       <li className={s.menu__item}>
         <a href="#">Авто</a>
