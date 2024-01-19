@@ -5,22 +5,22 @@ export const Menu = () => {
   return (
     <ul className={s.menu}>
       <li className={s.menu__item}>
-        <Link to={"/posts"}>
+        <Link to={"/posts/all"}>
           <a href="#">Всё</a>
         </Link>
       </li>
       <li className={s.menu__item}>
-        <a href="#">Авто</a>
-      </li>
-      <li className={s.menu__item}>
-        <a href="#">Животные</a>
-      </li>
-
-      <li className={s.menu__item}>
         <a href="#">Спорт</a>
       </li>
       <li className={s.menu__item}>
-        <a href="#">Техника</a>
+        <a href="#">Путешествие</a>
+      </li>
+
+      <li className={s.menu__item}>
+        <a href="#">Лайфхак</a>
+      </li>
+      <li className={s.menu__item}>
+        <a href="#">Книги</a>
       </li>
     </ul>
   );
