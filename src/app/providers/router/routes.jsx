@@ -13,6 +13,9 @@ import { Outlet } from "react-router-dom";
 import { Authtorization } from "../../../pages/Authtorization/Authtorization";
 import { Login } from "../../../components/Registration/Login/Login";
 import { Signup } from "../../../components/Registration/Signup/Signup";
+import { Authtorization } from "../../../pages/Authtorization/Authtorization";
+import { Login } from "../../../components/Registration/Login/Login";
+import { Signup } from "../../../components/Registration/Signup/Signup";
 
 export const router = createBrowserRouter([
   {
@@ -74,7 +77,8 @@ export const router = createBrowserRouter([
 
   {
     path: "/register",
-    element:  <Signup />,}
+    element: <Signup />,
+  },
 ]);
 
 // пример:

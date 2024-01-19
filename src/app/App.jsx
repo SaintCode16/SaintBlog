@@ -6,17 +6,7 @@ import { router } from "./providers/router/routes";
 import { Login } from "../components/Registration/Login/Login";
 
 function App() {
-  const [registration, setRegistrtion] = useState(true);
-
-  return (
-    <>
-      {registration ? (
-        <Signup setRegistrtion={setRegistrtion} />
-      ) : (
-        <Login setRegistrtion={setRegistrtion} />
-      )}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
