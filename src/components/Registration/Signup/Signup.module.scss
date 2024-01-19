@@ -24,15 +24,9 @@
   margin-top: 18px;
 }
 
-.radioWrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 13px;
-}
-
 .survey {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 35px;
+  margin-bottom: 30px;
 }
 
 .holder {
@@ -53,4 +47,32 @@
   height: 20px;
   cursor: pointer;
   margin-right: 10px;
+}
+
+.mainTitle {
+  margin-top: 17px;
+}
+
+.radioGroup {
+  margin-top: 14px;
+}
+
+.radioWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 13px;
+}
+
+.radioHolder {
+  display: flex;
+  align-items: center;
+}
+
+.radioDescr {
+  margin-left: 12px;
+}
+
+.radio {
+  width: 16px;
+  height: 16px;
 }

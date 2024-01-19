@@ -12,7 +12,9 @@ export const Header = () => {
             <h1 className={s.header__title}>SaintBlog</h1>
           </Link>
 
-          <button>Регистрация</button>
+          <Link to={"/authtorize"}>
+            <button>ВОЙТИ/ ЗАРЕГИСТРИРОВАТЬСЯ</button>
+          </Link>
         </Container>
       </div>
 
