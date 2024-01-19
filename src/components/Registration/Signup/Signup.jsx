@@ -11,7 +11,7 @@ import { Link as LinkRRD} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
-export const Signup = ({ setRegistrtion }) => {
+export const Signup = () => {
   const [checked, setChecked] = useState(false);
 
   const {
@@ -40,12 +40,12 @@ export const Signup = ({ setRegistrtion }) => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Button onClick={() => setRegistrtion(true)}>
+          <Button>
             ЗАРЕГИСТРИРОВАТЬСЯ
           </Button>
           <span>/</span>
-                      <LinkRRD to={"/authtorize"}>
-          <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
+            <LinkRRD to={"/authtorize"}>
+                  <Button>ВОЙТИ</Button>
             </LinkRRD>
 
 
