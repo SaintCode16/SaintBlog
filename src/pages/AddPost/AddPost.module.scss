@@ -1,0 +1,34 @@
+.post {
+  padding-top: 60px;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__rules {
+    font-size: 18px;
+    text-decoration: none;
+    color: grey;
+  }
+  &__title {
+    text-align: center;
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  &__add_img {
+    margin-bottom: 10px;
+  }
+  &__top {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    display: flex;
+  }
+}

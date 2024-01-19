@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Signup } from "../components/Registration/Signup/Signup";
 import "./styles/global.scss";
-import { Login } from "../components/Registration/Login/Login";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./providers/router/routes";
 
 function App() {
   const [registration, setRegistrtion] = useState(true);
