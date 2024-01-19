@@ -1,4 +1,4 @@
-import { Button, Container, TextField } from "@mui/material";
+import { Button, Container, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
 
@@ -26,6 +26,10 @@ export const Login = ({ setRegistrtion }) => {
           </Button>
           <span>/</span>
           <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
+       
+          <div className={css.title}>
+            <Typography variant="h5">Вход</Typography>
+          </div>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={css.inputWrapper}>

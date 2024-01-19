@@ -3,14 +3,16 @@ import {
   Button,
   Container,
   FormHelperText,
-  Radio,
   TextField,
   Typography,
 } from "@mui/material";
 import css from "./Signup.module.scss";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 export const Signup = ({ setRegistrtion }) => {
+  const [checked, setChecked] = useState(false);
+
   const {
     register,
     formState: { errors, isValid },
@@ -25,6 +27,14 @@ export const Signup = ({ setRegistrtion }) => {
     reset();
   };
 
+  const checkboxHandler = (ev) => {
+    if (ev.target.checked) {
+      setChecked(true);
+    } else {
+      setChecked(false);
+    }
+  };
+
   return (
     <>
       <Container maxWidth="sm">
@@ -35,32 +45,50 @@ export const Signup = ({ setRegistrtion }) => {
           <span>/</span>
           <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
 
+          <div className={css.mainTitle}>
+            <Typography variant="h5">Регистрация</Typography>
+          </div>
+
           <div className={css.avatarWrapper}>
             <Avatar sx={{ width: 40, height: 40 }}>N</Avatar>
             <Button href="#text-buttons">Загрузить фото</Button>
           </div>
 
           <div className={css.survey}>
-            <Typography variant="h6">
-              Для чего вы хотите использовать приложение
+            <Typography variant="h7">
+              Для чего вы хотите использовать приложение:
             </Typography>
-            <div className={css.radioWrapper}>
-              <Radio onChange={() => console.log("fdsfds")} />
-              <div>
-                <Typography variant="subtitle1">Для себя</Typography>
-                <FormHelperText>
-                  личный блог, общение, развлечения
-                </FormHelperText>
-              </div>
-            </div>
-            <div className={css.radioWrapper}>
-              <Radio onChange={() => console.log("fdsfds")} />
-              <div>
-                <Typography variant="subtitle1">Для бизнеса</Typography>
-                <FormHelperText>
-                  услуги, магазин, блогерство, реклама
-                </FormHelperText>
-              </div>
+
+            <div className={css.radioGroup}>
+              <label className={css.radioHolder}>
+                <input
+                  className={css.radio}
+                  type="radio"
+                  value="Для себя"
+                  name="for"
+                />
+                <div className={css.radioDescr}>
+                  <Typography variant="subtitle1">Для себя</Typography>
+                  <FormHelperText>
+                    личный блог, общение, развлечения
+                  </FormHelperText>
+                </div>
+              </label>
+
+              <label className={css.radioWrapper}>
+                <input
+                  className={css.radio}
+                  type="radio"
+                  value="Для бизнеса"
+                  name="for"
+                />
+                <div className={css.radioDescr}>
+                  <Typography variant="subtitle1">Для бизнеса</Typography>
+                  <FormHelperText>
+                    услуги, магазин, блогерство, реклама
+                  </FormHelperText>
+                </div>
+              </label>
             </div>
           </div>
 
@@ -135,7 +163,11 @@ export const Signup = ({ setRegistrtion }) => {
               )}
             </div>
             <div className={css.acceptWrapper}>
-              <input className={css.checkbox} type="checkbox"></input>
+              <input
+                onChange={checkboxHandler}
+                className={css.checkbox}
+                type="checkbox"
+              ></input>
               <Typography
                 {...register("accept", {
                   required: "вы не приняли условия и правила",
@@ -156,7 +188,7 @@ export const Signup = ({ setRegistrtion }) => {
               variant="contained"
               color="primary"
               disableElevation
-              disabled={!isValid}
+              disabled={!checked}
             >
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Button>
