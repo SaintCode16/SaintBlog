@@ -1,11 +1,26 @@
-import { Menu } from "@mui/material";
 import s from "./Header.module.scss";
+import { Menu } from ".././Menu";
 import Container from "@mui/material/Container";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <header className={s.header}>
-      <Container maxWidth="lg">sdsdsd</Container>
+      <div className={s.header__top}>
+        <Container maxWidth="lg" className={s.header__container}>
+          <Link to={"/"}>
+            <h1 className={s.header__title}>SaintBlog</h1>
+          </Link>
+
+          <button>Регистрация</button>
+        </Container>
+      </div>
+
+      <nav className={s.nav}>
+        <Container maxWidth="lg">
+          <Menu className={s.menu} />
+        </Container>
+      </nav>
     </header>
   );
 };

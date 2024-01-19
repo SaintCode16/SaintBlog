@@ -3,14 +3,23 @@ import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import StarOutline from "@mui/icons-material/StarSharp";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export const Post = () => {
   let data = new Date();
   return (
     <div className={s.post}>
-      <Button className={s.btnr} variant="contained" color="error" size="small">
-        Back
-      </Button>
+      <Link to={"/posts"}>
+        <Button
+          className={s.btnr}
+          variant="contained"
+          color="error"
+          size="small"
+        >
+          Back
+        </Button>
+      </Link>
+
       <h1 className={s.post__title}>Thema</h1>
       <div className={s.post__div}>
         <p className={s.post__data}>{data.toLocaleDateString()}</p>

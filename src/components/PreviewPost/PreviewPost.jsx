@@ -6,21 +6,30 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 export default function PreviewPost() {
   return (
-    <div className={s.peper}>
-      <Card sx={{ maxWidth: 800, maxHeight: 1000 }}>
+    <div className={s.previewPost}>
+      <Card className={s.displayFlex} sx={{ maxWidth: 1100, maxHeight: 400 }}>
         <CardMedia
-          sx={{ height: 200 }}
+          sx={{ width: 700, height: 300 }}
           image="https://ynet-pic1.yit.co.il/cdn-cgi/image/format=auto/picserver5/crop_images/2023/05/18/rkRtqxVrh/rkRtqxVrh_9_0_1264_711_0_large.jpg"
           title="green iguana"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Тема
-          </Typography>
-          <Typography className={s.text} variant="body2" color="text.secondary">
+        <CardContent className={s.content}>
+          <Link to={"/posts/post"}>
+            <Typography gutterBottom variant="h5" component="div">
+              Тема
+            </Typography>
+          </Link>
+
+          <Typography
+            sx={{ width: 600, height: 200 }}
+            className={s.text}
+            variant="body2"
+            color="text.secondary"
+          >
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica Lizards are
             a widespread group of squamate reptiles, with over 6,000 species,
@@ -40,10 +49,13 @@ export default function PreviewPost() {
             widespread group of squamate reptiles, with over 6,000 species,
             ranging across all continents except Antarctica
           </Typography>
+
+          <Link to={"/posts/post"}>
+            <CardActions className={s.btn}>
+              <Button size="small">Подробнее</Button>
+            </CardActions>
+          </Link>
         </CardContent>
-        <CardActions>
-          <Button size="small">Подробнее</Button>
-        </CardActions>
       </Card>
     </div>
   );
