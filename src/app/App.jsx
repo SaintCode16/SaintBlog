@@ -1,15 +1,9 @@
-import { AddPost } from "../pages/AddPost/AddPost";
-import { Post } from "../pages/Post/Post";
 import "./styles/global.scss";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./providers/router/routes";
 
 function App() {
-  return (
-    <>
-      {/* <h1>SaintBlog</h1> */}
-      {/* <Post /> */}
-      <AddPost />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
