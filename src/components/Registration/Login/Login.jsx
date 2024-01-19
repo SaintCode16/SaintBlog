@@ -1,9 +1,9 @@
-import { Breadcrumbs, Button, Container, Link, TextField } from "@mui/material";
+import { Button, Container, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
 import { Link as LinkRRD } from "react-router-dom";
 
-export const Login = () => {
+export const Login = ({ setRegistrtion }) => {
   const {
     register,
     handleSubmit,
@@ -22,17 +22,18 @@ export const Login = () => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Breadcrumbs aria-label="breadcrumb">
-            <Link to="/login" underline="hover" color="primary">
-              ВОЙТИ
-            </Link>
+          <LinkRRD to={"/register"}>
+            <Button onClick={() => setRegistrtion(true)}>
+              ЗАРЕГИСТРИРОВАТЬСЯ
+            </Button>
+          </LinkRRD>
 
-            <LinkRRD to={"/register"}>
-              <Link underline="hover" color="primary">
-                ЗАРЕГИСТРИРОВАТЬСЯ
-              </Link>
-            </LinkRRD>
-          </Breadcrumbs>
+          <span>/</span>
+            <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
+
+          <div className={css.title}>
+            <Typography variant="h5">Вход</Typography>
+          </div>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={css.inputWrapper}>
