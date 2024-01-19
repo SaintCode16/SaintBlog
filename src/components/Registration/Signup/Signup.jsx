@@ -1,11 +1,8 @@
 import {
   Avatar,
-  Breadcrumbs,
   Button,
-  Checkbox,
   Container,
   FormHelperText,
-  Link,
   Radio,
   TextField,
   Typography,
@@ -13,7 +10,7 @@ import {
 import css from "./Signup.module.scss";
 import { useForm } from "react-hook-form";
 
-export const Signup = () => {
+export const Signup = ({ setRegistrtion }) => {
   const {
     register,
     formState: { errors, isValid },
@@ -32,18 +29,12 @@ export const Signup = () => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Breadcrumbs aria-label="breadcrumb">
-            <Link underline="hover" color="primary" href="/">
-              ЗАРЕГИСТРИРОВАТЬСЯ
-            </Link>
-            <Link
-              underline="hover"
-              color="primary"
-              href="/material-ui/getting-started/installation/"
-            >
-              ВОЙТИ
-            </Link>
-          </Breadcrumbs>
+          <Button onClick={() => setRegistrtion(true)}>
+            ЗАРЕГИСТРИРОВАТЬСЯ
+          </Button>
+          <span>/</span>
+          <Button onClick={setRegistrtion(false)}>ВОЙТИ</Button>
+
           <div className={css.avatarWrapper}>
             <Avatar sx={{ width: 40, height: 40 }}>N</Avatar>
             <Button href="#text-buttons">Загрузить фото</Button>
@@ -74,10 +65,10 @@ export const Signup = () => {
           </div>
 
           <form
-            onSubmit={() => {
+            onSubmit={(ev) => {
+              ev.preventDefault();
               handleSubmit(onSubmit);
             }}
-            noValidate
           >
             <div className={css.inputWrapper}>
               <TextField
