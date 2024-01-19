@@ -64,10 +64,14 @@ export const Signup = () => {
           <div className={css.radioGroup}>
             <label className={css.radioHolder}>
               <input
+                {...register("for", {
+                  required: true,
+                })}
                 className={css.radio}
                 type="radio"
                 value="Для себя"
                 name="for"
+                checked
               />
               <div className={css.radioDescr}>
                 <Typography variant="subtitle1">Для себя</Typography>
@@ -78,6 +82,7 @@ export const Signup = () => {
             </label>
             <label className={css.radioWrapper}>
               <input
+                {...register("for", {})}
                 className={css.radio}
                 type="radio"
                 value="Для бизнеса"
