@@ -4,7 +4,11 @@ import { router } from "./providers/router/routes";
 import { AddPost } from "../pages/AddPost/AddPost";
 
 function App() {
-  return <AddPost />;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;

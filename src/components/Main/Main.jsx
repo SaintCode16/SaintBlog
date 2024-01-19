@@ -1,17 +1,31 @@
 import { Container } from "@mui/material";
 import s from "./Main.module.scss";
 import PreviewPost from "../PreviewPost/PreviewPost";
+import { useGetPostsQuery } from "../../redux";
+import { Profile } from "../Profile/Profile";
+import { useEffect, useState } from "react";
 
 export const Main = () => {
+  const { data } = useGetPostsQuery();
+
   return (
-    <main className={s.main}>
-      <Container maxWidth="lg" className={s.container}>
-        <PreviewPost />
-        <PreviewPost />
-        <PreviewPost />
-        <PreviewPost />
-        <PreviewPost />
-      </Container>
-    </main>
+    <Container maxWidth="lg" className={s.container}>
+      <Profile />
+
+      {data &&
+        data.map((post) => {
+          return (
+            <PreviewPost
+              key={post.id}
+              theme={post.title}
+              text={post.text}
+              img={post.img.img1x}
+              tags={post.tags}
+            />
+          );
+        })}
+    </Container>
   );
 };
+
+// пост запрос на register
