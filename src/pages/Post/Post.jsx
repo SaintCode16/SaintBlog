@@ -3,24 +3,35 @@ import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import StarOutline from "@mui/icons-material/StarSharp";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export const Post = () => {
   let data = new Date();
   return (
     <div className={s.post}>
-      <Button className={s.btnr} variant="contained" color="error" size="small">
-        Back
-      </Button>
+      <Link to={"/posts"}>
+        <Button
+          className={s.btnr}
+          variant="contained"
+          color="error"
+          size="small"
+        >
+          Back
+        </Button>
+      </Link>
+
       <h1 className={s.post__title}>Thema</h1>
       <div className={s.post__div}>
         <p className={s.post__data}>{data.toLocaleDateString()}</p>
         <p className={s.post__kat}>kategoria</p>
-        <p className={s.post__text}>
+        <div className={s.post__divimg}>
           <img
             className={s.post__img}
-            src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Sinusv%C3%A5g_400px.png"
+            src="https://ynet-pic1.yit.co.il/cdn-cgi/image/format=auto/picserver5/crop_images/2023/05/18/rkRtqxVrh/rkRtqxVrh_9_0_1264_711_0_large.jpg"
             alt=""
           />
+        </div>
+        <p className={s.post__text}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
           voluptatibus incidunt quasi atque quos sunt consectetur quibusdam
           reprehenderit iste voluptatum earum molestiae accusantium animi in
