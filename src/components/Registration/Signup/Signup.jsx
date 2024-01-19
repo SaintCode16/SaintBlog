@@ -11,9 +11,11 @@ import {
   Typography,
 } from "@mui/material";
 import css from "./Signup.module.scss";
+import { Link as LinkRRD} from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 export const Signup = () => {
+
   const {
     register,
     formState: { errors, isValid },
@@ -33,16 +35,15 @@ export const Signup = () => {
       <Container maxWidth="sm">
         <div className={css.holder}>
           <Breadcrumbs aria-label="breadcrumb">
-            <Link underline="hover" color="primary" href="/">
+            <Link underline="hover" color="primary">
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Link>
-            <Link
-              underline="hover"
-              color="primary"
-              href="/material-ui/getting-started/installation/"
-            >
-              ВОЙТИ
-            </Link>
+
+            <LinkRRD to={"/authtorize"}>
+              <Link underline="hover" color="primary">
+                ВОЙТИ
+              </Link>
+            </LinkRRD>
           </Breadcrumbs>
           <div className={css.avatarWrapper}>
             <Avatar sx={{ width: 40, height: 40 }}>N</Avatar>

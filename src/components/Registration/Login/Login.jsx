@@ -1,6 +1,7 @@
 import { Breadcrumbs, Button, Container, Link, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
+import { Link as LinkRRD } from "react-router-dom";
 
 export const Login = () => {
   const {
@@ -22,16 +23,15 @@ export const Login = () => {
       <Container maxWidth="sm">
         <div className={css.holder}>
           <Breadcrumbs aria-label="breadcrumb">
-            <Link underline="hover" color="primary" href="/">
+            <Link to="/login" underline="hover" color="primary">
               ВОЙТИ
             </Link>
-            <Link
-              underline="hover"
-              color="primary"
-              href="/material-ui/getting-started/installation/"
-            >
-              ЗАРЕГИСТРИРОВАТЬСЯ
-            </Link>
+
+            <LinkRRD to={"/register"}>
+              <Link underline="hover" color="primary">
+                ЗАРЕГИСТРИРОВАТЬСЯ
+              </Link>
+            </LinkRRD>
           </Breadcrumbs>
 
           <form onSubmit={handleSubmit(onSubmit)}>
