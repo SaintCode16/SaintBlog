@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
 import { Link as LinkRRD } from "react-router-dom";
 
-export const Login = ({ setRegistrtion }) => {
+export const Login = () => {
   const {
     register,
     handleSubmit,
