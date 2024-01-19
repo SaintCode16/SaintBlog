@@ -33,7 +33,7 @@ export const Signup = ({ setRegistrtion }) => {
             ЗАРЕГИСТРИРОВАТЬСЯ
           </Button>
           <span>/</span>
-          <Button onClick={setRegistrtion(false)}>ВОЙТИ</Button>
+          <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
 
           <div className={css.avatarWrapper}>
             <Avatar sx={{ width: 40, height: 40 }}>N</Avatar>

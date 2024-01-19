@@ -25,7 +25,7 @@ export const Login = ({ setRegistrtion }) => {
             ЗАРЕГИСТРИРОВАТЬСЯ
           </Button>
           <span>/</span>
-          <Button onClick={setRegistrtion(false)}>ВОЙТИ</Button>
+          <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={css.inputWrapper}>
