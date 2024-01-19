@@ -5,7 +5,6 @@ import { Main } from "../../components/Main";
 export const Posts = () => {
   return (
     <>
-      <Main />
       <Outlet />
     </>
   );
