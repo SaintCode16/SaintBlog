@@ -7,10 +7,15 @@ import {
   Typography,
 } from "@mui/material";
 import css from "./Signup.module.scss";
+import { Link as LinkRRD } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { useState } from "react";
 
 export const Signup = ({ setRegistrtion }) => {
+  const [checked, setChecked] = useState(false);
+
+export const Signup = () => {
   const [checked, setChecked] = useState(false);
 
   const {
@@ -39,6 +44,16 @@ export const Signup = ({ setRegistrtion }) => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
+          <Button>ЗАРЕГИСТРИРОВАТЬСЯ</Button>
+          <span>/</span>
+          <LinkRRD to={"/authtorize"}>
+            <Button>ВОЙТИ</Button>
+          </LinkRRD>
+
+          <div className={css.mainTitle}>
+            <Typography variant="h5">Регистрация</Typography>
+          </div>
+
           <Button onClick={() => setRegistrtion(true)}>
             ЗАРЕГИСТРИРОВАТЬСЯ
           </Button>
@@ -57,7 +72,40 @@ export const Signup = ({ setRegistrtion }) => {
           <div className={css.survey}>
             <Typography variant="h7">
               Для чего вы хотите использовать приложение:
+            <Typography variant="h7">
+              Для чего вы хотите использовать приложение:
             </Typography>
+
+            <div className={css.radioGroup}>
+              <label className={css.radioHolder}>
+                <input
+                  className={css.radio}
+                  type="radio"
+                  value="Для себя"
+                  name="for"
+                />
+                <div className={css.radioDescr}>
+                  <Typography variant="subtitle1">Для себя</Typography>
+                  <FormHelperText>
+                    личный блог, общение, развлечения
+                  </FormHelperText>
+                </div>
+              </label>
+
+              <label className={css.radioWrapper}>
+                <input
+                  className={css.radio}
+                  type="radio"
+                  value="Для бизнеса"
+                  name="for"
+                />
+                <div className={css.radioDescr}>
+                  <Typography variant="subtitle1">Для бизнеса</Typography>
+                  <FormHelperText>
+                    услуги, магазин, блогерство, реклама
+                  </FormHelperText>
+                </div>
+              </label>
 
             <div className={css.radioGroup}>
               <label className={css.radioHolder}>
@@ -93,6 +141,8 @@ export const Signup = ({ setRegistrtion }) => {
           </div>
 
           <form
+            onSubmit={(ev) => {
+              ev.preventDefault();
             onSubmit={(ev) => {
               ev.preventDefault();
               handleSubmit(onSubmit);
@@ -192,6 +242,11 @@ export const Signup = ({ setRegistrtion }) => {
                 className={css.checkbox}
                 type="checkbox"
               ></input>
+              <input
+                onChange={checkboxHandler}
+                className={css.checkbox}
+                type="checkbox"
+              ></input>
               <Typography
                 {...register("accept", {
                   required: "вы не приняли условия и правила",
@@ -212,6 +267,7 @@ export const Signup = ({ setRegistrtion }) => {
               variant="contained"
               color="primary"
               disableElevation
+              disabled={!checked}
               disabled={!checked}
             >
               ЗАРЕГИСТРИРОВАТЬСЯ

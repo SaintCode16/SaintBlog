@@ -1,6 +1,7 @@
 import { Button, Container, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
+import { Link as LinkRRD } from "react-router-dom";
 
 export const Login = ({ setRegistrtion }) => {
   const {
@@ -21,11 +22,12 @@ export const Login = ({ setRegistrtion }) => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Button onClick={() => setRegistrtion(true)}>
-            ЗАРЕГИСТРИРОВАТЬСЯ
-          </Button>
+          <LinkRRD to={"/register"}>
+            <Button>ЗАРЕГИСТРИРОВАТЬСЯ</Button>
+          </LinkRRD>
+
           <span>/</span>
-          <Button onClick={() => setRegistrtion(false)}>ВОЙТИ</Button>
+          <Button>ВОЙТИ</Button>
 
           <div className={css.title}>
             <Typography variant="h5">Вход</Typography>
