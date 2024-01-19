@@ -1,6 +1,6 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import { ClickAwayListener } from "@mui/base/ClickAwayListener";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 
 export default function ClickAway() {
   const [open, setOpen] = React.useState(false);
@@ -14,32 +14,33 @@ export default function ClickAway() {
   };
 
   const styles = {
-    position: "absolute",
-    top: "40px",
-    right: "-100px",
+    position: 'absolute',
+    transform: 'translate(-50%,50%)',
     zIndex: 1,
-    border: "1px solid",
+    border: 'none',
     p: 1,
-    bgcolor: "black",
-    color: "white",
-    width: "200px",
-    textAlign: "center",
+    bgcolor: 'black',
+    color: 'white',
+    width: '200px',
+    textAlign: 'center',
+    borderRadius: '25px',
+    fontSize: '15px',
   };
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
-      <Box sx={{ position: "relative", padding: "16.5px 0 " }}>
+      <Box sx={{ position: 'relative', padding: '16.5px 0 ' }}>
         <button
           type="button"
           onClick={handleClick}
           style={{
-            cursor: "pointer",
-            position: "absolute",
-            right: "10px",
-            borderRadius: "50%",
-            border: "none",
-            height: "20px",
-            width: "20px",
+            cursor: 'pointer',
+            position: 'absolute',
+            right: '10px',
+            borderRadius: '50%',
+            border: 'none',
+            height: '20px',
+            width: '20px',
           }}
         >
           <b>?</b>
