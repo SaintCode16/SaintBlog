@@ -10,6 +10,9 @@ import { Posts } from "../../../pages/Posts/Posts";
 import { Layout } from "../../../layouts/Layout";
 import { Main } from "../../../components/Main";
 import { Outlet } from "react-router-dom";
+import { Authtorization } from "../../../pages/Authtorization/Authtorization";
+import { Login } from "../../../components/Registration/Login/Login";
+import { Signup } from "../../../components/Registration/Signup/Signup";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +65,16 @@ export const router = createBrowserRouter([
         element: <MyFeed />,
       },
     ],
+  },
+
+  {
+    path: "/authtorize",
+    element: <Authtorization />,
+  },
+
+  {
+    path: "/register",
+    element: <Signup />,
   },
 ]);
 

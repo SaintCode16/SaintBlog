@@ -1,0 +1,29 @@
+.profile {
+  max-width: 400px;
+  height: 100vh;
+  background-color: lightgrey;
+  padding: 25px 15px;
+  position: absolute;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  &__post {
+    margin-top: 40px !important;
+  }
+  &__link {
+    margin-top: 100px !important  ;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  &__title {
+    text-align: center;
+    font-size: 20px;
+  }
+}
