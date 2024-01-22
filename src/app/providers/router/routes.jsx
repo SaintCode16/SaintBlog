@@ -69,6 +69,36 @@ export const router = createBrowserRouter([
   },
 
   {
+    path: "/posts",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Main />,
+      },
+      {
+        path: "all",
+        element: <Main />,
+      },
+
+      {
+        path: "post",
+        element: <Post />,
+      },
+
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
+
+      {
+        path: "feed",
+        element: <MyFeed />,
+      },
+    ],
+  },
+
+  {
     path: "/authtorize",
     element: <Authtorization />,
   },

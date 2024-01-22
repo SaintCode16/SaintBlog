@@ -15,15 +15,16 @@ export default function ClickAway() {
 
   const styles = {
     position: "absolute",
-    top: "40px",
-    right: "-100px",
+    transform: "translate(-50%,50%)",
     zIndex: 1,
-    border: "1px solid",
+    border: "none",
     p: 1,
     bgcolor: "black",
     color: "white",
     width: "200px",
     textAlign: "center",
+    borderRadius: "25px",
+    fontSize: "15px",
   };
 
   return (
