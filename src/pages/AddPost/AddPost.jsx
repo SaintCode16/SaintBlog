@@ -28,6 +28,9 @@ export const AddPost = () => {
     mode: "onBlur",
   });
 
+
+  
+
   const onSubmit = (data) => {
     const dataObj = JSON.stringify({
       ...data,
