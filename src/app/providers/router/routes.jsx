@@ -13,9 +13,8 @@ import { Outlet } from "react-router-dom";
 import { Authtorization } from "../../../pages/Authtorization/Authtorization";
 import { Login } from "../../../components/Registration/Login/Login";
 import { Signup } from "../../../components/Registration/Signup/Signup";
-import { Authtorization } from "../../../pages/Authtorization/Authtorization";
-import { Login } from "../../../components/Registration/Login/Login";
-import { Signup } from "../../../components/Registration/Signup/Signup";
+import { AddPost } from "../../../pages/AddPost/AddPost";
+import { all } from "q";
 
 export const router = createBrowserRouter([
   {
@@ -28,20 +27,45 @@ export const router = createBrowserRouter([
       },
 
       {
+        path: "posts",
+        element: <Posts />,
+        children: [
+          {
+            path: ":postId",
+            element: <Post />,
+          },
+          {
+            path: "all",
+            element: <Posts />,
+            children: [],
+          },
+          {
+            path: "favorites",
+            element: <Favorites />,
+          },
+
+          {
+            path: "feed",
+            element: <MyFeed />,
+          },
+        ],
+      },
+
+      {
         path: "/profile",
         element: <Profile />,
       },
 
       {
-        path: "new",
-        element: <WritePost />,
-      },
-
-      {
-        path: "*",
-        element: <NotFound />,
+        path: "add",
+        element: <AddPost />,
       },
     ],
+  },
+
+  {
+    path: "*",
+    element: <NotFound />,
   },
 
   {
@@ -50,6 +74,10 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Main />,
+      },
+      {
+        path: "all",
         element: <Main />,
       },
 
