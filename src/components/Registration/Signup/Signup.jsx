@@ -13,7 +13,6 @@ import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
 
