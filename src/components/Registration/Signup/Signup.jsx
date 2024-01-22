@@ -5,11 +5,11 @@ import {
   FormHelperText,
   TextField,
   Typography,
-} from '@mui/material';
-import css from './Signup.module.scss';
-import { Link as LinkRRD } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+} from "@mui/material";
+import css from "./Signup.module.scss";
+import { Link as LinkRRD } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
@@ -21,7 +21,7 @@ export const Signup = () => {
     handleSubmit,
     reset,
   } = useForm({
-    mode: 'onBlur',
+    mode: "onBlur",
   });
 
   const onSubmit = (data) => {
@@ -44,7 +44,7 @@ export const Signup = () => {
         <div className={css.holder}>
           <Button>ЗАРЕГИСТРИРОВАТЬСЯ</Button>
           <span>/</span>
-          <LinkRRD to={'/authtorize'}>
+          <LinkRRD to={"/authtorize"}>
             <Button>ВОЙТИ</Button>
           </LinkRRD>
           <div className={css.mainTitle}>
@@ -61,7 +61,7 @@ export const Signup = () => {
             <div className={css.radioGroup}>
               <label className={css.radioHolder}>
                 <input
-                  {...register('for', {
+                  {...register("for", {
                     required: true,
                   })}
                   className={css.radio}
@@ -79,7 +79,7 @@ export const Signup = () => {
               </label>
               <label className={css.radioWrapper}>
                 <input
-                  {...register('for', {})}
+                  {...register("for", {})}
                   className={css.radio}
                   type="radio"
                   value="Для бизнеса"
@@ -99,8 +99,8 @@ export const Signup = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={css.inputWrapper}>
                   <TextField
-                    {...register('name', {
-                      required: 'введите имя',
+                    {...register("name", {
+                      required: "введите имя",
                     })}
                     sx={{ width: 528, height: 49 }}
                     label="Имя"
@@ -111,7 +111,7 @@ export const Signup = () => {
                     <p className={css.err}>{errors?.name?.message}</p>
                   )}
                   <TextField
-                    {...register('bio', {
+                    {...register("bio", {
                       required: true,
                     })}
                     sx={{ width: 528 }}
@@ -121,8 +121,8 @@ export const Signup = () => {
                     rows={4}
                   />
                   <TextField
-                    {...register('nickname', {
-                      required: 'введите никнейм',
+                    {...register("nickname", {
+                      required: "введите никнейм",
                       maxLength: 128,
                       minLength: 2,
                     })}
@@ -131,22 +131,22 @@ export const Signup = () => {
                     id="outlined-size-normal"
                     required
                   />
-                  {errors.nickname && errors.nickname.type === 'required' && (
+                  {errors.nickname && errors.nickname.type === "required" && (
                     <p className={css.err}>введите никнейм</p>
                   )}
-                  {errors.nickname && errors.nickname.type === 'maxLength' && (
+                  {errors.nickname && errors.nickname.type === "maxLength" && (
                     <p className={css.err}>
                       никнейм должен быть менее 128 символов
                     </p>
                   )}
-                  {errors.nickname && errors.nickname.type === 'minLength' && (
+                  {errors.nickname && errors.nickname.type === "minLength" && (
                     <p className={css.err}>
                       никнейм должен быть не менее 2 символов
                     </p>
                   )}
                   <TextField
-                    {...register('email', {
-                      required: 'введите почту',
+                    {...register("email", {
+                      required: "введите почту",
                       maxLength: 256,
                     })}
                     sx={{ width: 528, height: 49 }}
@@ -154,17 +154,17 @@ export const Signup = () => {
                     id="outlined-size-normal"
                     required
                   />
-                  {errors.email && errors.email.type === 'required' && (
+                  {errors.email && errors.email.type === "required" && (
                     <p className={css.err}>введите почту</p>
                   )}
-                  {errors.email && errors.email.type === 'maxLength' && (
+                  {errors.email && errors.email.type === "maxLength" && (
                     <p className={css.err}>
                       почта должна быть менее 256 символов
                     </p>
                   )}
                   <TextField
-                    {...register('password', {
-                      required: 'введите пароль',
+                    {...register("password", {
+                      required: "введите пароль",
                       maxLength: 128,
                       minLength: 8,
                     })}
@@ -173,15 +173,15 @@ export const Signup = () => {
                     id="outlined-size-normal"
                     required
                   />
-                  {errors.password && errors.password.type === 'required' && (
+                  {errors.password && errors.password.type === "required" && (
                     <p className={css.err}>введите пароль</p>
                   )}
-                  {errors.password && errors.password.type === 'maxLength' && (
+                  {errors.password && errors.password.type === "maxLength" && (
                     <p className={css.err}>
                       пароль должен быть менее 128 символов
                     </p>
                   )}
-                  {errors.password && errors.password.type === 'minLength' && (
+                  {errors.password && errors.password.type === "minLength" && (
                     <p className={css.err}>
                       пароль должен быть более 8 символов
                     </p>

@@ -1,7 +1,7 @@
-import s from './Profile.module.scss';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import { Link as LinkRRD } from 'react-router-dom';
+import s from "./Profile.module.scss";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import { Link as LinkRRD } from "react-router-dom";
 
 export const Profile = () => {
   return (
@@ -28,7 +28,7 @@ export const Profile = () => {
       >
         Избранное
       </Button>
-      <LinkRRD to={'/add'}>
+      <LinkRRD to={"/add"}>
         <Button
           className={s.profile__post}
           variant="outlined"
