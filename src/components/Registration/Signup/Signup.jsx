@@ -14,6 +14,10 @@ import { useState } from "react";
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
 
+  const dogCheck = "@";
+
+  const dogCheck = "@";
+
   const {
     register,
     formState: { errors },

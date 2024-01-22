@@ -17,10 +17,11 @@ export const Main = () => {
           return (
             <PreviewPost
               key={post.id}
+              id={post.id}
               theme={post.title}
               text={post.text}
               img={post.img.img1x}
-              tags={post.tags}
+              tags={post.tags.join(", ")}
             />
           );
         })}
