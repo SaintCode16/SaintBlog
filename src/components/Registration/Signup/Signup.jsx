@@ -115,7 +115,7 @@ export const Signup = () => {
                     id="outlined-size-normal"
                     multiline
                     rows={4}
-                   required
+                    required
                   />
                   {errors.bio && errors.bio.type === "required" && (
                     <p className={css.err}>введите о себе</p>
