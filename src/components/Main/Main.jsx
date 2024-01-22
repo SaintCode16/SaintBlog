@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export const Main = () => {
   const { data } = useGetPostsQuery();
+  console.log(useGetPostsQuery());
 
   return (
     <Container maxWidth="lg" className={s.container}>
