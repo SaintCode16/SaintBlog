@@ -35,19 +35,28 @@ export const Login = () => {
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={css.inputWrapper}>
+             
               <TextField
-                {...register("email", { required: true, maxLength: 256 })}
+                {...register("email", {
+                  required: "Введите почту",
+                  maxLength: {
+                    value: 256,
+                    message: "Почта должна быть менее 256 символов",
+                  },
+                  pattern: {
+                    value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                    message: "Введите корректную почту",
+                  },
+                })}
                 sx={{ width: 528, height: 49 }}
                 label="Почта"
                 id="outlined-size-normal"
                 required
               />
-              {errors.email && errors.email.type === "required" && (
-                <p className={css.err}>введите почту</p>
+              {errors.email && (
+                <p className={css.err}>{errors.email.message}</p>
               )}
-              {errors.email && errors.email.type === "maxLength" && (
-                <p className={css.err}>почта должна быть менее 256 символов</p>
-              )}
+
               <TextField
                 {...register("password", {
                   required: true,
