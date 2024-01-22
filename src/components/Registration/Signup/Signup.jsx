@@ -57,7 +57,7 @@ export const Signup = () => {
             <Typography variant="h5">Регистрация</Typography>
           </div>
           <div className={css.avatarWrapper}>
-            <Avatar sx={{ width: 40, height: 40 }}>N</Avatar>
+            <Avatar sx={{ width: 70, height: 70 }}>N</Avatar>
             <Button href="#text-buttons">Загрузить фото</Button>
           </div>
           <div className={css.survey}>

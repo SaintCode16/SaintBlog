@@ -83,23 +83,22 @@ export const Login = () => {
                   type={showPassword ? "text" : "password"}
                   required
                 />
-                {errors.password && errors.password.type === "required" && (
-                  <p className={css.err}>введите пароль</p>
-                )}
-                {errors.password && errors.password.type === "maxLength" && (
-                  <p className={css.err}>
-                    пароль должен быть менее 128 символов
-                  </p>
-                )}
-                {errors.password && errors.password.type === "minLength" && (
-                  <p className={css.err}>пароль должен быть более 8 символов</p>
-                )}
+
                 <div className={css.showBtn}>
                   <IconButton onClick={handleTogglePassword}>
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </div>
               </div>
+              {errors.password && errors.password.type === "required" && (
+                <p className={css.err}>введите пароль</p>
+              )}
+              {errors.password && errors.password.type === "maxLength" && (
+                <p className={css.err}>пароль должен быть менее 128 символов</p>
+              )}
+              {errors.password && errors.password.type === "minLength" && (
+                <p className={css.err}>пароль должен быть более 8 символов</p>
+              )}
             </div>
 
             <Button
