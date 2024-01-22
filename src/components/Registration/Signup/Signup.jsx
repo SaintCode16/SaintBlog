@@ -29,12 +29,11 @@ export const Signup = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = (data) => {
-    // const info = JSON.stringify(data);
-    registerUser(data);
+  // const onSubmit = (data) => {
+  //   registerUser(data);
+  //   reset();
+  // };
 
-    reset();
-  };
 
   const checkboxHandler = (ev) => {
     if (ev.target.checked) {
@@ -207,3 +206,5 @@ export const Signup = () => {
     </>
   );
 };
+
+// регистрация
