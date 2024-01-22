@@ -38,15 +38,14 @@ export const Login = () => {
       <Container maxWidth="sm">
         <div className={css.holder}>
           <LinkRRD to={"/register"}>
-            <Button>ЗАРЕГИСТРИРОВАТЬСЯ</Button>
+            <Button className={css.switch}>зарегистрироваться</Button>
           </LinkRRD>
+          <span className={css.separatop}>|</span>
+          <Button className={css.switch}>войти</Button>
 
-          <span>/</span>
-          <Button>ВОЙТИ</Button>
-
-          <div className={css.title}>
-            <Typography variant="h5">Вход</Typography>
-          </div>
+          <Typography className={css.mainTitle} variant="h5">
+            Вход
+          </Typography>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={css.inputWrapper}>
@@ -116,7 +115,7 @@ export const Login = () => {
 
             <Button
               type="submit"
-              className={css.button}
+              className={css.btn}
               sx={{ width: 528 }}
               variant="contained"
               color="primary"

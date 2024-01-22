@@ -1,14 +1,64 @@
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.switch {
+  transition: 0.5s all !important;
+  color: #4285b4 !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: normal;
+  text-transform: lowercase !important;
+}
+
+.separatop {
+  color: #4285b4;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.switch:hover {
+  border-radius: 12px;
+  border: 2px solid #4285b4;
+  padding: 8px;
+}
+
 .avatarWrapper {
   display: flex;
-  margin-top: 27px;
+  margin-top: 28px;
   align-items: center;
-  gap: 7px;
+  gap: 18px;
 }
 
 .inputWrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.uploadPhoto {
+  color: #4285b4 !important;
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+  text-transform: lowercase !important;
+  max-width: 108px;
+}
+
+.for {
+  color: #000 !important;
+  font-size: 19px !important;
+  font-style: normal !important;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.forSubtitle {
+  color: #000 !important;
+  font-size: 18px !important;
+  font-style: normal !important;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .acceptWrapper {
@@ -21,15 +71,41 @@
 
 .btn {
   margin-top: 18px;
+  cursor: pointer;
+  padding: 5px 26px !important;
+  border-radius: 12px !important;
+  border: 2px solid #0a84ff !important;
+  background: #fff !important;
+  color: #000 !important;
+  max-width: 528px;
+  height: 40px;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: normal !important;
+  text-transform: lowercase !important;
+  box-shadow: none !important;
+  transition: 0.3s all;
+}
+
+.btn:disabled {
+  background: #dcdcdc !important;
+  border: none !important;
+  color: #a5a5a5 !important;
+}
+
+.btn:hover {
+  background: #0a84ff !important;
+  border: none !important;
+  color: #fff !important;
 }
 
 .survey {
-  margin-top: 35px;
-  margin-bottom: 30px;
+  margin-top: 39px;
+  margin-bottom: 40px;
 }
 
 .holder {
-  padding: 30px 0;
+  padding: 40px 0;
 }
 
 .err {
@@ -49,7 +125,11 @@
 }
 
 .mainTitle {
-  margin-top: 17px;
+  margin-top: 23px !important;
+  color: #000 !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: normal;
 }
 
 .radioGroup {
@@ -59,12 +139,13 @@
 .radioWrapper {
   display: flex;
   align-items: center;
-  margin-top: 13px;
+  margin-top: 16px;
 }
 
 .radioHolder {
   display: flex;
   align-items: center;
+  margin-top: 8px;
 }
 
 .radioDescr {
@@ -86,4 +167,16 @@
   right: 32px;
   transform: translateY(-50%);
   z-index: 100;
+}
+
+.comment {
+  font-size: 14px !important;
+}
+
+.accept {
+  color: #000 !important;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal !important;
 }

@@ -37,7 +37,7 @@ export const Signup = () => {
         console.log(newData);
         localStorage.setItem("token", JSON.stringify(newData.data.accessToken));
         localStorage.setItem("id", JSON.stringify(newData.data.user.id));
-        // reset();
+        reset();
         navigate("/");
       } else {
         console.error("Ошибка");
@@ -65,20 +65,24 @@ export const Signup = () => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Button>ЗАРЕГИСТРИРОВАТЬСЯ</Button>
-          <span>/</span>
+          <Button className={css.switch}>зарегистрироваться</Button>
+          <span className={css.separatop}>|</span>
           <LinkRRD to={"/authtorize"}>
-            <Button>ВОЙТИ</Button>
+            <Button className={css.switch}>войти</Button>
           </LinkRRD>
-          <div className={css.mainTitle}>
-            <Typography variant="h5">Регистрация</Typography>
-          </div>
+
+          <Typography className={css.mainTitle} variant="h5">
+            Регистрация
+          </Typography>
+
           <div className={css.avatarWrapper}>
-            <Avatar sx={{ width: 70, height: 70 }}>N</Avatar>
-            <Button href="#text-buttons">Загрузить фото</Button>
+            <Avatar sx={{ width: 100, height: 100 }}></Avatar>
+            <Button className={css.uploadPhoto} href="#text-buttons">
+              Загрузить фото
+            </Button>
           </div>
           <div className={css.survey}>
-            <Typography variant="h7">
+            <Typography className={css.for} variant="h7">
               Для чего вы хотите использовать приложение:
             </Typography>
             <div className={css.radioGroup}>
@@ -93,8 +97,10 @@ export const Signup = () => {
                   checked
                 />
                 <div className={css.radioDescr}>
-                  <Typography variant="subtitle1">Для себя</Typography>
-                  <FormHelperText>
+                  <Typography className={css.forSubtitle} variant="subtitle1">
+                    Для себя
+                  </Typography>
+                  <FormHelperText className={css.comment}>
                     личный блог, общение, развлечения
                   </FormHelperText>
                 </div>
@@ -108,9 +114,11 @@ export const Signup = () => {
                   name="for"
                 />
                 <div className={css.radioDescr}>
-                  <Typography variant="subtitle1">Для бизнеса</Typography>
-                  <FormHelperText>
-                    услуги, магазин, блогерство, реклама
+                  <Typography className={css.forSubtitle} variant="subtitle1">
+                    Для бизнеса
+                  </Typography>
+                  <FormHelperText className={css.comment}>
+                    блогерство, реклама, услуги, магазин
                   </FormHelperText>
                 </div>
               </label>
@@ -228,11 +236,13 @@ export const Signup = () => {
                 className={css.checkbox}
                 type="checkbox"
               ></input>
-              <Typography variant="h9">Я принимаю правила и условия</Typography>
+              <Typography className={css.accept} variant="h9">
+                Я принимаю правила и условия
+              </Typography>
             </div>
             <Button
-              type="submit"
               className={css.btn}
+              type="submit"
               sx={{ width: 528 }}
               variant="contained"
               color="primary"
