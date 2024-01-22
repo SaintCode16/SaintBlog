@@ -1,6 +1,7 @@
 import s from "./Profile.module.scss";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import { Link as LinkRRD } from "react-router-dom";
 
 export const Profile = () => {
   return (
@@ -27,22 +28,50 @@ export const Profile = () => {
       >
         Избранное
       </Button>
-      <Button
-        className={s.profile__post}
-        variant="outlined"
-        color="inherit"
-        size="large"
-      >
-        Написать пост
-      </Button>
+      <LinkRRD to={"/add"}>
+        <Button
+          className={s.profile__post}
+          variant="outlined"
+          color="inherit"
+          size="large"
+        >
+          Написать пост
+        </Button>
+      </LinkRRD>
       <Stack spacing={2} direction="row">
         <Button
-          className={s.profile__link}
-          href="https://www.tinkoff.ru/cardtocard/"
+          className={s.profile__feed}
+          variant="contained"
+          color="success"
+          size="large"
         >
-          Поддержать разработчика
+          Моя лента
         </Button>
-      </Stack>
+        <Button
+          className={s.profile__favorites}
+          variant="contained"
+          color="success"
+          size="large"
+        >
+          Избранное
+        </Button>
+        <Button
+          className={s.profile__post}
+          variant="outlined"
+          color="inherit"
+          size="large"
+        >
+          Написать пост
+        </Button>
+        <Stack spacing={2} direction="row">
+          <Button
+            className={s.profile__link}
+            href="https://www.tinkoff.ru/cardtocard/"
+          >
+            Поддержать разработчика
+          </Button>
+        </Stack>
+      </div>
     </div>
   );
 };
