@@ -119,7 +119,6 @@ export const Signup = () => {
                     id="outlined-size-normal"
                     multiline
                     rows={4}
-                    required
                   />
                   <TextField
                     {...register("nickname", {
