@@ -3,7 +3,7 @@ import {
   TextField,
   TextareaAutosize,
   Button,
-  useScrollTrigger,
+
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
@@ -12,7 +12,6 @@ import ComboBox from "../../components/ComboBox/ComboBox";
 import ClickAway from "../../components/ClickAway/ClickAway";
 import { useState } from "react";
 import { useAddPostMutation } from "../../redux/Api";
-
 export const AddPost = () => {
   const [value, setValue] = useState("");
   const [addPost, { isError }] = useAddPostMutation();
