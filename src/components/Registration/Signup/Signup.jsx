@@ -17,7 +17,6 @@ export const Signup = () => {
   const {
     register,
     formState: { errors, isValid },
-    watch,
     handleSubmit,
     reset,
   } = useForm({
@@ -36,8 +35,6 @@ export const Signup = () => {
       setChecked(false);
     }
   };
-
-  const password = watch("password");
 
   return (
     <>
@@ -62,9 +59,7 @@ export const Signup = () => {
             <div className={css.radioGroup}>
               <label className={css.radioHolder}>
                 <input
-                  {...register("for", {
-                    required: true,
-                  })}
+                  {...register("for", {})}
                   className={css.radio}
                   type="radio"
                   value="Для себя"
