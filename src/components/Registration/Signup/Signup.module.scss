@@ -6,7 +6,7 @@
 }
 
 .inputWrapper {
-  padding-top: 19px;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -75,4 +75,16 @@
 .radio {
   width: 16px;
   height: 16px;
+}
+
+.password {
+  position: relative;
+}
+
+.showBtn {
+  position: absolute;
+  top: 57%;
+  right: 32px;
+  transform: translateY(-50%);
+  z-index: 100;
 }

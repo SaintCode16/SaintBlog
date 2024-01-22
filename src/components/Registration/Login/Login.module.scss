@@ -25,3 +25,15 @@
 .title {
   margin-top: 17px;
 }
+
+.password {
+  position: relative;
+}
+
+.showBtn {
+  position: absolute;
+  top: 57%;
+  right: 32px;
+  transform: translateY(-50%);
+  z-index: 100;
+}

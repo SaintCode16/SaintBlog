@@ -1,7 +1,15 @@
-import { Button, Container, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  IconButton,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
 import { Link as LinkRRD } from "react-router-dom";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useState } from "react";
 
 export const Login = () => {
   const {
@@ -16,6 +24,12 @@ export const Login = () => {
   const onSubmit = (data) => {
     console.log(JSON.stringify(data));
     reset();
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   return (
@@ -56,27 +70,36 @@ export const Login = () => {
                 <p className={css.err}>{errors.email.message}</p>
               )}
 
-              <TextField
-                {...register("password", {
-                  required: true,
-                  maxLength: 128,
-                  minLength: 8,
-                })}
-                sx={{ width: 528, height: 49 }}
-                label="Пароль"
-                id="outlined-size-normal"
-                type="password"
-                required
-              />
-              {errors.password && errors.password.type === "required" && (
-                <p className={css.err}>введите пароль</p>
-              )}
-              {errors.password && errors.password.type === "maxLength" && (
-                <p className={css.err}>пароль должен быть менее 128 символов</p>
-              )}
-              {errors.password && errors.password.type === "minLength" && (
-                <p className={css.err}>пароль должен быть более 8 символов</p>
-              )}
+              <div className={css.password}>
+                <TextField
+                  {...register("password", {
+                    required: true,
+                    maxLength: 128,
+                    minLength: 8,
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Пароль"
+                  id="outlined-size-normal"
+                  type={showPassword ? "text" : "password"}
+                  required
+                />
+                {errors.password && errors.password.type === "required" && (
+                  <p className={css.err}>введите пароль</p>
+                )}
+                {errors.password && errors.password.type === "maxLength" && (
+                  <p className={css.err}>
+                    пароль должен быть менее 128 символов
+                  </p>
+                )}
+                {errors.password && errors.password.type === "minLength" && (
+                  <p className={css.err}>пароль должен быть более 8 символов</p>
+                )}
+                <div className={css.showBtn}>
+                  <IconButton onClick={handleTogglePassword}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </div>
+              </div>
             </div>
 
             <Button

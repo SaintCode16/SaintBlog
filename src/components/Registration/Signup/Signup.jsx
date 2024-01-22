@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   FormHelperText,
+  IconButton,
   TextField,
   Typography,
 } from "@mui/material";
@@ -10,6 +11,7 @@ import css from "./Signup.module.scss";
 import { Link as LinkRRD } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
@@ -34,6 +36,12 @@ export const Signup = () => {
     } else {
       setChecked(false);
     }
+  };
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   return (
@@ -168,18 +176,26 @@ export const Signup = () => {
                     <p className={css.err}>{errors.email.message}</p>
                   )}
 
-                  <TextField
-                    {...register("password", {
-                      required: "введите пароль",
-                      maxLength: 128,
-                      minLength: 8,
-                    })}
-                    sx={{ width: 528, height: 49 }}
-                    label="Пароль"
-                    id="outlined-size-normal"
-                    type="password"
-                    required
-                  />
+                  <div className={css.password}>
+                    <TextField
+                      {...register("password", {
+                        required: "введите пароль",
+                        maxLength: 128,
+                        minLength: 8,
+                      })}
+                      sx={{ width: 528, height: 49 }}
+                      label="Пароль"
+                      id="outlined-size-normal"
+                      type={showPassword ? "text" : "password"}
+                      required
+                    />
+                    <div className={css.showBtn}>
+                      <IconButton onClick={handleTogglePassword}>
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </div>
+                  </div>
+
                   {errors.password && errors.password.type === "required" && (
                     <p className={css.err}>введите пароль</p>
                   )}
