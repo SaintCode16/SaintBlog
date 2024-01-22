@@ -1,6 +1,7 @@
-import s from "./Profile.module.scss";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import s from './Profile.module.scss';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import { Link as LinkRRD } from 'react-router-dom';
 
 export const Profile = () => {
   return (
@@ -27,14 +28,16 @@ export const Profile = () => {
       >
         Избранное
       </Button>
-      <Button
-        className={s.profile__post}
-        variant="outlined"
-        color="inherit"
-        size="large"
-      >
-        Написать пост
-      </Button>
+      <LinkRRD to={'/add'}>
+        <Button
+          className={s.profile__post}
+          variant="outlined"
+          color="inherit"
+          size="large"
+        >
+          Написать пост
+        </Button>
+      </LinkRRD>
       <Stack spacing={2} direction="row">
         <Button
           className={s.profile__link}
