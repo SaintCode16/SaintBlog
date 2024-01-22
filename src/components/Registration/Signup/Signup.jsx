@@ -22,11 +22,8 @@ export const Signup = () => {
 
   const dogCheck = "@";
 
-  const dogCheck = "@";
-
   const {
     register,
-    formState: { errors },
     formState: { errors },
     handleSubmit,
     reset,
@@ -35,10 +32,7 @@ export const Signup = () => {
   });
 
   const onSubmit = (data) => {
-    const info = JSON.stringify(data);
-    console.log(info);
-    const info = JSON.stringify(data);
-    console.log(info);
+    registerUser(data);
     reset();
   };
 
