@@ -1,7 +1,8 @@
 import { Button, Container, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
-import { Link as LinkRRD } from "react-router-dom";
+import { Link as LinkRRD, useNavigate } from "react-router-dom";
+import { useLoginUserMutation } from "../../../redux";
 
 export const Login = () => {
   const {
@@ -13,9 +14,23 @@ export const Login = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
-    reset();
+  const [loginUser, { isSuccess }] = useLoginUserMutation();
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const newData = await loginUser(data);
+      if (newData) {
+        console.log(newData);
+        localStorage.setItem("token", JSON.stringify(newData.data.accessToken));
+        localStorage.setItem("id", JSON.stringify(newData.data.user.id));
+        navigate("/");
+      } else {
+        console.error("Ошибка");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
