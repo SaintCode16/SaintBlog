@@ -27,5 +27,9 @@ export const Api = createApi({
   }),
 });
 
-export const {useLoginUserMutation, useGetPostsQuery, useGetUsersQuery, useRegisterUserMutation } =
-  Api;
+export const {
+  useLoginUserMutation,
+  useGetPostsQuery,
+  useGetUsersQuery,
+  useRegisterUserMutation,
+} = Api;
