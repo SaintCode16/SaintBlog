@@ -177,6 +177,7 @@ export const Signup = () => {
                     sx={{ width: 528, height: 49 }}
                     label="Пароль"
                     id="outlined-size-normal"
+                    type="password"
                     required
                   />
                   {errors.password && errors.password.type === "required" && (
