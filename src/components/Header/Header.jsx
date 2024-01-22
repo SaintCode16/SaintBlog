@@ -13,7 +13,7 @@ export const Header = () => {
           </Link>
 
           <Link to={"/authtorize"}>
-            <button className={s.header__btn }>вход и регистрация</button>
+            <button className={s.header__btn}>вход и регистрация</button>
           </Link>
         </Container>
       </div>
