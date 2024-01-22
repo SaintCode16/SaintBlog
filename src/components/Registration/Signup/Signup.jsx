@@ -16,8 +16,7 @@ export const Signup = () => {
 
   const {
     register,
-    formState: { errors },
-
+    formState: { errors, isValid },
     handleSubmit,
     reset,
   } = useForm({
@@ -25,8 +24,7 @@ export const Signup = () => {
   });
 
   const onSubmit = (data) => {
-    const info = JSON.stringify(data);
-    console.log(info);
+    console.log(JSON.stringify(data));
     reset();
   };
 
@@ -61,9 +59,7 @@ export const Signup = () => {
             <div className={css.radioGroup}>
               <label className={css.radioHolder}>
                 <input
-                  {...register("for", {
-                    required: true,
-                  })}
+                  {...register("for", {})}
                   className={css.radio}
                   type="radio"
                   value="Для себя"
@@ -119,7 +115,9 @@ export const Signup = () => {
                     id="outlined-size-normal"
                     multiline
                     rows={4}
+                    required
                   />
+
                   <TextField
                     {...register("nickname", {
                       required: "введите никнейм",
@@ -144,24 +142,29 @@ export const Signup = () => {
                       никнейм должен быть не менее 2 символов
                     </p>
                   )}
+
                   <TextField
                     {...register("email", {
-                      required: "введите почту",
-                      maxLength: 256,
+                      required: "Введите почту",
+                      maxLength: {
+                        value: 256,
+                        message: "Почта должна быть менее 256 символов",
+                      },
+                      pattern: {
+                        value:
+                          /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                        message: "Введите корректную почту",
+                      },
                     })}
                     sx={{ width: 528, height: 49 }}
                     label="Почта"
                     id="outlined-size-normal"
                     required
                   />
-                  {errors.email && errors.email.type === "required" && (
-                    <p className={css.err}>введите почту</p>
+                  {errors.email && (
+                    <p className={css.err}>{errors.email.message}</p>
                   )}
-                  {errors.email && errors.email.type === "maxLength" && (
-                    <p className={css.err}>
-                      почта должна быть менее 256 символов
-                    </p>
-                  )}
+
                   <TextField
                     {...register("password", {
                       required: "введите пароль",
@@ -203,8 +206,14 @@ export const Signup = () => {
                   sx={{ width: 528 }}
                   variant="contained"
                   color="primary"
-                  disableElevation
-                  disabled={!checked}
+                  disabled={
+                    !isValid ||
+                    errors.password ||
+                    !checked ||
+                    errors.name ||
+                    errors.email ||
+                    errors.nickname
+                  }
                 >
                   ЗАРЕГИСТРИРОВАТЬСЯ
                 </Button>
