@@ -84,12 +84,12 @@ import { Link, useParams } from "react-router-dom";
 import { useGetPostsQuery } from "../../redux"; // Импортируйте хук из вашего Redux store
 
 export const Post = () => {
-  const { postId } = useParams(); 
+  const { postId } = useParams();
   const { data: posts } = useGetPostsQuery();
   const post = posts?.find((p) => p.id.toString() === postId);
 
   if (!post) {
-    return <div>Пост не найден</div>; 
+    return <div>Пост не найден</div>;
   }
 
   return (
