@@ -126,159 +126,177 @@ export const Signup = () => {
               required
             />
             {errors?.name && <p className={css.err}>{errors?.name?.message}</p>}
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={css.inputWrapper}>
-            <TextField
-              {...register("name", {
-                required: "введите имя",
-              })}
-              sx={{ width: 528, height: 49 }}
-              label="Имя"
-              id="outlined-size-normal"
-              required
-            />
-            {errors?.name && <p className={css.err}>{errors?.name?.message}</p>}
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className={css.inputWrapper}>
+                <TextField
+                  {...register("name", {
+                    required: "введите имя",
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Имя"
+                  id="outlined-size-normal"
+                  required
+                />
+                {errors?.name && (
+                  <p className={css.err}>{errors?.name?.message}</p>
+                )}
 
-            <TextField
-              {...register("bio", {
-                required: true,
-              })}
-              sx={{ width: 528 }}
-              label="О себе"
-              id="outlined-size-normal"
-              multiline
-              rows={4}
-              required
-            />
-            <TextField
-              {...register("bio", {
-                required: true,
-              })}
-              sx={{ width: 528 }}
-              label="О себе"
-              id="outlined-size-normal"
-              multiline
-              rows={4}
-              required
-            />
+                <TextField
+                  {...register("bio", {
+                    required: true,
+                  })}
+                  sx={{ width: 528 }}
+                  label="О себе"
+                  id="outlined-size-normal"
+                  multiline
+                  rows={4}
+                  required
+                />
+                <TextField
+                  {...register("bio", {
+                    required: true,
+                  })}
+                  sx={{ width: 528 }}
+                  label="О себе"
+                  id="outlined-size-normal"
+                  multiline
+                  rows={4}
+                  required
+                />
 
-            <TextField
-              {...register("nickname", {
-                required: "введите никнейм",
-                maxLength: 128,
-                minLength: 2,
-              })}
-              sx={{ width: 528, height: 49 }}
-              label="Никнейм"
-              id="outlined-size-normal"
-              required
-            />
-            {errors.nickname && errors.nickname.type === "required" && (
-              <p className={css.err}>введите никнейм</p>
-            )}
-            {errors.nickname && errors.nickname.type === "maxLength" && (
-              <p className={css.err}>никнейм должен быть менее 128 символов</p>
-            )}
-            {errors.nickname && errors.nickname.type === "minLength" && (
-              <p className={css.err}>никнейм должен быть не менее 2 символов</p>
-            )}
-            <TextField
-              {...register("nickname", {
-                required: "введите никнейм",
-                maxLength: 128,
-                minLength: 2,
-              })}
-              sx={{ width: 528, height: 49 }}
-              label="Никнейм"
-              id="outlined-size-normal"
-              required
-            />
-            {errors.nickname && errors.nickname.type === "required" && (
-              <p className={css.err}>введите никнейм</p>
-            )}
-            {errors.nickname && errors.nickname.type === "maxLength" && (
-              <p className={css.err}>никнейм должен быть менее 128 символов</p>
-            )}
-            {errors.nickname && errors.nickname.type === "minLength" && (
-              <p className={css.err}>никнейм должен быть не менее 2 символов</p>
-            )}
+                <TextField
+                  {...register("nickname", {
+                    required: "введите никнейм",
+                    maxLength: 128,
+                    minLength: 2,
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Никнейм"
+                  id="outlined-size-normal"
+                  required
+                />
+                {errors.nickname && errors.nickname.type === "required" && (
+                  <p className={css.err}>введите никнейм</p>
+                )}
+                {errors.nickname && errors.nickname.type === "maxLength" && (
+                  <p className={css.err}>
+                    никнейм должен быть менее 128 символов
+                  </p>
+                )}
+                {errors.nickname && errors.nickname.type === "minLength" && (
+                  <p className={css.err}>
+                    никнейм должен быть не менее 2 символов
+                  </p>
+                )}
+                <TextField
+                  {...register("nickname", {
+                    required: "введите никнейм",
+                    maxLength: 128,
+                    minLength: 2,
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Никнейм"
+                  id="outlined-size-normal"
+                  required
+                />
+                {errors.nickname && errors.nickname.type === "required" && (
+                  <p className={css.err}>введите никнейм</p>
+                )}
+                {errors.nickname && errors.nickname.type === "maxLength" && (
+                  <p className={css.err}>
+                    никнейм должен быть менее 128 символов
+                  </p>
+                )}
+                {errors.nickname && errors.nickname.type === "minLength" && (
+                  <p className={css.err}>
+                    никнейм должен быть не менее 2 символов
+                  </p>
+                )}
 
-            <TextField
-              {...register("email", {
-                required: "введите почту",
-                maxLength: 256,
-              })}
-              sx={{ width: 528, height: 49 }}
-              label="Почта"
-              id="outlined-size-normal"
-              required
-            />
+                <TextField
+                  {...register("email", {
+                    required: "введите почту",
+                    maxLength: 256,
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Почта"
+                  id="outlined-size-normal"
+                  required
+                />
 
-            {errors.email && errors.email.type === "required" && (
-              <p className={css.err}>введите почту</p>
-            )}
-            {errors.email && errors.email.type === "maxLength" && (
-              <p className={css.err}>почта должна быть менее 256 символов</p>
-            )}
-            <TextField
-              {...register("email", {
-                required: "введите почту",
-                maxLength: 256,
-              })}
-              sx={{ width: 528, height: 49 }}
-              label="Почта"
-              id="outlined-size-normal"
-              required
-            />
+                {errors.email && errors.email.type === "required" && (
+                  <p className={css.err}>введите почту</p>
+                )}
+                {errors.email && errors.email.type === "maxLength" && (
+                  <p className={css.err}>
+                    почта должна быть менее 256 символов
+                  </p>
+                )}
+                <TextField
+                  {...register("email", {
+                    required: "введите почту",
+                    maxLength: 256,
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Почта"
+                  id="outlined-size-normal"
+                  required
+                />
 
-            {errors.email && errors.email.type === "required" && (
-              <p className={css.err}>введите почту</p>
-            )}
-            {errors.email && errors.email.type === "maxLength" && (
-              <p className={css.err}>почта должна быть менее 256 символов</p>
-            )}
+                {errors.email && errors.email.type === "required" && (
+                  <p className={css.err}>введите почту</p>
+                )}
+                {errors.email && errors.email.type === "maxLength" && (
+                  <p className={css.err}>
+                    почта должна быть менее 256 символов
+                  </p>
+                )}
 
-            <TextField
-              {...register("password", {
-                required: "введите пароль",
-                maxLength: 128,
-                minLength: 8,
-              })}
-              sx={{ width: 528, height: 49 }}
-              label="Пароль"
-              id="outlined-size-normal"
-              required
-            />
-            {errors.password && errors.password.type === "required" && (
-              <p className={css.err}>введите пароль</p>
-            )}
-            {errors.password && errors.password.type === "maxLength" && (
-              <p className={css.err}>пароль должен быть менее 128 символов</p>
-            )}
-            {errors.password && errors.password.type === "minLength" && (
-              <p className={css.err}>пароль должен быть более 8 символов</p>
-            )}
-          </div>
-          <div className={css.acceptWrapper}>
-            <input
-              onChange={checkboxHandler}
-              className={css.checkbox}
-              type="checkbox"
-            ></input>
-            <Typography variant="h9">Я принимаю правила и условия</Typography>
-          </div>
-          <Button
-            type="submit"
-            className={css.btn}
-            sx={{ width: 528 }}
-            variant="contained"
-            color="primary"
-            disableElevation
-            disabled={!checked}
-          >
-            ЗАРЕГИСТРИРОВАТЬСЯ
-          </Button>
-        </form>
+                <TextField
+                  {...register("password", {
+                    required: "введите пароль",
+                    maxLength: 128,
+                    minLength: 8,
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Пароль"
+                  id="outlined-size-normal"
+                  required
+                />
+                {errors.password && errors.password.type === "required" && (
+                  <p className={css.err}>введите пароль</p>
+                )}
+                {errors.password && errors.password.type === "maxLength" && (
+                  <p className={css.err}>
+                    пароль должен быть менее 128 символов
+                  </p>
+                )}
+                {errors.password && errors.password.type === "minLength" && (
+                  <p className={css.err}>пароль должен быть более 8 символов</p>
+                )}
+              </div>
+              <div className={css.acceptWrapper}>
+                <input
+                  onChange={checkboxHandler}
+                  className={css.checkbox}
+                  type="checkbox"
+                ></input>
+                <Typography variant="h9">
+                  Я принимаю правила и условия
+                </Typography>
+              </div>
+              <Button
+                type="submit"
+                className={css.btn}
+                sx={{ width: 528 }}
+                variant="contained"
+                color="primary"
+                disableElevation
+                disabled={!checked}
+              >
+                ЗАРЕГИСТРИРОВАТЬСЯ
+              </Button>
+            </form>
             <TextField
               {...register("password", {
                 required: "введите пароль",
