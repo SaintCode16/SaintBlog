@@ -12,9 +12,13 @@ import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useRegisterUserMutation } from "../../../redux";
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
+
+  const [registerUser, { isLoading, isSuccess, isError }] =
+    useRegisterUserMutation();
 
   const dogCheck = "@";
 

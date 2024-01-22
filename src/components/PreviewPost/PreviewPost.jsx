@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
-export default function PreviewPost({ theme, text, img, tags }) {
+export default function PreviewPost({ id, theme, text, img, tags }) {
   return (
     <div className={s.previewPost}>
       <Card className={s.displayFlex} sx={{ maxWidth: 1100, maxHeight: 400 }}>
@@ -18,7 +18,7 @@ export default function PreviewPost({ theme, text, img, tags }) {
           title="green iguana"
         />
         <CardContent className={s.content}>
-          <Link to={"/posts/post"}>
+          <Link to={`/posts/${id}`}>
             <Typography gutterBottom variant="h5" component="div">
               {theme}
             </Typography>
@@ -33,7 +33,7 @@ export default function PreviewPost({ theme, text, img, tags }) {
             {text}
           </Typography>
 
-          <Link to={"/posts/post"}>
+          <Link to={`/posts/${id}`}>
             <CardActions className={s.btn}>
               <Button size="small">Подробнее</Button>
             </CardActions>
