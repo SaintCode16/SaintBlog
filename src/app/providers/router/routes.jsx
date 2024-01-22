@@ -27,6 +27,31 @@ export const router = createBrowserRouter([
       },
 
       {
+        path: "posts",
+        element: <Posts />,
+        children: [
+          {
+            path: ":postId",
+            element: <Post />,
+          },
+          {
+            path: "all",
+            element: <Posts />,
+            children: [],
+          },
+          {
+            path: "favorites",
+            element: <Favorites />,
+          },
+
+          {
+            path: "feed",
+            element: <MyFeed />,
+          },
+        ],
+      },
+
+      {
         path: "/profile",
         element: <Profile />,
       },
@@ -41,36 +66,6 @@ export const router = createBrowserRouter([
   {
     path: "*",
     element: <NotFound />,
-  },
-
-  {
-    path: "/posts",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Main />,
-      },
-      {
-        path: "all",
-        element: <Main />,
-      },
-
-      {
-        path: "post",
-        element: <Post />,
-      },
-
-      {
-        path: "favorites",
-        element: <Favorites />,
-      },
-
-      {
-        path: "feed",
-        element: <MyFeed />,
-      },
-    ],
   },
 
   {
