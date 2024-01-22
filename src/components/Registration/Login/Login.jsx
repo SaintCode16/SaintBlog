@@ -80,8 +80,6 @@ export const Login = () => {
               />
               {errors.email && (
                 <p className={css.err}>{errors.email.message}</p>
-              {errors.email && (
-                <p className={css.err}>{errors.email.message}</p>
               )}
 
               <div className={css.password}>
@@ -105,17 +103,6 @@ export const Login = () => {
                 </div>
               </div>
 
-              <TextField
-                {...register("password", {
-                  required: true,
-                  maxLength: 128,
-                  minLength: 8,
-                })}
-                sx={{ width: 528, height: 49 }}
-                label="Пароль"
-                id="outlined-size-normal"
-                required
-              />
               {errors.password && errors.password.type === "required" && (
                 <p className={css.err}>введите пароль</p>
               )}
