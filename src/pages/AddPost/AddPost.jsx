@@ -1,10 +1,4 @@
-import {
-  Container,
-  TextField,
-  TextareaAutosize,
-  Button,
-
-} from "@mui/material";
+import { Container, TextField, TextareaAutosize, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
 import UploadButton from "../../components/UploadButton/UploadButton";
