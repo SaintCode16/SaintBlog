@@ -117,6 +117,9 @@ export const Signup = () => {
                     rows={4}
                     required
                   />
+                  {errors.bio && errors.bio.type === "required" && (
+                    <p className={css.err}>введите о себе</p>
+                  )}
 
                   <TextField
                     {...register("nickname", {
