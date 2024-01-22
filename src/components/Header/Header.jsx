@@ -8,21 +8,18 @@ export const Header = () => {
     <header className={s.header}>
       <div className={s.header__top}>
         <Container maxWidth="lg" className={s.header__container}>
-          <Link to={"/"}>
+          <Link className={s.holder} to={"/"}>
+            <div className={s.logo}></div>
             <h1 className={s.header__title}>SaintBlog</h1>
           </Link>
+
+          <Menu />
 
           <Link to={"/authtorize"}>
             <button className={s.header__btn}>вход и регистрация</button>
           </Link>
         </Container>
       </div>
-
-      <nav className={s.nav}>
-        <Container maxWidth="lg">
-          <Menu className={s.menu} />
-        </Container>
-      </nav>
     </header>
   );
 };

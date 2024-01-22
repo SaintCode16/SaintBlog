@@ -6,12 +6,13 @@ import { Link as LinkRRD } from "react-router-dom";
 export const Profile = () => {
   return (
     <div className={s.profile}>
-      <h2 className={s.profile__title}>@UserName</h2>
+      <h2 className={s.profile__title}>@username</h2>
       <img
         className={s.profile__img}
         src="https://img.freepik.com/premium-vector/user-profile-icon-in-flat-style-member-avatar-vector-illustration-on-isolated-background-human-permission-sign-business-concept_157943-15752.jpg"
         alt=""
       />
+
       <Button
         className={s.profile__feed}
         variant="contained"
@@ -20,6 +21,7 @@ export const Profile = () => {
       >
         Моя лента
       </Button>
+
       <Button
         className={s.profile__favorites}
         variant="contained"

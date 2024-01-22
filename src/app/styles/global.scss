@@ -7,3 +7,20 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input {
+  outline: none !important;
+}

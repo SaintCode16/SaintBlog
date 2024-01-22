@@ -1,6 +1,4 @@
 .header {
-  height: 156px;
-  background: gray;
   position: relative;
 
   &__top {
@@ -38,6 +36,13 @@
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
+    transition: 0.3s all;
+  }
+
+  &__btn:hover {
+    -webkit-box-shadow: 3px 2px 26px -5px rgba(17, 110, 181, 0.22);
+    -moz-box-shadow: 3px 2px 26px -5px rgba(17, 110, 181, 0.22);
+    box-shadow: 3px 2px 26px -5px rgba(17, 110, 181, 0.22);
   }
 
   &__container {
@@ -63,4 +68,18 @@
 
   display: flex;
   align-items: center;
+}
+
+.logo {
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  width: 4px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
 }
