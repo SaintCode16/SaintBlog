@@ -8,8 +8,11 @@ import {
 } from "@mui/material";
 import css from "./Signup.module.scss";
 import { Link as LinkRRD } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
