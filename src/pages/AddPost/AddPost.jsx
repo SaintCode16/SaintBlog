@@ -4,17 +4,17 @@ import {
   TextareaAutosize,
   Button,
   useScrollTrigger,
-} from "@mui/material";
-import { useForm } from "react-hook-form";
-import s from "./AddPost.module.scss";
-import UploadButton from "../../components/UploadButton/UploadButton";
-import ComboBox from "../../components/ComboBox/ComboBox";
-import ClickAway from "../../components/ClickAway/ClickAway";
-import { useState } from "react";
-import { useAddPostMutation } from "../../redux/Api";
+} from '@mui/material';
+import { useForm } from 'react-hook-form';
+import s from './AddPost.module.scss';
+import UploadButton from '../../components/UploadButton/UploadButton';
+import ComboBox from '../../components/ComboBox/ComboBox';
+import ClickAway from '../../components/ClickAway/ClickAway';
+import { useState } from 'react';
+import { useAddPostMutation } from '../../redux/Api';
 
 export const AddPost = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [addPost, { isError }] = useAddPostMutation();
   const handleChange = (event, value) => {
     setValue(value);
@@ -25,10 +25,17 @@ export const AddPost = () => {
     reset,
     formState: { errors, isValid },
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
+
   const onSubmit = (data) => {
-    console.log(JSON.stringify({ ...data, category: value.label }));
+    const dataObj = JSON.stringify({
+      ...data,
+      category: value.label,
+      userId: +localStorage.getItem('id'),
+    });
+    addPost(dataObj);
+    console.log(dataObj);
     reset();
   };
 
@@ -54,18 +61,18 @@ export const AddPost = () => {
                     minLength: 10,
                     maxLength: 50,
                   }}
-                  {...register("title", { required: true, minLength: 10 })}
+                  {...register('title', { required: true, minLength: 10 })}
                   minRows={10}
                   fullWidth
                   label="Название блога"
                   placeholder="мин - 10 символов макс - 50 символов"
                   sx={{
-                    width: "600px",
-                    minWidth: "30%",
-                    maxWidth: "100%",
-                    position: "relative",
-                    "& input": {
-                      padding: "16.5px 40px 16.5px 20px ",
+                    width: '600px',
+                    minWidth: '30%',
+                    maxWidth: '100%',
+                    position: 'relative',
+                    '& input': {
+                      padding: '16.5px 40px 16.5px 20px ',
                     },
                   }}
                 />
@@ -75,21 +82,21 @@ export const AddPost = () => {
             </div>
 
             <TextareaAutosize
-              {...register("post", { required: true, minLength: 20 })}
+              {...register('post', { required: true, minLength: 20 })}
               minLength={20}
               maxLength={2000}
               aria-label="minimum height"
               minRows={10}
               placeholder="Ваш текст. Минимум 200 символов "
               style={{
-                maxWidth: "100%",
-                minWidth: "30%",
-                margin: "20px 0",
-                borderRadius: "5px",
-                padding: "20px",
-                fontSize: "15px",
-                "&::placeholder": {
-                  color: "red",
+                maxWidth: '100%',
+                minWidth: '30%',
+                margin: '20px 0',
+                borderRadius: '5px',
+                padding: '20px',
+                fontSize: '15px',
+                '&::placeholder': {
+                  color: 'red',
                 },
               }}
             />
@@ -100,7 +107,7 @@ export const AddPost = () => {
               disabled={!isValid}
               type="submit"
               variant="contained"
-              style={{ marginTop: "20px", width: "200px", height: "60px" }}
+              style={{ marginTop: '20px', width: '200px', height: '60px' }}
             >
               Опубликовать
             </Button>
