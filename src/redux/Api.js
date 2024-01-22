@@ -1,13 +1,13 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const Api = createApi({
-  reducerPath: 'api',
+  reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:7000/',
+    baseUrl: "http://localhost:7000/",
     prepareHeaders: (headers) => {
-      const token = JSON.parse(localStorage.getItem('token'));
+      const token = JSON.parse(localStorage.getItem("token"));
       if (token) {
-        headers.set('authorization', `Bearer ${token}`);
+        headers.set("authorization", `Bearer ${token}`);
       }
       console.log(headers);
       return headers;
@@ -15,29 +15,29 @@ export const Api = createApi({
   }),
   endpoints: (builder) => ({
     getPosts: builder.query({
-      query: () => 'posts',
+      query: () => "posts",
     }),
     getUsers: builder.query({
-      query: () => 'users',
+      query: () => "users",
     }),
     registerUser: builder.mutation({
       query: (newUser) => ({
-        url: 'register',
-        method: 'POST',
+        url: "register",
+        method: "POST",
         body: newUser,
       }),
     }),
     loginUser: builder.mutation({
       query: (newUser) => ({
-        url: 'login',
-        method: 'POST',
+        url: "login",
+        method: "POST",
         body: newUser,
       }),
     }),
     addPost: builder.mutation({
       query: (newPost) => ({
-        url: 'posts',
-        method: 'POST',
+        url: "posts",
+        method: "POST",
         body: newPost,
       }),
     }),
