@@ -26,6 +26,7 @@ export const AddPost = () => {
     formState: { errors, isValid },
   } = useForm({
     mode: "onBlur",
+    
   });
 
   const onSubmit = (data) => {
