@@ -10,9 +10,13 @@ import css from "./Signup.module.scss";
 import { Link as LinkRRD } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useRegisterUserMutation } from "../../../redux";
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
+
+  const [registerUser, { isLoading, isSuccess, isError }] =
+    useRegisterUserMutation();
 
   const dogCheck = "@";
 
@@ -26,8 +30,9 @@ export const Signup = () => {
   });
 
   const onSubmit = (data) => {
-    const info = JSON.stringify(data);
-    console.log(info);
+    // const info = JSON.stringify(data);
+    registerUser(data);
+
     reset();
   };
 
