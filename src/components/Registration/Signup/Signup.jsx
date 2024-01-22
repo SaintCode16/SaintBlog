@@ -8,16 +8,23 @@ import {
   Typography,
 } from "@mui/material";
 import css from "./Signup.module.scss";
-import { Link as LinkRRD } from "react-router-dom";
+import { Link, Link as LinkRRD, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useRegisterUserMutation } from "../../../redux";
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
 
+  const [registerUser, { isSuccess }] = useRegisterUserMutation();
+  const dogCheck = "@";
+
+  const navigate = useNavigate();
+
   const {
     register,
+    formState: { errors, isValid },
     formState: { errors, isValid },
     handleSubmit,
     reset,
@@ -25,9 +32,20 @@ export const Signup = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      const newData = await registerUser(data);
+      if (newData) {
+        console.log(newData);
+        localStorage.setItem("token", JSON.stringify(newData.data.accessToken));
+        localStorage.setItem("id", JSON.stringify(newData.data.user.id));
+        navigate("/");
+      } else {
+        console.error("Ошибка");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const checkboxHandler = (ev) => {
@@ -67,6 +85,7 @@ export const Signup = () => {
             <div className={css.radioGroup}>
               <label className={css.radioHolder}>
                 <input
+                  {...register("for", {})}
                   {...register("for", {})}
                   className={css.radio}
                   type="radio"
@@ -245,3 +264,5 @@ export const Signup = () => {
     </>
   );
 };
+
+// регистрация

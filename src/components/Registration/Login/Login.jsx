@@ -7,7 +7,8 @@ import {
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import css from "./Login.module.scss";
-import { Link as LinkRRD } from "react-router-dom";
+import { Link as LinkRRD, useNavigate } from "react-router-dom";
+import { useLoginUserMutation } from "../../../redux";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 
@@ -61,11 +62,24 @@ export const Login = () => {
                     message: "Введите корректную почту",
                   },
                 })}
+                {...register("email", {
+                  required: "Введите почту",
+                  maxLength: {
+                    value: 256,
+                    message: "Почта должна быть менее 256 символов",
+                  },
+                  pattern: {
+                    value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+                    message: "Введите корректную почту",
+                  },
+                })}
                 sx={{ width: 528, height: 49 }}
                 label="Почта"
                 id="outlined-size-normal"
                 required
               />
+              {errors.email && (
+                <p className={css.err}>{errors.email.message}</p>
               {errors.email && (
                 <p className={css.err}>{errors.email.message}</p>
               )}
@@ -90,6 +104,18 @@ export const Login = () => {
                   </IconButton>
                 </div>
               </div>
+
+              <TextField
+                {...register("password", {
+                  required: true,
+                  maxLength: 128,
+                  minLength: 8,
+                })}
+                sx={{ width: 528, height: 49 }}
+                label="Пароль"
+                id="outlined-size-normal"
+                required
+              />
               {errors.password && errors.password.type === "required" && (
                 <p className={css.err}>введите пароль</p>
               )}
