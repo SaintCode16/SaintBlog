@@ -13,7 +13,8 @@ export default function PreviewPost({ id, theme, text, img, tags }) {
     <div className={s.previewPost}>
       <Card className={s.displayFlex} sx={{ maxWidth: 1100, maxHeight: 400 }}>
         <CardMedia
-          sx={{ width: 700, height: 300 }}
+          className={s.img}
+          sx={{ width: 500, height: 320 }}
           image={img}
           title="green iguana"
         />
