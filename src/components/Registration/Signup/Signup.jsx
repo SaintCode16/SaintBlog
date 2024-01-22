@@ -120,6 +120,7 @@ export const Signup = () => {
                     multiline
                     rows={4}
                   />
+                  
                   <TextField
                     {...register("nickname", {
                       required: "введите никнейм",
