@@ -27,6 +27,31 @@ export const router = createBrowserRouter([
       },
 
       {
+        path: "posts",
+        element: <Posts />,
+        children: [
+          {
+            path: ":postId",
+            element: <Post />,
+          },
+          {
+            path: "all",
+            element: <Posts />,
+            children: [],
+          },
+          {
+            path: "favorites",
+            element: <Favorites />,
+          },
+
+          {
+            path: "feed",
+            element: <MyFeed />,
+          },
+        ],
+      },
+
+      {
         path: "/profile",
         element: <Profile />,
       },
