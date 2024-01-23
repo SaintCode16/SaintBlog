@@ -4,9 +4,24 @@ import PreviewPost from "../PreviewPost/PreviewPost";
 import { useGetPostsQuery } from "../../redux";
 import { Profile } from "../Profile/Profile";
 import { SpinnerComponent } from "../SpinnerComponent/SpinnerComponent";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setToken, selectToken } from "../../redux/AuthSlice";
+// import AdditionalComponent from "./AdditionalComponent";
 
 export const Main = () => {
-  // const { data } = useGetPostsQuery();
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+
+  useEffect(() => {
+    // Проверяем наличие токена в локальном хранилище при монтировании компонента
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      // Если токен найден, сохраняем его в Redux-стейт
+      dispatch(setToken(storedToken));
+    }
+  }, [dispatch]);
+
   const {
     data: posts,
     error: postsError,
@@ -35,7 +50,7 @@ export const Main = () => {
   }
   return (
     <Container maxWidth="lg" className={s.container}>
-      <Profile />
+      {token && <Profile />}
 
       <div className={s.hidden}>
         {posts &&

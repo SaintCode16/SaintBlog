@@ -1,3 +1,5 @@
+
+
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const Api = createApi({
@@ -9,7 +11,7 @@ export const Api = createApi({
       if (token) {
         headers.set("authorization", `Bearer ${token}`);
       }
-      console.log(token);
+      console.log(headers);
       return headers;
     },
   }),
@@ -34,6 +36,24 @@ export const Api = createApi({
         body: newUser,
       }),
     }),
+    addComment: builder.mutation({
+      query: (data, userId = JSON.parse(localStorage.getItem("id"))) => ({
+        url: "comments",
+        method: "POST",
+        body: { ...data, userId },
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      }),
+    }),
+    getUserData: builder.query({
+      query: (id = JSON.parse(localStorage.getItem("id"))) => ({
+        url: `users/${id}`,
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      }),
+    }),
     addPost: builder.mutation({
       query: (newPost) => ({
         url: "posts",
@@ -45,9 +65,11 @@ export const Api = createApi({
 });
 
 export const {
+  useAddCommentMutation,
   useLoginUserMutation,
   useGetPostsQuery,
   useGetUsersQuery,
   useRegisterUserMutation,
+  useGetUserDataQuery,
   useAddPostMutation,
 } = Api;
