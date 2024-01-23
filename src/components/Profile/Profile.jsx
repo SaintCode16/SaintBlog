@@ -12,7 +12,7 @@ export const Profile = () => {
 
   return (
     <div className={s.profile}>
-      <h2 className={s.profile__title}>{data.nickname}</h2>
+      <h2 className={s.profile__title}>{data?.nickname ?? "Unauthorized"}</h2>
       <img
         className={s.profile__img}
         src="https://img.freepik.com/premium-vector/user-profile-icon-in-flat-style-member-avatar-vector-illustration-on-isolated-background-human-permission-sign-business-concept_157943-15752.jpg"
