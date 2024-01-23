@@ -13,7 +13,6 @@ export const Main = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
 
-
   useEffect(() => {
     // Проверяем наличие токена в локальном хранилище при монтировании компонента
     const storedToken = localStorage.getItem("token");
@@ -22,7 +21,6 @@ export const Main = () => {
       dispatch(setToken(storedToken));
     }
   }, [dispatch]);
-
 
   const {
     data: posts,
