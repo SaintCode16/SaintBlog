@@ -1,9 +1,9 @@
-import cat from './404/cat.webp';
-import img from './404/404.webp';
-import s from './NotFound.module.scss';
-import { Link as LinkRRD } from 'react-router-dom';
+import cat from "./404/cat.webp";
+import img from "./404/404.webp";
+import s from "./NotFound.module.scss";
+import { Link as LinkRRD } from "react-router-dom";
 
-import { Container, Button } from '@mui/material';
+import { Container, Button } from "@mui/material";
 
 export const NotFound = () => {
   return (
@@ -15,7 +15,7 @@ export const NotFound = () => {
             <h1 className={s.notFound__title}>Error</h1>
             <img src={img} alt="error" className={s.notFound__error} />
           </div>
-          <LinkRRD to={''}>
+          <LinkRRD to={""}>
             <Button className={s.notFound__btn}>На главную</Button>
           </LinkRRD>
         </div>
