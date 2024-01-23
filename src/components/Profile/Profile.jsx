@@ -38,40 +38,6 @@ export const Profile = () => {
           Написать пост
         </Button>
       </LinkRRD>
-      <Stack spacing={2} direction="row">
-        <Button
-          className={s.profile__feed}
-          variant="contained"
-          color="success"
-          size="large"
-        >
-          Моя лента
-        </Button>
-        <Button
-          className={s.profile__favorites}
-          variant="contained"
-          color="success"
-          size="large"
-        >
-          Избранное
-        </Button>
-        <Button
-          className={s.profile__post}
-          variant="outlined"
-          color="inherit"
-          size="large"
-        >
-          Написать пост
-        </Button>
-        <Stack spacing={2} direction="row">
-          <Button
-            className={s.profile__link}
-            href="https://www.tinkoff.ru/cardtocard/"
-          >
-            Поддержать разработчика
-          </Button>
-        </Stack>
-      </div>
     </div>
   );
 };

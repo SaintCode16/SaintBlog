@@ -4,14 +4,14 @@ export const Api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:7000/",
-    // prepareHeaders: (headers, { getState }) => {
-    //   const token = getState().auth.token;
-    //   if (token) {
-    //     headers.set('authorization', `Bearer ${token}`);
-    //   }
-    //   console.log(token);
-    //   return headers;
-    // },
+    prepareHeaders: (headers) => {
+      const token = JSON.parse(localStorage.getItem("token"));
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+      }
+      console.log(token);
+      return headers;
+    },
   }),
   endpoints: (builder) => ({
     getPosts: builder.query({

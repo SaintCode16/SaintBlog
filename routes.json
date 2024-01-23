@@ -1,4 +1,5 @@
 {
   "/posts*": "/644/posts$1",
+  "/comments*": "/644/comments$1",
   "/users*": "/600/users$1"
 }
