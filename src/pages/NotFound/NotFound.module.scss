@@ -1,2 +1,24 @@
-.NotFound {
+.notFound {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &__cat {
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  &__title {
+    font-size: 100px;
+  }
+  &__error {
+    // max-width: 600px;
+    // max-height: 400px;
+    max-width: 40vw;
+    max-height: 40vh;
+  }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
 }
