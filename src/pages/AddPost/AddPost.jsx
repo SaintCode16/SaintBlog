@@ -1,10 +1,4 @@
-import {
-  Container,
-  TextField,
-  TextareaAutosize,
-  Button,
-  useScrollTrigger,
-} from "@mui/material";
+import { Container, TextField, TextareaAutosize, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
 import UploadButton from "../../components/UploadButton/UploadButton";
@@ -27,8 +21,15 @@ export const AddPost = () => {
   } = useForm({
     mode: "onBlur",
   });
+
   const onSubmit = (data) => {
-    console.log(JSON.stringify({ ...data, category: value.label }));
+    const dataObj = JSON.stringify({
+      ...data,
+      category: value.label,
+      userId: +localStorage.getItem("id"),
+    });
+    addPost(dataObj);
+    console.log(dataObj);
     reset();
   };
 
