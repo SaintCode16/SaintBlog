@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   FormHelperText,
+  IconButton,
   TextField,
   Typography,
 } from "@mui/material";
@@ -10,13 +11,13 @@ import css from "./Signup.module.scss";
 import { Link, Link as LinkRRD, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useRegisterUserMutation } from "../../../redux";
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
 
   const [registerUser, { isSuccess }] = useRegisterUserMutation();
-  const dogCheck = "@";
 
   const navigate = useNavigate();
 
@@ -36,6 +37,7 @@ export const Signup = () => {
         console.log(newData);
         localStorage.setItem("token", JSON.stringify(newData.data.accessToken));
         localStorage.setItem("id", JSON.stringify(newData.data.user.id));
+        reset();
         navigate("/");
       } else {
         console.error("Ошибка");
@@ -53,29 +55,40 @@ export const Signup = () => {
     }
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
   return (
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Button>ЗАРЕГИСТРИРОВАТЬСЯ</Button>
-          <span>/</span>
+          <Button className={css.switch}>зарегистрироваться</Button>
+          <span className={css.separatop}>|</span>
           <LinkRRD to={"/authtorize"}>
-            <Button>ВОЙТИ</Button>
+            <Button className={css.switch}>войти</Button>
           </LinkRRD>
-          <div className={css.mainTitle}>
-            <Typography variant="h5">Регистрация</Typography>
-          </div>
+
+          <Typography className={css.mainTitle} variant="h5">
+            Регистрация
+          </Typography>
+
           <div className={css.avatarWrapper}>
-            <Avatar sx={{ width: 40, height: 40 }}>N</Avatar>
-            <Button href="#text-buttons">Загрузить фото</Button>
+            <Avatar sx={{ width: 100, height: 100 }}></Avatar>
+            <Button className={css.uploadPhoto} href="#text-buttons">
+              Загрузить фото
+            </Button>
           </div>
           <div className={css.survey}>
-            <Typography variant="h7">
+            <Typography className={css.for} variant="h7">
               Для чего вы хотите использовать приложение:
             </Typography>
             <div className={css.radioGroup}>
               <label className={css.radioHolder}>
                 <input
+                  {...register("for", {})}
                   {...register("for", {})}
                   className={css.radio}
                   type="radio"
@@ -84,8 +97,10 @@ export const Signup = () => {
                   checked
                 />
                 <div className={css.radioDescr}>
-                  <Typography variant="subtitle1">Для себя</Typography>
-                  <FormHelperText>
+                  <Typography className={css.forSubtitle} variant="subtitle1">
+                    Для себя
+                  </Typography>
+                  <FormHelperText className={css.comment}>
                     личный блог, общение, развлечения
                   </FormHelperText>
                 </div>
@@ -99,9 +114,11 @@ export const Signup = () => {
                   name="for"
                 />
                 <div className={css.radioDescr}>
-                  <Typography variant="subtitle1">Для бизнеса</Typography>
-                  <FormHelperText>
-                    услуги, магазин, блогерство, реклама
+                  <Typography className={css.forSubtitle} variant="subtitle1">
+                    Для бизнеса
+                  </Typography>
+                  <FormHelperText className={css.comment}>
+                    блогерство, реклама, услуги, магазин
                   </FormHelperText>
                 </div>
               </label>
@@ -119,11 +136,9 @@ export const Signup = () => {
                 id="outlined-size-normal"
                 required
               />
-
               {errors?.name && (
                 <p className={css.err}>{errors?.name?.message}</p>
               )}
-
               <TextField
                 {...register("bio", {
                   required: true,
@@ -135,6 +150,9 @@ export const Signup = () => {
                 rows={4}
                 required
               />
+              {errors.bio && errors.bio.type === "required" && (
+                <p className={css.err}>введите о себе</p>
+              )}
 
               <TextField
                 {...register("nickname", {
@@ -147,17 +165,14 @@ export const Signup = () => {
                 id="outlined-size-normal"
                 required
               />
-
               {errors.nickname && errors.nickname.type === "required" && (
                 <p className={css.err}>введите никнейм</p>
               )}
-
               {errors.nickname && errors.nickname.type === "maxLength" && (
                 <p className={css.err}>
                   никнейм должен быть менее 128 символов
                 </p>
               )}
-
               {errors.nickname && errors.nickname.type === "minLength" && (
                 <p className={css.err}>
                   никнейм должен быть не менее 2 символов
@@ -185,26 +200,32 @@ export const Signup = () => {
                 <p className={css.err}>{errors.email.message}</p>
               )}
 
-              <TextField
-                {...register("password", {
-                  required: "введите пароль",
-                  maxLength: 128,
-                  minLength: 8,
-                })}
-                sx={{ width: 528, height: 49 }}
-                label="Пароль"
-                id="outlined-size-normal"
-                required
-              />
+              <div className={css.password}>
+                <TextField
+                  {...register("password", {
+                    required: "введите пароль",
+                    maxLength: 128,
+                    minLength: 8,
+                  })}
+                  sx={{ width: 528, height: 49 }}
+                  label="Пароль"
+                  id="outlined-size-normal"
+                  type={showPassword ? "text" : "password"}
+                  required
+                />
+                <div className={css.showBtn}>
+                  <IconButton onClick={handleTogglePassword}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </div>
+              </div>
 
               {errors.password && errors.password.type === "required" && (
                 <p className={css.err}>введите пароль</p>
               )}
-
               {errors.password && errors.password.type === "maxLength" && (
                 <p className={css.err}>пароль должен быть менее 128 символов</p>
               )}
-
               {errors.password && errors.password.type === "minLength" && (
                 <p className={css.err}>пароль должен быть более 8 символов</p>
               )}
@@ -215,11 +236,13 @@ export const Signup = () => {
                 className={css.checkbox}
                 type="checkbox"
               ></input>
-              <Typography variant="h9">Я принимаю правила и условия</Typography>
+              <Typography className={css.accept} variant="h9">
+                Я принимаю правила и условия
+              </Typography>
             </div>
             <Button
-              type="submit"
               className={css.btn}
+              type="submit"
               sx={{ width: 528 }}
               variant="contained"
               color="primary"
@@ -229,7 +252,8 @@ export const Signup = () => {
                 !checked ||
                 errors.name ||
                 errors.email ||
-                errors.nickname
+                errors.nickname ||
+                errors.bio
               }
             >
               ЗАРЕГИСТРИРОВАТЬСЯ
@@ -240,5 +264,3 @@ export const Signup = () => {
     </>
   );
 };
-
-// регистрация
