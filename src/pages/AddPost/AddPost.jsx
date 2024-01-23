@@ -11,10 +11,11 @@ import UploadButton from "../../components/UploadButton/UploadButton";
 import ComboBox from "../../components/ComboBox/ComboBox";
 import ClickAway from "../../components/ClickAway/ClickAway";
 import { useState } from "react";
+import { useAddPostMutation } from "../../redux/Api";
 
 export const AddPost = () => {
   const [value, setValue] = useState("");
-
+  const [addPost, { isError }] = useAddPostMutation();
   const handleChange = (event, value) => {
     setValue(value);
   };

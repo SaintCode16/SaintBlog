@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Api } from "./Api";
 import { useState } from "react";
 import authReducer from "./AuthSlice";
+import userReducer from './UserSlice'
 
 // const [isAuth, setIsAuth] = useState(false)
 
@@ -10,6 +11,7 @@ import authReducer from "./AuthSlice";
 
 export const store = configureStore({
   reducer: {
+    user: userReducer,
     [Api.reducerPath]: Api.reducer,
     auth: authReducer,
   },
