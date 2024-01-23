@@ -38,16 +38,15 @@ export const Profile = () => {
           Написать пост
         </Button>
       </LinkRRD>
-      
-        <Stack spacing={2} direction="row">
-          <Button
-            className={s.profile__link}
-            href="https://www.tinkoff.ru/cardtocard/"
-          >
-            Поддержать разработчика
-          </Button>
-        </Stack>
-      </div>
 
+      <Stack spacing={2} direction="row">
+        <Button
+          className={s.profile__link}
+          href="https://www.tinkoff.ru/cardtocard/"
+        >
+          Поддержать разработчика
+        </Button>
+      </Stack>
+    </div>
   );
 };
