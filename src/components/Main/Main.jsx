@@ -7,20 +7,25 @@ import { SpinnerComponent } from "../SpinnerComponent/SpinnerComponent";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setToken, selectToken } from "../../redux/AuthSlice";
+import { useGetUserDataQuery } from "../../redux";
+import { setUser } from "../../redux";
 // import AdditionalComponent from "./AdditionalComponent";
 
 export const Main = () => {
+  const { data } = useGetUserDataQuery();
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
+
+  const isAuth = useSelector((state) => state.user.isAuth);
+  const user = useSelector((state) => state.user.user);
+
+  console.log(data);
+  console.log(user);
 
   useEffect(() => {
-    // Проверяем наличие токена в локальном хранилище при монтировании компонента
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      // Если токен найден, сохраняем его в Redux-стейт
-      dispatch(setToken(storedToken));
+    if (data) {
+      dispatch(setUser(data));
     }
-  }, [dispatch]);
+  }, [data, dispatch]);
 
   const {
     data: posts,
@@ -50,7 +55,7 @@ export const Main = () => {
   }
   return (
     <Container maxWidth="lg" className={s.container}>
-      {token && <Profile />}
+      {isAuth && <Profile />}
 
       <div className={s.hidden}>
         {posts &&

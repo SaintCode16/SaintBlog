@@ -82,6 +82,7 @@ import StarOutline from "@mui/icons-material/StarSharp";
 import Button from "@mui/material/Button";
 import { Link, useParams } from "react-router-dom";
 import { useGetPostsQuery } from "../../redux"; // Импортируйте хук из вашего Redux store
+import { AddComment } from "../../components/AddComment";
 
 export const Post = () => {
   const { postId } = useParams();
@@ -104,7 +105,6 @@ export const Post = () => {
           Back
         </Button>
       </Link>
-
       <h1 className={s.post__title}>{post.title}</h1>
       <div className={s.post__div}>
         <p className={s.post__data}>
@@ -116,7 +116,6 @@ export const Post = () => {
         </div>
         <p className={s.post__text}>{post.text}</p>
       </div>
-
       <div className={s.post__btn}>
         <p className={s.post__username}>{post.author}</p>
 
@@ -130,6 +129,8 @@ export const Post = () => {
           </IconButton>
         </div>
       </div>
+
+      <AddComment postId={postId} />
     </div>
   );
 };
