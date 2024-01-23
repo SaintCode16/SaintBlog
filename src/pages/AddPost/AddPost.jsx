@@ -7,11 +7,11 @@ import {
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
-import UploadButton from "../../components/UploadButton/UploadButton";
 import ComboBox from "../../components/ComboBox/ComboBox";
 import ClickAway from "../../components/ClickAway/ClickAway";
 import { useState } from "react";
 import { useAddPostMutation } from "../../redux/Api";
+import { CloudUpload, UpdateOutlined, Upload } from "@mui/icons-material";
 
 export const AddPost = () => {
   const [value, setValue] = useState("");
@@ -36,13 +36,13 @@ export const AddPost = () => {
     <Container className={s.container} maxWidth="md">
       <div className={s.post}>
         <div className={s.post__top}>
-          <h1 className={s.post__title}>Добавить блог</h1>
+          <h1 className={s.post__title}>Добавить пост</h1>
           <a
             className={s.post__rules}
             href="https://journal.tinkoff.ru/community-rules/"
             target="blank"
           >
-            Правила ➚
+            правила ➚
           </a>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -50,9 +50,15 @@ export const AddPost = () => {
             <div className={s.input__top}>
               <div className={s.input__title}>
                 <TextField
+                  className={s.input__name}
                   inputProps={{
                     minLength: 10,
                     maxLength: 50,
+                  }}
+                  InputProps={{
+                    style: {
+                      borderRadius: "10px",
+                    },
                   }}
                   {...register("title", { required: true, minLength: 10 })}
                   minRows={10}
@@ -75,6 +81,7 @@ export const AddPost = () => {
             </div>
 
             <TextareaAutosize
+              className={s.post__text}
               {...register("post", { required: true, minLength: 20 })}
               minLength={20}
               maxLength={2000}
@@ -85,7 +92,7 @@ export const AddPost = () => {
                 maxWidth: "100%",
                 minWidth: "30%",
                 margin: "20px 0",
-                borderRadius: "5px",
+                borderRadius: "12px",
                 padding: "20px",
                 fontSize: "15px",
                 "&::placeholder": {
@@ -94,13 +101,30 @@ export const AddPost = () => {
               }}
             />
 
-            <p className={s.input__add_img}>Добавьте изображение</p>
-            <UploadButton />
+            <div className={s.upload}>
+              <p className={s.input__add_img}>Добавьте изображение</p>
+
+              <Button
+                className={s.upload__btn}
+                variant="contained"
+                component="label"
+              >
+                <Upload />
+                <input type="file" hidden />
+              </Button>
+            </div>
+
             <Button
+              className={s.btn}
+              InputProps={{
+                style: {
+                  borderRadius: "10px",
+                },
+              }}
               disabled={!isValid}
               type="submit"
               variant="contained"
-              style={{ marginTop: "20px", width: "200px", height: "60px" }}
+              style={{ marginTop: "27px", width: "300px", height: "40px" }}
             >
               Опубликовать
             </Button>

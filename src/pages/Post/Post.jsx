@@ -82,6 +82,8 @@ import StarOutline from "@mui/icons-material/StarSharp";
 import Button from "@mui/material/Button";
 import { Link, useParams } from "react-router-dom";
 import { useGetPostsQuery } from "../../redux"; // Импортируйте хук из вашего Redux store
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import GradeIcon from "@mui/icons-material/Grade";
 
 export const Post = () => {
   const { postId } = useParams();
@@ -98,10 +100,10 @@ export const Post = () => {
         <Button
           className={s.btnr}
           variant="contained"
-          color="error"
+          color="primary"
           size="small"
         >
-          Back
+          назад
         </Button>
       </Link>
 
@@ -111,9 +113,9 @@ export const Post = () => {
           {new Date(post.date).toLocaleDateString()}
         </p>
         <p className={s.post__kat}>{post.subtitle}</p>
-        <div className={s.post__divimg}>
-          <img className={s.post__img} src={post.img.img1x} alt={post.title} />
-        </div>
+
+        <img className={s.post__img} src={post.img.img1x} alt={post.title} />
+
         <p className={s.post__text}>{post.text}</p>
       </div>
 
@@ -121,13 +123,9 @@ export const Post = () => {
         <p className={s.post__username}>{post.author}</p>
 
         <div className={s.post__choice}>
-          <button className={s.post__button}>
-            <ThumbUpIcon />
-          </button>
+          <FavoriteBorderIcon className={s.like} color="primary" />
 
-          <IconButton color="error" size="large">
-            <StarOutline />
-          </IconButton>
+          <GradeIcon className={s.finger} color="primary" />
         </div>
       </div>
     </div>
