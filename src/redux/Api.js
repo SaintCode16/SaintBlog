@@ -28,14 +28,10 @@ export const Api = createApi({
     // JSON.parse(localStorage.getItem("id")
 
     addComment: builder.mutation({
-      query: (
-        data,
-        userId = JSON.parse(localStorage.getItem("id")),
-
-      ) => ({
+      query: (data, userId = JSON.parse(localStorage.getItem("id"))) => ({
         url: "comments",
         method: "POST",
-        body: { ...data, userId},
+        body: { ...data, userId },
         headers: {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },

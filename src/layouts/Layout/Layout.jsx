@@ -14,7 +14,7 @@ export const Layout = () => {
 
   const isAuth = useSelector((state) => state.user.isAuth);
   const user = useSelector((state) => state.user.user);
-  
+
   console.log(data);
   console.log(user);
 
