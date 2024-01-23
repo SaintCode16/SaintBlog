@@ -1,4 +1,3 @@
-
 import { Post } from "../../../pages/Post";
 import { WritePost } from "../../../pages/WritePost";
 import { Favorites } from "../../../pages/Favorites";

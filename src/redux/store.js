@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Api } from "./Api";
 import { useState } from "react";
 import authReducer from "./AuthSlice";
-import userReducer from './UserSlice'
+import userReducer from "./UserSlice";
 
 // const [isAuth, setIsAuth] = useState(false)
 
