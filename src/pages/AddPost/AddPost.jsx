@@ -51,7 +51,6 @@ export const AddPost = () => {
 
   isSuccess ? navigate(`/posts/${postId}`) : null;
 
-
   return (
     <Container className={s.container} maxWidth="md">
       <div className={s.post}>
