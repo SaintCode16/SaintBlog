@@ -11,8 +11,12 @@ import { setUser } from "../../redux";
 export const Layout = () => {
   const { data } = useGetUserDataQuery();
   const dispatch = useDispatch();
+
   const isAuth = useSelector((state) => state.user.isAuth);
+  const user = useSelector((state) => state.user.user);
+
   console.log(data);
+  console.log(user);
 
   useEffect(() => {
     if (data) {

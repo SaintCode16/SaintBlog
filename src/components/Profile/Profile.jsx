@@ -9,16 +9,7 @@ import { useDispatch } from "react-redux";
 
 export const Profile = () => {
   const { data } = useGetUserDataQuery();
-  // const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user.user);
-  // console.log(user);
-  // useEffect(() => {
-  //   if (data) {
-  //     dispatch(setUser(data));
-  //   }
-  // }, [data, dispatch]);
-  // console.log(data);
-  // console.log(user);
+
   return (
     <div className={s.profile}>
       <h2 className={s.profile__title}>{data.nickname}</h2>
@@ -53,13 +44,12 @@ export const Profile = () => {
           Написать пост
         </Button>
       </LinkRRD>
-
-      <Button
-        className={s.profile__link}
-        href="https://www.tinkoff.ru/cardtocard/"
-      >
-        Поддержать разработчика
-      </Button>
-    </div>
+          <Button
+            className={s.profile__link}
+            href="https://www.tinkoff.ru/cardtocard/"
+          >
+            Поддержать разработчика
+          </Button>
+      </div>
   );
 };
