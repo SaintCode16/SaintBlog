@@ -1,8 +1,12 @@
+
+
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const Api = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:7000/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://localhost:7000/",
+  }),
   endpoints: (builder) => ({
     getPosts: builder.query({
       query: () => "posts",
@@ -24,9 +28,6 @@ export const Api = createApi({
         body: newUser,
       }),
     }),
-
-    // JSON.parse(localStorage.getItem("id")
-
     addComment: builder.mutation({
       query: (data, userId = JSON.parse(localStorage.getItem("id"))) => ({
         url: "comments",
@@ -37,13 +38,19 @@ export const Api = createApi({
         },
       }),
     }),
-
     getUserData: builder.query({
       query: (id = JSON.parse(localStorage.getItem("id"))) => ({
         url: `users/${id}`,
         headers: {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
+      }),
+    }),
+    addPost: builder.mutation({
+      query: (newPost) => ({
+        url: "posts",
+        method: "POST",
+        body: newPost,
       }),
     }),
   }),
@@ -56,4 +63,5 @@ export const {
   useGetUsersQuery,
   useRegisterUserMutation,
   useGetUserDataQuery,
+  useAddPostMutation,
 } = Api;
