@@ -1,21 +1,27 @@
-import {
-  Container,
-  TextField,
-  TextareaAutosize,
-  Button,
-  useScrollTrigger,
-} from "@mui/material";
+import { Container, TextField, TextareaAutosize, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
 import ComboBox from "../../components/ComboBox/ComboBox";
 import ClickAway from "../../components/ClickAway/ClickAway";
 import { useState } from "react";
 import { useAddPostMutation } from "../../redux/Api";
-import { CloudUpload, UpdateOutlined, Upload } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import UploadButton from "../../components/UploadButton/UploadButton";
 
 export const AddPost = () => {
+  const [addPost, { isError, isLoading, isSuccess, data }] =
+    useAddPostMutation();
+
   const [value, setValue] = useState("");
-  const [addPost, { isError }] = useAddPostMutation();
+  const [base64Image, setBase64Image] = useState("");
+  const [postId, setPostId] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleFileChange = (base64) => {
+    setBase64Image(base64);
+  };
+
   const handleChange = (event, value) => {
     setValue(value);
   };
@@ -27,10 +33,23 @@ export const AddPost = () => {
   } = useForm({
     mode: "onBlur",
   });
-  const onSubmit = (data) => {
-    console.log(JSON.stringify({ ...data, category: value.label }));
-    reset();
+
+  const onSubmit = async (dataForm) => {
+    try {
+      const response = await addPost({
+        ...dataForm,
+        tags: [value.label],
+        userId: localStorage.getItem("id"),
+        date: new Date().toISOString(),
+        img: { img1x: base64Image },
+      });
+      setPostId(response.data.id);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
+  isSuccess ? navigate(`/posts/${postId}`) : null;
 
   return (
     <Container className={s.container} maxWidth="md">
@@ -81,8 +100,7 @@ export const AddPost = () => {
             </div>
 
             <TextareaAutosize
-              className={s.post__text}
-              {...register("post", { required: true, minLength: 20 })}
+              {...register("text", { required: true, minLength: 20 })}
               minLength={20}
               maxLength={2000}
               aria-label="minimum height"
@@ -100,20 +118,15 @@ export const AddPost = () => {
                 },
               }}
             />
-
-            <div className={s.upload}>
-              <p className={s.input__add_img}>Добавьте изображение</p>
-
-              <Button
-                className={s.upload__btn}
-                variant="contained"
-                component="label"
-              >
-                <Upload />
-                <input type="file" hidden />
-              </Button>
-            </div>
-
+            {base64Image && (
+              <img
+                src={base64Image}
+                alt="Image Preview"
+                style={{ width: "100%", marginBottom: "20px" }}
+              />
+            )}
+            <p className={s.input__add_img}>Добавьте изображение</p>
+            <UploadButton handleFileChange={handleFileChange} />
             <Button
               className={s.btn}
               InputProps={{
