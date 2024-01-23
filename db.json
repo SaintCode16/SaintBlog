@@ -14,9 +14,7 @@
     {
       "title": "ваыпваыпывап",
       "text": "import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';import GradeIcon from '@mui/icons-material/Grade';",
-      "tags": [
-        null
-      ],
+      "tags": [null],
       "userId": "1",
       "date": "2024-01-23T15:11:58.295Z",
       "img": {
@@ -27,9 +25,7 @@
     {
       "title": "Redux Toolkit",
       "text": "Welcome to the Redux Essentials tutorial! This tutorial will introduce you to Redux and teach you how to use it the right way, using our latest recommended tools and best practices. By the time you finish, you should be able to start building your own Redux applications using the tools and patterns you've learned here.\nIn Part 1 of this tutorial, we'll cover the key concepts and terms you need to know to use Redux, and in Part 2: Redux App Structure we'll examine a basic React + Redux app to see how the pieces fit together.\nStarting in Part 3: Basic Redux Data Flow, we'll use that knowledge to build a small social media feed app with some real-world features, see how those pieces actually ",
-      "tags": [
-        null
-      ],
+      "tags": [null],
       "userId": "1",
       "date": "2024-01-23T15:17:56.157Z",
       "img": {
