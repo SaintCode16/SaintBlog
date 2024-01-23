@@ -14,19 +14,39 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
-export default function UploadButton() {
+export default function UploadButton({ handleFileChange }) {
+  const handleInputChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      const base64 = reader.result;
+      handleFileChange(base64);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
-    <Button
-      sx={{
-        width: "300px",
-      }}
-      component="label"
-      variant="contained"
-      startIcon={
-        <AddPhotoAlternateIcon sx={{ width: "30px", height: "30px" }} />
-      }
-    >
-      <VisuallyHiddenInput type="file" />
-    </Button>
+    <>
+      <Button
+        sx={{
+          width: "300px",
+        }}
+        component="label"
+        variant="contained"
+        startIcon={
+          <AddPhotoAlternateIcon sx={{ width: "30px", height: "30px" }} />
+        }
+      >
+        <VisuallyHiddenInput
+          type="file"
+          onChange={handleInputChange}
+          accept="image/*"
+        />
+      </Button>
+    </>
   );
 }
