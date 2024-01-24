@@ -5,20 +5,45 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import StarOutline from "@mui/icons-material/StarSharp";
 import Button from "@mui/material/Button";
 import { Link, useParams } from "react-router-dom";
-import { useGetPostsQuery } from "../../redux"; // Импортируйте хук из вашего Redux store
+import { useGetCommentsQuery, useGetPostsQuery } from "../../redux"; // Импортируйте хук из вашего Redux store
 import { AddComment } from "../../components/AddComment";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import GradeIcon from "@mui/icons-material/Grade";
+import { useState, useEffect } from "react";
 
 export const Post = () => {
   const { postId } = useParams();
   const { data: posts } = useGetPostsQuery();
   const post = posts?.find((p) => p.id.toString() === postId);
+  const { data: comments } = useGetCommentsQuery();
+  const [postComments, setPostComments] = useState([]);
+
+  console.log(posts);
+  console.log(post);
+
+  // РЕНДЕР ПРИ ОБНОВЛЕНИИ СПИСКА КОММЕНТОВ
+  useEffect(() => {
+    if (comments && post) {
+      setPostComments(
+        comments.filter((comment) => +comment.postId === post.id)
+      );
+    }
+  }, [comments, post]);
+
+  // ОБНОВЛЕНИЕ СОСТОЯНИЯ КОММЕНТОВ
+  function handleNewComment(commentText) {
+    const newComment = {
+      postId,
+      text: commentText,
+    };
+    setPostComments([...postComments, newComment]);
+  }
 
   if (!post) {
     return <div>Пост не найден</div>;
   }
-
+  console.log(comments);
+  console.log(post);
   return (
     <div className={s.post}>
       <Link to="/posts">
@@ -52,7 +77,15 @@ export const Post = () => {
         </div>
       </div>
 
-      <AddComment postId={postId} />
+      {/* КОМПОНЕНТ ДОБАВЛЕНИЯ КОММЕНТА */}
+      <AddComment onCommentAdded={handleNewComment} postId={postId} />
+
+      {/* ОТРИСОВКА КОММЕНТОВ */}
+      <ul>
+        {postComments.map((comment) => (
+          <li key={comment.id}>{comment.text}</li>
+        ))}
+      </ul>
     </div>
   );
 };

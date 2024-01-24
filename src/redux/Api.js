@@ -20,6 +20,9 @@ export const Api = createApi({
     getUsers: builder.query({
       query: () => "users",
     }),
+    getComments: builder.query({
+      query: () => "comments",
+    }),
     registerUser: builder.mutation({
       query: (newUser) => ({
         url: "register",
@@ -63,6 +66,7 @@ export const Api = createApi({
 });
 
 export const {
+  useGetCommentsQuery,
   useAddCommentMutation,
   useLoginUserMutation,
   useGetPostsQuery,
