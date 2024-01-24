@@ -25,4 +25,3 @@ const category = [
   { label: "Книги" },
   { label: "Покупки" },
 ];
-
