@@ -14,7 +14,9 @@
     {
       "title": "BLOGTOPBLOG",
       "text": "Привет, этой мой блог",
-      "tags": ["Еда"],
+      "tags": [
+        "Еда"
+      ],
       "userId": "1",
       "date": "2024-01-23T14:38:15.520Z",
       "img": {
@@ -131,6 +133,48 @@
       "text": "b       b",
       "userId": 1,
       "id": 18
+    },
+    {
+      "postId": "1",
+      "text": "gfggfg",
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "postId": "1",
+      "text": "fff",
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "postId": "1",
+      "text": "",
+      "userId": 1,
+      "id": 21
+    },
+    {
+      "postId": "1",
+      "text": "gdfgdfgdfgdf",
+      "userId": 1,
+      "id": 22
+    },
+    {
+      "postId": "1",
+      "text": "",
+      "userId": 1,
+      "id": 23
+    },
+    {
+      "postId": "1",
+      "text": "dfgdfg",
+      "userId": 1,
+      "id": 24
+    },
+    {
+      "postId": "1",
+      "text": "",
+      "userId": 1,
+      "id": 25
     }
   ]
 }

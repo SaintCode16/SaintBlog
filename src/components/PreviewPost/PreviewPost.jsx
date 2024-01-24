@@ -11,32 +11,33 @@ import { Link } from "react-router-dom";
 export default function PreviewPost({ id, theme, text, img, tags }) {
   return (
     <div className={s.previewPost}>
-      <Card className={s.displayFlex} sx={{ maxWidth: 1100, maxHeight: 400 }}>
-        <CardMedia
-          className={s.img}
-          sx={{ width: 500, height: 320 }}
-          image={img}
-          title="green iguana"
-        />
+      <Card className={s.flexWrapper}>
+        <CardMedia className={s.img} image={img} title="green iguana" />
         <CardContent className={s.content}>
-          <Link to={`/posts/${id}`}>
-            <Typography gutterBottom variant="h5" component="div">
+          <Link to={`/posts/${theme}-${id}`}>
+            <Typography
+              className={s.title}
+              gutterBottom
+              variant="h5"
+              component="div"
+            >
               {theme}
             </Typography>
           </Link>
-          <p>{tags}</p>
-          <Typography
-            sx={{ width: 600, height: 200 }}
-            className={s.text}
-            variant="body2"
-            color="text.secondary"
-          >
+          <p className={s.tags}>{tags}</p>
+          <Typography className={s.text} variant="body2">
             {text}
           </Typography>
-
           <Link to={`/posts/${id}`}>
-            <CardActions className={s.btn}>
-              <Button size="small">Подробнее</Button>
+            <CardActions>
+              <Button
+                className={s.btn}
+                size="small"
+                variant="outlined"
+                href="#outlined-buttons"
+              >
+                Подробнее
+              </Button>
             </CardActions>
           </Link>
         </CardContent>

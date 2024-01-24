@@ -10,7 +10,15 @@ export default function ComboBox({ handleChange }) {
       sx={{ width: 220 }}
       onChange={handleChange}
       renderInput={(params) => (
-        <TextField {...params} label="Выберите категорию" />
+        <TextField
+          {...params}
+          label="Выберите категорию"
+          InputProps={{
+            style: {
+              borderRadius: "10px",
+            },
+          }}
+        />
       )}
     />
   );
