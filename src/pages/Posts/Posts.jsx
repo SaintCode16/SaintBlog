@@ -10,6 +10,7 @@ import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
 
 export const Posts = () => {
+
   const { postId } = useParams();
 
   const { data } = useGetUserDataQuery();
@@ -33,13 +34,13 @@ export const Posts = () => {
     // isLoading: postsLoading,
   } = useGetPostsQuery();
 
-  if (postId) {
-    return (
-      <Container maxWidth="lg" className={s.container}>
-        <Outlet />
-      </Container>
-    );
-  }
+  // if (postId) {
+  //   return (
+  //     <Container maxWidth="lg" className={s.container}>
+  //       <Outlet />
+  //     </Container>
+  //   );
+  // }
 
   return (
     <Container maxWidth="lg" className={s.container}>
