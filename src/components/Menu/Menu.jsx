@@ -5,22 +5,30 @@ export const Menu = () => {
   return (
     <ul className={s.menu}>
       <li className={s.menu__item}>
-        <Link to={"/posts/all"}>
+        <Link underline="none" className={s.menu__link} to={"/posts/all"}>
           <a href="#">Всё</a>
         </Link>
       </li>
       <li className={s.menu__item}>
-        <a href="#">Спорт</a>
+        <a className={s.menu__link} href="#">
+          Спорт
+        </a>
       </li>
       <li className={s.menu__item}>
-        <a href="#">Путешествие</a>
+        <a className={s.menu__link} href="#">
+          Путешествия
+        </a>
       </li>
 
       <li className={s.menu__item}>
-        <a href="#">Лайфхак</a>
+        <a className={s.menu__link} href="#">
+          Лайфхаки
+        </a>
       </li>
       <li className={s.menu__item}>
-        <a href="#">Книги</a>
+        <a className={s.menu__link} href="#">
+          Книги
+        </a>
       </li>
     </ul>
   );

@@ -18,6 +18,7 @@ export const Profile = () => {
         src="https://img.freepik.com/premium-vector/user-profile-icon-in-flat-style-member-avatar-vector-illustration-on-isolated-background-human-permission-sign-business-concept_157943-15752.jpg"
         alt=""
       />
+
       <Button
         className={s.profile__feed}
         variant="contained"
@@ -26,6 +27,7 @@ export const Profile = () => {
       >
         Моя лента
       </Button>
+
       <Button
         className={s.profile__favorites}
         variant="contained"
@@ -45,6 +47,7 @@ export const Profile = () => {
         </Button>
       </LinkRRD>
       <Button
+        target="_blank"
         className={s.profile__link}
         href="https://www.tinkoff.ru/cardtocard/"
       >
