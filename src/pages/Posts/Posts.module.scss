@@ -14,6 +14,10 @@
   gap: 20px !important;
   overflow: scroll;
   padding-top: 20px !important;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: none;
+  }
 }
 
 .hidden::-webkit-scrollbar {

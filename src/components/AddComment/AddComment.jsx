@@ -2,17 +2,27 @@ import s from "./AddComment.module.scss";
 import { useAddCommentMutation } from "../../redux";
 import { useState } from "react";
 
-export const AddComment = ({ postId }) => {
+export const AddComment = ({ postId, onCommentAdded }) => {
   const [inputValue, setValue] = useState("");
+  // ПОЛУЧАЕМ ФУНКЦИЮ ИЗ REDUX API
   const [addComment] = useAddCommentMutation();
 
   function inputHandler(e) {
     setValue(e.target.value);
   }
 
-  function onSubmit(e) {
+  // ОТПРАВКА ФОРМЫ С НАПИСАНИЕМ КОММЕНТА
+  async function onSubmit(e) {
     e.preventDefault();
-    addComment({ postId, text: inputValue });
+    try {
+      // ДОБАВЛЯЕМ КОММЕНТАРИЙ В БАЗУ ДАННЫХ
+      await addComment({ postId, text: inputValue }).unwrap();
+      // ОТПРАВЛЯЕМ ДАННЫЕ ДЛЯ ОБНОВЛЕНИЯ СОСТОЯНИЯ КОММЕНТОВ
+      onCommentAdded(inputValue);
+      setValue("");
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -23,7 +33,7 @@ export const AddComment = ({ postId }) => {
         type="text"
         placeholder="comment"
       />
-      <input type="submit" />
+      <input type="submit" value="Add Comment" />
     </form>
   );
 };

@@ -1,12 +1,31 @@
 import { Container } from "@mui/material";
 import s from "./Main.module.scss";
 import PreviewPost from "../PreviewPost/PreviewPost";
-import { useGetPostsQuery } from "../../redux";
+import { useGetCommentsQuery, useGetPostsQuery } from "../../redux";
 import { Profile } from "../Profile/Profile";
 import { SpinnerComponent } from "../SpinnerComponent/SpinnerComponent";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useGetUserDataQuery } from "../../redux";
+import { setUser } from "../../redux";
+// import AdditionalComponent from "./AdditionalComponent";
 
 export const Main = () => {
-  // const { data } = useGetPostsQuery();
+  const { data } = useGetUserDataQuery();
+  const dispatch = useDispatch();
+
+  const isAuth = useSelector((state) => state.user.isAuth);
+  const user = useSelector((state) => state.user.user);
+
+  console.log(data);
+  console.log(user);
+
+  useEffect(() => {
+    if (data) {
+      dispatch(setUser(data));
+    }
+  }, [data, dispatch]);
+
   const {
     data: posts,
     error: postsError,
@@ -35,7 +54,7 @@ export const Main = () => {
   }
   return (
     <Container maxWidth="lg" className={s.container}>
-      <Profile />
+      {isAuth && <Profile />}
 
       <div className={s.hidden}>
         {posts &&

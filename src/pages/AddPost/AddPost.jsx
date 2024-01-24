@@ -110,7 +110,6 @@ import { useState } from "react";
 import { useAddPostMutation } from "../../redux/Api";
 import { useNavigate } from "react-router-dom";
 import UploadButton from "../../components/UploadButton/UploadButton";
-import { Upload } from "@mui/icons-material";
 
 export const AddPost = () => {
   const [addPost, { isError, isLoading, isSuccess, data }] =
@@ -239,12 +238,13 @@ export const AddPost = () => {
                 style={{ width: "100%", marginBottom: "20px" }}
               />
             )}
-
+            <p className={s.input__add_img}>Добавьте изображение</p>
+            <UploadButton handleFileChange={handleFileChange} />
             <Button
               className={s.btn}
               InputProps={{
                 style: {
-                  borderRadius: "12px",
+                  borderRadius: "10px",
                 },
               }}
               disabled={!isValid}

@@ -3,12 +3,12 @@
 }
 
 .text {
-  margin-top: 6px !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 8 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  margin-top: 12px !important;
   font-size: 14px !important;
   font-weight: 400 !important;
   line-height: normal;
@@ -34,14 +34,15 @@
   background-repeat: no-repeat !important;
 }
 .previewPost {
+  padding: 14px 21px !important;
   width: 100% !important;
-  max-width: 940px !important;
+  max-width: 980px !important;
   height: 338px !important;
 }
 
 .title {
   color: #000;
-  font-size: 26px !important;
+  font-size: 24px !important;
   font-style: normal !important;
   font-weight: 500 !important;
   line-height: normal;
@@ -49,7 +50,7 @@
 }
 
 .flexWrapper {
-  padding: 14px 21px !important;
+  padding: 14px 21px;
   height: 338px;
   display: flex;
   gap: 37px;
@@ -76,15 +77,12 @@
 
 .btn:hover {
   background: #0a84ff !important;
-  border: 2px solid #fff !important;
+  border: none !important;
   color: #fff !important;
 }
 
 .content {
   padding: 14px 21px 14px 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between;
 }
 
 @media (max-width: 1650px) {
