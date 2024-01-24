@@ -6,39 +6,46 @@ import { useEffect, useState } from "react";
 import PreviewPost from "../../components/PreviewPost/PreviewPost";
 import { Outlet, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setToken, selectToken } from "../../redux/AuthSlice";
+import { useGetUserDataQuery } from "../../redux";
+import { setUser } from "../../redux";
 
 export const Posts = () => {
-  const { data } = useGetPostsQuery();
-  const { postId } = useParams();
-
+  const { data } = useGetUserDataQuery();
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
+
+  const isAuth = useSelector((state) => state.user.isAuth);
+  const user = useSelector((state) => state.user.user);
+
+  console.log(data);
+  console.log(user);
 
   useEffect(() => {
-    // Проверяем наличие токена в локальном хранилище при монтировании компонента
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-      // Если токен найден, сохраняем его в Redux-стейт
-      dispatch(setToken(storedToken));
+    if (data) {
+      dispatch(setUser(data));
     }
-  }, [dispatch]);
+  }, [data, dispatch]);
 
-  if (postId) {
-    return (
-      <Container maxWidth="lg" className={s.container}>
-        <Outlet />
-      </Container>
-    );
-  }
+  const {
+    data: posts,
+    // error: postsError,
+    // isLoading: postsLoading,
+  } = useGetPostsQuery();
+
+  // if (postId) {
+  //   return (
+  //     <Container maxWidth="lg" className={s.container}>
+  //       <Outlet />
+  //     </Container>
+  //   );
+  // }
 
   return (
     <Container maxWidth="lg" className={s.container}>
-      {token && <Profile />}
+      {isAuth && <Profile />}
 
       <div className={s.hidden}>
-        {data &&
-          data.map((post) => {
+        {posts &&
+          posts.map((post) => {
             return (
               <PreviewPost
                 key={post.id}
