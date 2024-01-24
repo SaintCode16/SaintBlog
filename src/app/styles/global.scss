@@ -5,5 +5,22 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input:focus {
+  outline: none !important;
 }

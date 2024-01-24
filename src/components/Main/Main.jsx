@@ -6,7 +6,6 @@ import { Profile } from "../Profile/Profile";
 import { SpinnerComponent } from "../SpinnerComponent/SpinnerComponent";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setToken, selectToken } from "../../redux/AuthSlice";
 import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
 // import AdditionalComponent from "./AdditionalComponent";
