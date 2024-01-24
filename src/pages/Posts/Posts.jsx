@@ -10,6 +10,9 @@ import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
 
 export const Posts = () => {
+
+  const { postId } = useParams();
+
   const { data } = useGetUserDataQuery();
   const dispatch = useDispatch();
 
