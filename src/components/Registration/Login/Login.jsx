@@ -13,6 +13,9 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 
 export const Login = () => {
+  const [loginUser, { isSuccess }] = useLoginUserMutation();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -22,9 +25,20 @@ export const Login = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      const newData = await loginUser(data);
+      if (newData) {
+        console.log(newData);
+        localStorage.setItem("token", JSON.stringify(newData.data.accessToken));
+        localStorage.setItem("id", JSON.stringify(newData.data.user.id));
+        navigate("/");
+      } else {
+        console.error("Ошибка");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -101,7 +115,6 @@ export const Login = () => {
                   </IconButton>
                 </div>
               </div>
-
               {errors.password && errors.password.type === "required" && (
                 <p className={css.err}>введите пароль</p>
               )}
