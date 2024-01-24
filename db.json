@@ -67,5 +67,156 @@
       "id": 5
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "postId": "1",
+      "text": "Классный блог!",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "postId": "1",
+      "text": "dsds",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "postId": "1",
+      "text": "dsdsasd",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "postId": "1",
+      "text": "dsdsasddas",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "postId": "1",
+      "text": "тьбтьб",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "postId": "1",
+      "text": "n",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "postId": "1",
+      "text": "n,,",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "postId": "1",
+      "text": "ыы",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "postId": "1",
+      "text": "ыы",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "postId": "1",
+      "text": "ы",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "postId": "1",
+      "text": "ы",
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "postId": "1",
+      "text": "ыафыа",
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "postId": "1",
+      "text": "афыа",
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "postId": "1",
+      "text": "бб",
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "postId": "1",
+      "text": "б",
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "postId": "1",
+      "text": "б",
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "postId": "1",
+      "text": "  b",
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "postId": "1",
+      "text": "b       b",
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "postId": "1",
+      "text": "gfggfg",
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "postId": "1",
+      "text": "fff",
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "postId": "1",
+      "text": "",
+      "userId": 1,
+      "id": 21
+    },
+    {
+      "postId": "1",
+      "text": "gdfgdfgdfgdf",
+      "userId": 1,
+      "id": 22
+    },
+    {
+      "postId": "1",
+      "text": "",
+      "userId": 1,
+      "id": 23
+    },
+    {
+      "postId": "1",
+      "text": "dfgdfg",
+      "userId": 1,
+      "id": 24
+    },
+    {
+      "postId": "1",
+      "text": "",
+      "userId": 1,
+      "id": 25
+    }
+  ]
 }

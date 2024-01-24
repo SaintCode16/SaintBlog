@@ -21,3 +21,5 @@ const userSlice = createSlice({
 
 export const { setUser, setLogout } = userSlice.actions;
 export default userSlice.reducer;
+
+// кнопка выхода, очистка localstorage

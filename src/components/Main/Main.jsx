@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import s from "./Main.module.scss";
 import PreviewPost from "../PreviewPost/PreviewPost";
-import { useGetPostsQuery } from "../../redux";
+import { useGetCommentsQuery, useGetPostsQuery } from "../../redux";
 import { Profile } from "../Profile/Profile";
 import { SpinnerComponent } from "../SpinnerComponent/SpinnerComponent";
 import { useEffect } from "react";
