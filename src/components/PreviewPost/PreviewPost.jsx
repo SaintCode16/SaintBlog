@@ -14,7 +14,7 @@ export default function PreviewPost({ id, theme, text, img, tags }) {
       <Card className={s.flexWrapper}>
         <CardMedia className={s.img} image={img} title="green iguana" />
         <CardContent className={s.content}>
-          <Link to={`/posts/${theme}-${id}`}>
+          <Link to={`/posts/${id}`}>
             <Typography
               className={s.title}
               gutterBottom
