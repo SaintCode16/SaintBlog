@@ -47,6 +47,7 @@ export const Profile = () => {
         </Button>
       </LinkRRD>
       <Button
+        target="_blank"
         className={s.profile__link}
         href="https://www.tinkoff.ru/cardtocard/"
       >
