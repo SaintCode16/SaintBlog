@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import s from "./Main.module.scss";
 import PreviewPost from "../PreviewPost/PreviewPost";
-import { useGetPostsQuery } from "../../redux";
+import { useGetCommentsQuery, useGetPostsQuery } from "../../redux";
 import { Profile } from "../Profile/Profile";
 import { SpinnerComponent } from "../SpinnerComponent/SpinnerComponent";
 import { useEffect } from "react";
@@ -12,6 +12,8 @@ import { setToken, selectToken } from "../../redux/AuthSlice";
 export const Main = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
+
+
 
   useEffect(() => {
     // Проверяем наличие токена в локальном хранилище при монтировании компонента
