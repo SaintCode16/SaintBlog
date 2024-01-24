@@ -1,4 +1,3 @@
-
 import { Container, TextField, TextareaAutosize, Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
@@ -136,7 +135,7 @@ export const AddPost = () => {
                 style={{ width: "100%", marginBottom: "20px" }}
               />
             )}
-            
+
             <Button
               className={s.btn}
               InputProps={{
