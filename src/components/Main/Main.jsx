@@ -74,5 +74,3 @@ export const Main = () => {
     </Container>
   );
 };
-
-// пост запрос на register

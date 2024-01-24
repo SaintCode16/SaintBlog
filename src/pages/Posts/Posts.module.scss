@@ -10,7 +10,7 @@
   max-height: 80vh;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-between !important;
+  align-items: end !important;
   gap: 20px !important;
   overflow: scroll;
   padding-top: 20px !important;
@@ -18,4 +18,13 @@
   &::-webkit-scrollbar {
     width: none;
   }
+}
+
+.hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
