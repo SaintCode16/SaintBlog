@@ -10,26 +10,26 @@ import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
 
 export const Posts = () => {
-const { data } = useGetUserDataQuery();
-const dispatch = useDispatch();
+  const { data } = useGetUserDataQuery();
+  const dispatch = useDispatch();
 
-const isAuth = useSelector((state) => state.user.isAuth);
-const user = useSelector((state) => state.user.user);
+  const isAuth = useSelector((state) => state.user.isAuth);
+  const user = useSelector((state) => state.user.user);
 
-console.log(data);
-console.log(user);
+  console.log(data);
+  console.log(user);
 
-useEffect(() => {
-  if (data) {
-    dispatch(setUser(data));
-  }
-}, [data, dispatch]);
+  useEffect(() => {
+    if (data) {
+      dispatch(setUser(data));
+    }
+  }, [data, dispatch]);
 
-const {
-  data: posts,
-  // error: postsError,
-  // isLoading: postsLoading,
-} = useGetPostsQuery();
+  const {
+    data: posts,
+    // error: postsError,
+    // isLoading: postsLoading,
+  } = useGetPostsQuery();
 
   // if (postId) {
   //   return (
