@@ -7,18 +7,10 @@ export default function ComboBox({ handleChange }) {
       disablePortal
       id="combo-box-demo"
       options={category}
-      sx={{ width: 220 }}
+      sx={{ width: 220, borderRadius: 12 }}
       onChange={handleChange}
       renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Выберите категорию"
-          InputProps={{
-            style: {
-              borderRadius: "10px",
-            },
-          }}
-        />
+        <TextField {...params} label="Выберите категорию" />
       )}
     />
   );
@@ -33,3 +25,4 @@ const category = [
   { label: "Книги" },
   { label: "Покупки" },
 ];
+
