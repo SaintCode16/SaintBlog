@@ -25,7 +25,7 @@ export const Post = () => {
   useEffect(() => {
     if (comments && post) {
       setPostComments(
-        comments.filter((comment) => +comment.postId === post.id),
+        comments.filter((comment) => +comment.postId === post.id)
       );
     }
   }, [comments, post]);
@@ -81,9 +81,11 @@ export const Post = () => {
       <AddComment onCommentAdded={handleNewComment} postId={postId} />
 
       {/* ОТРИСОВКА КОММЕНТОВ */}
-      <ul>
+      <ul className={s.commList}>
         {postComments.map((comment) => (
-          <li key={comment.id}>{comment.text}</li>
+          <li className={s.commentLi} key={comment.id}>
+            {comment.text}
+          </li>
         ))}
       </ul>
     </div>

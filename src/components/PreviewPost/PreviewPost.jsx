@@ -14,20 +14,25 @@ export default function PreviewPost({ id, theme, text, img, tags }) {
       <Card className={s.flexWrapper}>
         <CardMedia className={s.img} image={img} title="green iguana" />
         <CardContent className={s.content}>
-          <Link to={`/posts/${id}`}>
-            <Typography
-              className={s.title}
-              gutterBottom
-              variant="h5"
-              component="div"
-            >
-              {theme}
+          <div>
+            <div>
+              <Link to={`/posts/${id}`}>
+                <Typography
+                  className={s.title}
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                >
+                  {theme}
+                </Typography>
+              </Link>
+              <p className={s.tags}>{tags}</p>
+            </div>
+            <Typography className={s.text} variant="body2">
+              {text}
             </Typography>
-          </Link>
-          <p className={s.tags}>{tags}</p>
-          <Typography className={s.text} variant="body2">
-            {text}
-          </Typography>
+          </div>
+
           <Link to={`/posts/${id}`}>
             <CardActions>
               <Button

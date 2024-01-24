@@ -33,13 +33,13 @@ export const Posts = () => {
     // isLoading: postsLoading,
   } = useGetPostsQuery();
 
-  // if (postId) {
-  //   return (
-  //     <Container maxWidth="lg" className={s.container}>
-  //       <Outlet />
-  //     </Container>
-  //   );
-  // }
+  if (postId) {
+    return (
+      <Container maxWidth="lg" className={s.container}>
+        <Outlet />
+      </Container>
+    );
+  }
 
   return (
     <Container maxWidth="lg" className={s.container}>
@@ -53,7 +53,7 @@ export const Posts = () => {
                 key={post.id}
                 id={post.id}
                 theme={post.title}
-                text={post.text}
+                text={post.post}
                 img={post.img.img1x}
                 tags={post.tags.join(", ")}
               />
