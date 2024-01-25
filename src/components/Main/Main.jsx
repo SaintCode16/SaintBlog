@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
+import { useParams } from "react-router-dom";
 // import AdditionalComponent from "./AdditionalComponent";
 
 export const Main = () => {
@@ -16,9 +17,6 @@ export const Main = () => {
 
   const isAuth = useSelector((state) => state.user.isAuth);
   const user = useSelector((state) => state.user.user);
-
-  console.log(data);
-  console.log(user);
 
   useEffect(() => {
     if (data) {
@@ -43,6 +41,7 @@ export const Main = () => {
       </Container>
     );
   }
+
   if (postsError) {
     return (
       <Container maxWidth="lg" className={s.container}>
@@ -52,6 +51,7 @@ export const Main = () => {
       </Container>
     );
   }
+
   return (
     <Container maxWidth="lg" className={s.container}>
       {isAuth && <Profile />}
@@ -64,7 +64,7 @@ export const Main = () => {
                 key={post.id}
                 id={post.id}
                 theme={post.title}
-                text={post.text}
+                text={post.post}
                 img={post.img.img1x}
                 tags={post.tags.join(", ")}
               />
@@ -74,5 +74,3 @@ export const Main = () => {
     </Container>
   );
 };
-
-// пост запрос на register

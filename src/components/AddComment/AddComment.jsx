@@ -14,9 +14,17 @@ export const AddComment = ({ postId, onCommentAdded }) => {
   // ОТПРАВКА ФОРМЫ С НАПИСАНИЕМ КОММЕНТА
   async function onSubmit(e) {
     e.preventDefault();
+
+    if (!inputValue.trim().length) {
+      return;
+    }
+
     try {
       // ДОБАВЛЯЕМ КОММЕНТАРИЙ В БАЗУ ДАННЫХ
-      await addComment({ postId, text: inputValue }).unwrap();
+      await addComment({
+        postId,
+        text: inputValue,
+      }).unwrap();
       // ОТПРАВЛЯЕМ ДАННЫЕ ДЛЯ ОБНОВЛЕНИЯ СОСТОЯНИЯ КОММЕНТОВ
       onCommentAdded(inputValue);
       setValue("");
@@ -26,14 +34,15 @@ export const AddComment = ({ postId, onCommentAdded }) => {
   }
 
   return (
-    <form onSubmit={onSubmit} action="post">
+    <form className={s.form} onSubmit={onSubmit} action="post">
       <input
+        className={s.input}
         onChange={inputHandler}
         value={inputValue}
         type="text"
-        placeholder="comment"
+        placeholder="Введите комментарий"
       />
-      <input type="submit" value="Add Comment" />
+      <input className={s.btn} type="submit" value="добавить"></input>
     </form>
   );
 };
