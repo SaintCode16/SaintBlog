@@ -10,22 +10,53 @@ import { AddComment } from "../../components/AddComment";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import GradeIcon from "@mui/icons-material/Grade";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../redux/favoritesSlice";
 
 export const Post = () => {
+  // ПОЛУЧАЕМ ПОСТ ID ИЗ ROUTER
   const { postId } = useParams();
+
+  // ПОЛУЧАЕМ ДАННЫЙ ПОСТ И КОММЕНТЫ К НЕМУ
   const { data: posts } = useGetPostsQuery();
   const post = posts?.find((p) => p.id.toString() === postId);
   const { data: comments } = useGetCommentsQuery();
   const [postComments, setPostComments] = useState([]);
 
-  console.log(posts);
-  console.log(post);
+  // ДОБАВЛЕН/НЕ ДОБАВЛЕН КОММЕНТ В ИЗБРАННОЕ
+  const [isFavorite, setIsFavorite] = useState(false);
+  const dispatch = useDispatch();
+
+  // ФУНКЦИЯ ДОБАВЛЕНИЯ В ИЗБРАННОЕ
+  const handleAddToFavorites = () => {
+    dispatch(addToFavorites(post.id));
+    setIsFavorite(true);
+  };
+
+  // ФУНКЦИЯ УДАЛЕНИЯ ИЗ ИЗБРАННОГО
+  const handleRemoveFromFavorites = () => {
+    dispatch(removeFromFavorites(post.id));
+    setIsFavorite(false);
+  };
+
+  // ПРОВЕРКА НА ИЗБРАННОЕ
+  const checkIsFavorite = () => {
+    // ДОБАВЛЕН - УДАЛЯЕМ И НАОБОРОТ
+    if (isFavorite) {
+      handleRemoveFromFavorites();
+    } else {
+      handleAddToFavorites();
+    }
+  };
 
   // РЕНДЕР ПРИ ОБНОВЛЕНИИ СПИСКА КОММЕНТОВ
   useEffect(() => {
     if (comments && post) {
       setPostComments(
-        comments.filter((comment) => +comment.postId === post.id),
+        comments.filter((comment) => +comment.postId === post.id)
       );
     }
   }, [comments, post]);
@@ -42,8 +73,7 @@ export const Post = () => {
   if (!post) {
     return <div>Пост не найден</div>;
   }
-  console.log(comments);
-  console.log(post);
+
   return (
     <div className={s.post}>
       <Link to="/posts">
@@ -71,7 +101,11 @@ export const Post = () => {
         <p className={s.post__username}>{post.author}</p>
 
         <div className={s.post__choice}>
-          <FavoriteBorderIcon className={s.like} color="primary" />
+          <FavoriteBorderIcon
+            onClick={checkIsFavorite}
+            className={s.like}
+            color="primary"
+          />
 
           <GradeIcon className={s.finger} color="primary" />
         </div>

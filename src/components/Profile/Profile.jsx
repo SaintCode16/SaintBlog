@@ -1,7 +1,7 @@
 import s from "./Profile.module.scss";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { Link as LinkRRD } from "react-router-dom";
+import { Link, Link as LinkRRD } from "react-router-dom";
 import { useGetUserDataQuery, setUser } from "../../redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -19,23 +19,28 @@ export const Profile = () => {
         alt=""
       />
 
-      <Button
-        className={s.profile__feed}
-        variant="contained"
-        color="success"
-        size="large"
-      >
-        Моя лента
-      </Button>
+      <Link to="/myposts">
+        <Button
+          className={s.profile__feed}
+          variant="contained"
+          color="success"
+          size="large"
+        >
+          Мои посты
+        </Button>
+      </Link>
 
-      <Button
-        className={s.profile__favorites}
-        variant="contained"
-        color="success"
-        size="large"
-      >
-        Избранное
-      </Button>
+      <Link to="/favorites">
+        <Button
+          className={s.profile__favorites}
+          variant="contained"
+          color="success"
+          size="large"
+        >
+          Избранное
+        </Button>
+      </Link>
+
       <LinkRRD to={"/add"}>
         <Button
           className={s.profile__post}

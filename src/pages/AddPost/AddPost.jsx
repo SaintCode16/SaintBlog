@@ -152,7 +152,7 @@ export const AddPost = () => {
     }
   };
 
-  isSuccess ? navigate(`/posts/${postId}`) : null;
+  isSuccess ? navigate(`/posts`) : null;
 
   return (
     <Container className={s.container} maxWidth="md">
@@ -222,14 +222,6 @@ export const AddPost = () => {
                 },
               }}
             />
-
-            <div className={s.upload}>
-              <p className={s.input__add_img}>Добавьте изображение</p>
-              <UploadButton
-                className={s.upload__btn}
-                handleFileChange={handleFileChange}
-              />
-            </div>
 
             {base64Image && (
               <img
