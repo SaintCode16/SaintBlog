@@ -34,14 +34,15 @@ export const AddComment = ({ postId, onCommentAdded }) => {
   }
 
   return (
-    <form onSubmit={onSubmit} action="post">
+    <form className={s.form} onSubmit={onSubmit} action="post">
       <input
+        className={s.input}
         onChange={inputHandler}
         value={inputValue}
         type="text"
-        placeholder="comment"
+        placeholder="Введите комментарий"
       />
-      <input type="submit" value="Add Comment" />
+      <input className={s.btn} type="submit" value="добавить"></input>
     </form>
   );
 };

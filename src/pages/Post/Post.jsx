@@ -115,9 +115,11 @@ export const Post = () => {
       <AddComment onCommentAdded={handleNewComment} postId={postId} />
 
       {/* ОТРИСОВКА КОММЕНТОВ */}
-      <ul>
+      <ul className={s.commList}>
         {postComments.map((comment) => (
-          <li key={comment.id}>{comment.text}</li>
+          <li className={s.commentLi} key={comment.id}>
+            {comment.text}
+          </li>
         ))}
       </ul>
     </div>

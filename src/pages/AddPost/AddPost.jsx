@@ -223,6 +223,14 @@ export const AddPost = () => {
               }}
             />
 
+            <div className={s.upload}>
+              <p className={s.input__add_img}>Добавьте изображение</p>
+              <UploadButton
+                className={s.upload__btn}
+                handleFileChange={handleFileChange}
+              />
+            </div>
+
             {base64Image && (
               <img
                 src={base64Image}
@@ -230,8 +238,7 @@ export const AddPost = () => {
                 style={{ width: "100%", marginBottom: "20px" }}
               />
             )}
-            <p className={s.input__add_img}>Добавьте изображение</p>
-            <UploadButton handleFileChange={handleFileChange} />
+
             <Button
               className={s.btn}
               InputProps={{
