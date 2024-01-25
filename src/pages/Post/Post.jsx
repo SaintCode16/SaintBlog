@@ -56,7 +56,7 @@ export const Post = () => {
   useEffect(() => {
     if (comments && post) {
       setPostComments(
-        comments.filter((comment) => +comment.postId === post.id)
+        comments.filter((comment) => +comment.postId === post.id),
       );
     }
   }, [comments, post]);
