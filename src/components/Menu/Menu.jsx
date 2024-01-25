@@ -6,28 +6,28 @@ export const Menu = () => {
     <ul className={s.menu}>
       <li className={s.menu__item}>
         <Link underline="none" className={s.menu__link} to={"/posts/all"}>
-          <a href="#">Всё</a>
+          <a href="#">All</a>
         </Link>
       </li>
       <li className={s.menu__item}>
         <a className={s.menu__link} href="#">
-          Спорт
+          Sport
         </a>
       </li>
       <li className={s.menu__item}>
         <a className={s.menu__link} href="#">
-          Путешествия
+          Travelling
         </a>
       </li>
 
       <li className={s.menu__item}>
         <a className={s.menu__link} href="#">
-          Лайфхаки
+          Lifehacks
         </a>
       </li>
       <li className={s.menu__item}>
         <a className={s.menu__link} href="#">
-          Книги
+          Books
         </a>
       </li>
     </ul>

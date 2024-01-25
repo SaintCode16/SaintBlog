@@ -41,7 +41,7 @@ export default function PreviewPost({ id, theme, text, img, tags }) {
                 variant="outlined"
                 href="#outlined-buttons"
               >
-                Подробнее
+                read more
               </Button>
             </CardActions>
           </Link>

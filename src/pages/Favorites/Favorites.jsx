@@ -39,7 +39,7 @@ export const Favorites = () => {
   if (favoritesPosts.length === 0) {
     return (
       <Container maxWidth="lg" className={s.container}>
-        <h2>В избранное ничего не добавлено</h2>
+        <h2>Nothing added to favorites</h2>
       </Container>
     );
   }

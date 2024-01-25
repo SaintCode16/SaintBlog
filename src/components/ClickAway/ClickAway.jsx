@@ -46,9 +46,7 @@ export default function ClickAway() {
           <b>?</b>
         </button>
         {open ? (
-          <Box sx={styles}>
-            Кратко сформулируйте основную суть вашего текста
-          </Box>
+          <Box sx={styles}>Briefly formulate the main essence of your text</Box>
         ) : null}
       </Box>
     </ClickAwayListener>
