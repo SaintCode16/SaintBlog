@@ -1,17 +1,15 @@
 {
   "users": [
     {
-      "email": "login@gmail.com",
-      "password": "$2a$10$KBIjBiP0oxaK23CulyFIpu2N1ny6wDGhpDx1j9rPPAL64DE.c4xDi",
-      "for": "Для себя",
-      "name": "login",
-      "bio": "login",
-      "nickname": "login",
+      "email": "ashkmariam01@gmail.com",
+      "password": "$2a$10$TNo/JQUqFPWBLm.sGJy2iOChSNflbT78bAO9g9pXjeClkvMMY473i",
+      "for": "For myself",
+      "name": "sdfasdf",
+      "bio": "sdfasdf",
+      "nickname": "maruam",
       "id": 1
-    },
-   
+    }
+  ],
+
   "posts": [],
   "comments": []
- 
-}
-

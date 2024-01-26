@@ -26,7 +26,7 @@ export const Profile = () => {
           color="success"
           size="large"
         >
-          Мои посты
+          my posts
         </Button>
       </Link>
 
@@ -37,7 +37,7 @@ export const Profile = () => {
           color="success"
           size="large"
         >
-          Избранное
+          Favorites
         </Button>
       </Link>
 
@@ -48,7 +48,7 @@ export const Profile = () => {
           color="inherit"
           size="large"
         >
-          Написать пост
+          add a post
         </Button>
       </LinkRRD>
       <Button
@@ -56,7 +56,7 @@ export const Profile = () => {
         className={s.profile__link}
         href="https://www.tinkoff.ru/cardtocard/"
       >
-        Поддержать разработчика
+        support the developer
       </Button>
     </div>
   );
