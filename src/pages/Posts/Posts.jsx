@@ -10,7 +10,7 @@ import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
 
 export const Posts = () => {
-  const { postId, myposts } = useParams();
+  const { postId, myposts, category } = useParams();
 
   const { data } = useGetUserDataQuery();
   const dispatch = useDispatch();
@@ -34,6 +34,7 @@ export const Posts = () => {
   } = useGetPostsQuery();
 
   console.log(postId);
+  console.log(category);
   console.log(user);
 
   if (myposts) {
@@ -66,7 +67,20 @@ export const Posts = () => {
   if (postId) {
     return (
       <Container maxWidth="lg" className={s.container}>
-        <Outlet />
+        <div className={(s.hidden, s.hidden__post)}>
+          <Outlet />
+        </div>
+      </Container>
+    );
+  }
+
+  if (category) {
+    return (
+      <Container maxWidth="lg" className={s.container}>
+        {isAuth && <Profile />}
+        <div className={s.hidden}>
+          <Outlet />
+        </div>
       </Container>
     );
   }

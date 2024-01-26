@@ -26,7 +26,7 @@ export const Profile = () => {
           color="success"
           size="large"
         >
-          Мои посты
+          МОИ ПОСТЫ
         </Button>
       </Link>
 
@@ -37,7 +37,7 @@ export const Profile = () => {
           color="success"
           size="large"
         >
-          Избранное
+          ИЗБРАННОЕ
         </Button>
       </Link>
 
@@ -48,7 +48,7 @@ export const Profile = () => {
           color="inherit"
           size="large"
         >
-          Написать пост
+          ДОБАВИТЬ ПОСТ
         </Button>
       </LinkRRD>
       <Button
