@@ -1,5 +1,15 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "ashkmariam01@gmail.com",
+      "password": "$2a$10$TNo/JQUqFPWBLm.sGJy2iOChSNflbT78bAO9g9pXjeClkvMMY473i",
+      "for": "For myself",
+      "name": "sdfasdf",
+      "bio": "sdfasdf",
+      "nickname": "maruam",
+      "id": 1
+    }
+  ],
   "posts": [],
   "comments": []
 }
