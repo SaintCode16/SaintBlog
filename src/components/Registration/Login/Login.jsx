@@ -21,8 +21,8 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isValid },
+    setError,
   } = useForm({
     mode: "onBlur",
   });
@@ -40,6 +40,9 @@ export const Login = () => {
       }
     } catch (err) {
       console.error(err);
+      if (isError) {
+        setError("password", { message: "wrong data" });
+      }
     }
   };
 
@@ -54,42 +57,31 @@ export const Login = () => {
       <Container maxWidth="sm">
         <div className={css.holder}>
           <LinkRRD to={"/register"}>
-            <Button className={css.switch}>зарегистрироваться</Button>
+            <Button className={css.switch}>sign up</Button>
           </LinkRRD>
           <span className={css.separatop}>|</span>
-          <Button className={css.switch}>войти</Button>
+          <Button className={css.switch}>log in</Button>
 
           <Typography className={css.mainTitle} variant="h5">
-            Вход
+            Log in
           </Typography>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={css.inputWrapper}>
               <TextField
                 {...register("email", {
-                  required: "Введите почту",
+                  required: "enter email",
                   maxLength: {
                     value: 256,
-                    message: "Почта должна быть менее 256 символов",
+                    message: "Mail must be less than 256 characters",
                   },
                   pattern: {
                     value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                    message: "Введите корректную почту",
-                  },
-                })}
-                {...register("email", {
-                  required: "Введите почту",
-                  maxLength: {
-                    value: 256,
-                    message: "Почта должна быть менее 256 символов",
-                  },
-                  pattern: {
-                    value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                    message: "Введите корректную почту",
+                    message: "enter correct email",
                   },
                 })}
                 sx={{ width: 528, height: 49 }}
-                label="Почта"
+                label="Email"
                 id="outlined-size-normal"
                 required
               />
@@ -105,7 +97,7 @@ export const Login = () => {
                     minLength: 8,
                   })}
                   sx={{ width: 528, height: 49 }}
-                  label="Пароль"
+                  label="Password"
                   id="outlined-size-normal"
                   type={showPassword ? "text" : "password"}
                   required
@@ -117,14 +109,22 @@ export const Login = () => {
                   </IconButton>
                 </div>
               </div>
+
+              {errors.password && errors.password.message === "wrong data" && (
+                <p className={css.err}>{errors.password.message}</p>
+              )}
               {errors.password && errors.password.type === "required" && (
-                <p className={css.err}>введите пароль</p>
+                <p className={css.err}>enter password</p>
               )}
               {errors.password && errors.password.type === "maxLength" && (
-                <p className={css.err}>пароль должен быть менее 128 символов</p>
+                <p className={css.err}>
+                  password must be less than 128 characters
+                </p>
               )}
               {errors.password && errors.password.type === "minLength" && (
-                <p className={css.err}>пароль должен быть более 8 символов</p>
+                <p className={css.err}>
+                  password must be more than 8 characters
+                </p>
               )}
             </div>
 
@@ -136,7 +136,7 @@ export const Login = () => {
               color="primary"
               disabled={!isValid}
             >
-              ВОЙТИ
+              LOG IN
             </Button>
           </form>
         </div>

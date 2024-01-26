@@ -30,6 +30,21 @@ export const Post = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   // Фильтруем комментарии по пользователям
+  //   if (comments && comments.users) {
+  //     const filteredComments = comments.filter((comment) => {
+  //       // Предположим, что в комментариях есть поле userId, соответствующее id пользователя
+  //       return (
+  //         comment.userId &&
+  //         comments.users.find((user) => user.id === comment.userId)
+  //       );
+  //     });
+
+  //     setPostComments(filteredComments);
+  //   }
+  // }, [comments]);
+
   // ФУНКЦИЯ ДОБАВЛЕНИЯ В ИЗБРАННОЕ
   const handleAddToFavorites = () => {
     dispatch(addToFavorites(post.id));
@@ -56,7 +71,7 @@ export const Post = () => {
   useEffect(() => {
     if (comments && post) {
       setPostComments(
-        comments.filter((comment) => +comment.postId === post.id),
+        comments.filter((comment) => +comment.postId === post.id)
       );
     }
   }, [comments, post]);
@@ -71,8 +86,12 @@ export const Post = () => {
   }
 
   if (!post) {
-    return <div>Пост не найден</div>;
+    return <div>Post not found</div>;
   }
+
+  //ДАТА ДЛЯ КОММЕНТОВ
+  const date = new Date();
+  const formattedDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 
   return (
     <div className={s.post}>
@@ -106,8 +125,6 @@ export const Post = () => {
             className={s.like}
             color="primary"
           />
-
-          <GradeIcon className={s.finger} color="primary" />
         </div>
       </div>
 
@@ -118,6 +135,8 @@ export const Post = () => {
       <ul className={s.commList}>
         {postComments.map((comment) => (
           <li className={s.commentLi} key={comment.id}>
+            <p>имя автора</p>
+            <p className={s.commentDate}>{formattedDate}</p>
             {comment.text}
           </li>
         ))}

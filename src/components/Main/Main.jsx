@@ -9,11 +9,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
 import { useParams } from "react-router-dom";
-// import AdditionalComponent from "./AdditionalComponent";
+import { useAddPostMutation } from "../../redux";
+import { useState } from "react";
 
 export const Main = () => {
   const { data } = useGetUserDataQuery();
   const dispatch = useDispatch();
+  const {
+    data: posts,
+    error: postsError,
+    isLoading: postsLoading,
+  } = useGetPostsQuery();
 
   const isAuth = useSelector((state) => state.user.isAuth);
   const user = useSelector((state) => state.user.user);
@@ -23,12 +29,6 @@ export const Main = () => {
       dispatch(setUser(data));
     }
   }, [data, dispatch]);
-
-  const {
-    data: posts,
-    error: postsError,
-    isLoading: postsLoading,
-  } = useGetPostsQuery();
 
   const anyLoading = postsLoading;
 
@@ -64,7 +64,7 @@ export const Main = () => {
                 key={post.id}
                 id={post.id}
                 theme={post.title}
-                text={post.post}
+                text={post.text}
                 img={post.img.img1x}
                 tags={post.tags.join(", ")}
               />

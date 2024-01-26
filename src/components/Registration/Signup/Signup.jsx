@@ -71,14 +71,14 @@ export const Signup = () => {
     <>
       <Container maxWidth="sm">
         <div className={css.holder}>
-          <Button className={css.switch}>зарегистрироваться</Button>
+          <Button className={css.switch}>sign up</Button>
           <span className={css.separatop}>|</span>
           <LinkRRD to={"/authtorize"}>
-            <Button className={css.switch}>войти</Button>
+            <Button className={css.switch}>log in</Button>
           </LinkRRD>
 
           <Typography className={css.mainTitle} variant="h5">
-            Регистрация
+            Sign up
           </Typography>
 
           <div className={css.avatarWrapper}>
@@ -98,25 +98,24 @@ export const Signup = () => {
           </div>
           <div className={css.survey}>
             <Typography className={css.for} variant="h7">
-              Для чего вы хотите использовать приложение:
+              What do you want to use the application for:
             </Typography>
             <div className={css.radioGroup}>
               <label className={css.radioHolder}>
                 <input
                   {...register("for", {})}
-                  {...register("for", {})}
                   className={css.radio}
                   type="radio"
-                  value="Для себя"
+                  value="For myself"
                   name="for"
                   checked
                 />
                 <div className={css.radioDescr}>
                   <Typography className={css.forSubtitle} variant="subtitle1">
-                    Для себя
+                    For myself
                   </Typography>
                   <FormHelperText className={css.comment}>
-                    личный блог, общение, развлечения
+                    personal blog, communication, entertainment
                   </FormHelperText>
                 </div>
               </label>
@@ -125,15 +124,15 @@ export const Signup = () => {
                   {...register("for", {})}
                   className={css.radio}
                   type="radio"
-                  value="Для бизнеса"
+                  value="For business"
                   name="for"
                 />
                 <div className={css.radioDescr}>
                   <Typography className={css.forSubtitle} variant="subtitle1">
-                    Для бизнеса
+                    For business
                   </Typography>
                   <FormHelperText className={css.comment}>
-                    блогерство, реклама, услуги, магазин
+                    blogging, advertising, services, store
                   </FormHelperText>
                 </div>
               </label>
@@ -144,10 +143,10 @@ export const Signup = () => {
             <div className={css.inputWrapper}>
               <TextField
                 {...register("name", {
-                  required: "введите имя",
+                  required: "enter your name",
                 })}
                 sx={{ width: 528, height: 49 }}
-                label="Имя"
+                label="name"
                 id="outlined-size-normal"
                 required
               />
@@ -159,55 +158,55 @@ export const Signup = () => {
                   required: true,
                 })}
                 sx={{ width: 528 }}
-                label="О себе"
+                label="bio"
                 id="outlined-size-normal"
                 multiline
                 rows={4}
                 required
               />
               {errors.bio && errors.bio.type === "required" && (
-                <p className={css.err}>введите о себе</p>
+                <p className={css.err}>enter bio</p>
               )}
 
               <TextField
                 {...register("nickname", {
-                  required: "введите никнейм",
+                  required: "enter a nickname",
                   maxLength: 128,
                   minLength: 2,
                 })}
                 sx={{ width: 528, height: 49 }}
-                label="Никнейм"
+                label="nickname"
                 id="outlined-size-normal"
                 required
               />
               {errors.nickname && errors.nickname.type === "required" && (
-                <p className={css.err}>введите никнейм</p>
+                <p className={css.err}>enter a nickname</p>
               )}
               {errors.nickname && errors.nickname.type === "maxLength" && (
                 <p className={css.err}>
-                  никнейм должен быть менее 128 символов
+                  nickname must be less than 128 characters
                 </p>
               )}
               {errors.nickname && errors.nickname.type === "minLength" && (
                 <p className={css.err}>
-                  никнейм должен быть не менее 2 символов
+                  nickname must be at least 2 characters
                 </p>
               )}
 
               <TextField
                 {...register("email", {
-                  required: "Введите почту",
+                  required: "enter your email",
                   maxLength: {
                     value: 256,
-                    message: "Почта должна быть менее 256 символов",
+                    message: "email must be less than 256 characters",
                   },
                   pattern: {
                     value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                    message: "Введите корректную почту",
+                    message: "enter correct email",
                   },
                 })}
                 sx={{ width: 528, height: 49 }}
-                label="Почта"
+                label="emal"
                 id="outlined-size-normal"
                 required
               />
@@ -218,12 +217,12 @@ export const Signup = () => {
               <div className={css.password}>
                 <TextField
                   {...register("password", {
-                    required: "введите пароль",
+                    required: "enter password",
                     maxLength: 128,
                     minLength: 8,
                   })}
                   sx={{ width: 528, height: 49 }}
-                  label="Пароль"
+                  label="password"
                   id="outlined-size-normal"
                   type={showPassword ? "text" : "password"}
                   required
@@ -236,13 +235,17 @@ export const Signup = () => {
               </div>
 
               {errors.password && errors.password.type === "required" && (
-                <p className={css.err}>введите пароль</p>
+                <p className={css.err}>enter password</p>
               )}
               {errors.password && errors.password.type === "maxLength" && (
-                <p className={css.err}>пароль должен быть менее 128 символов</p>
+                <p className={css.err}>
+                  password must be less than 128 characters
+                </p>
               )}
               {errors.password && errors.password.type === "minLength" && (
-                <p className={css.err}>пароль должен быть более 8 символов</p>
+                <p className={css.err}>
+                  password must be more than 8 characters
+                </p>
               )}
             </div>
             <div className={css.acceptWrapper}>
@@ -252,7 +255,7 @@ export const Signup = () => {
                 type="checkbox"
               ></input>
               <Typography className={css.accept} variant="h9">
-                Я принимаю правила и условия
+                I accept the terms and conditions
               </Typography>
             </div>
             <Button
@@ -271,7 +274,7 @@ export const Signup = () => {
                 errors.bio
               }
             >
-              ЗАРЕГИСТРИРОВАТЬСЯ
+              sign up
             </Button>
           </form>
         </div>

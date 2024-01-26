@@ -16,7 +16,7 @@ export const NotFound = () => {
             <img src={img} alt="error" className={s.notFound__error} />
           </div>
           <LinkRRD to={""}>
-            <Button className={s.notFound__btn}>На главную</Button>
+            <Button className={s.notFound__btn}>To main</Button>
           </LinkRRD>
         </div>
       </Container>

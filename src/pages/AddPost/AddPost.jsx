@@ -1,5 +1,5 @@
 import { Container, TextField, TextareaAutosize, Button } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
 import ComboBox from "../../components/ComboBox/ComboBox";
 import ClickAway from "../../components/ClickAway/ClickAway";
@@ -26,6 +26,7 @@ export const AddPost = () => {
     setValue(value);
   };
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -49,19 +50,18 @@ export const AddPost = () => {
     }
   };
 
-  isSuccess ? navigate(`/posts`) : null;
-
+  isSuccess ? navigate(`/`) : null;
   return (
     <Container className={s.container} maxWidth="md">
       <div className={s.post}>
         <div className={s.post__top}>
-          <h1 className={s.post__title}>Добавить пост</h1>
+          <h1 className={s.post__title}>Add post</h1>
           <a
             className={s.post__rules}
             href="https://journal.tinkoff.ru/community-rules/"
             target="blank"
           >
-            правила ➚
+            rules ➚
           </a>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -71,19 +71,22 @@ export const AddPost = () => {
                 <TextField
                   className={s.input__name}
                   inputProps={{
-                    minLength: 10,
                     maxLength: 50,
                   }}
                   InputProps={{
                     style: {
-                      borderRadius: "10px",
+                      borderRadius: "12px",
                     },
                   }}
-                  {...register("title", { required: true, minLength: 10 })}
+                  {...register("title", {
+                    required: "enter post title",
+                    maxLength: 50,
+                  })}
                   minRows={10}
                   fullWidth
-                  label="Название блога"
-                  placeholder="мин - 10 символов макс - 50 символов"
+                  required
+                  label="post title"
+                  placeholder="enter post title"
                   sx={{
                     width: "600px",
                     minWidth: "30%",
@@ -96,17 +99,22 @@ export const AddPost = () => {
                 />
                 <ClickAway />
               </div>
+
               <ComboBox handleChange={handleChange} />
             </div>
 
+            {errors?.title && <p className={s.err}>{errors?.title?.message}</p>}
+
             <TextareaAutosize
               className={s.post__text}
-              {...register("post", { required: true, minLength: 20 })}
-              minLength={20}
-              maxLength={2000}
+              {...register("text", {
+                required: "enter a nickname",
+                maxLength: 1000,
+              })}
               aria-label="minimum height"
-              minRows={10}
-              placeholder="Ваш текст. Минимум 200 символов "
+              rows={6}
+              multiline
+              placeholder="your text"
               style={{
                 maxWidth: "100%",
                 minWidth: "30%",
@@ -120,9 +128,20 @@ export const AddPost = () => {
               }}
             />
 
+            {errors.text && errors.text.type === "required" && (
+              <p className={s.err}>enter post text</p>
+            )}
+
+            {errors.text && errors.text.type === "maxLength" && (
+              <p className={s.err}>
+                Post text cannot be more than 1000 characters
+              </p>
+            )}
+
             <div className={s.upload}>
-              <p className={s.input__add_img}>Добавьте изображение</p>
+              <p className={s.input__add_img}>add image</p>
               <UploadButton
+                required
                 className={s.upload__btn}
                 handleFileChange={handleFileChange}
               />
@@ -143,12 +162,12 @@ export const AddPost = () => {
                   borderRadius: "10px",
                 },
               }}
-              disabled={!isValid}
+              disabled={!isValid || errors.text || errors.title}
               type="submit"
               variant="contained"
               style={{ marginTop: "27px", width: "300px", height: "40px" }}
             >
-              Опубликовать
+              publish
             </Button>
           </div>
         </form>

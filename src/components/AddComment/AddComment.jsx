@@ -40,9 +40,9 @@ export const AddComment = ({ postId, onCommentAdded }) => {
         onChange={inputHandler}
         value={inputValue}
         type="text"
-        placeholder="Введите комментарий"
+        placeholder="Enter a comment"
       />
-      <input className={s.btn} type="submit" value="добавить"></input>
+      <input className={s.btn} type="submit" value="add"></input>
     </form>
   );
 };

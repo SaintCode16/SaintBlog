@@ -6,9 +6,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function PreviewPost({ id, theme, text, img, tags }) {
+  const { category } = useParams();
+
   return (
     <div className={s.previewPost}>
       <Card className={s.flexWrapper}>
@@ -26,7 +28,11 @@ export default function PreviewPost({ id, theme, text, img, tags }) {
                   {theme}
                 </Typography>
               </Link>
-              <p className={s.tags}>{tags}</p>
+              <Link
+                to={`/posts/category/${tags.replace(/\s\|\s/g, "-").toLowerCase()}`}
+              >
+                <p className={s.tags}>{tags}</p>
+              </Link>
             </div>
             <Typography className={s.text} variant="body2">
               {text}
@@ -41,7 +47,7 @@ export default function PreviewPost({ id, theme, text, img, tags }) {
                 variant="outlined"
                 href="#outlined-buttons"
               >
-                Подробнее
+                read more
               </Button>
             </CardActions>
           </Link>
