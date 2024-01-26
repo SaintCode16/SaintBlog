@@ -13,13 +13,19 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useRegisterUserMutation } from "../../../redux";
+import UploadButton from "../../UploadButton/UploadButton";
 
 export const Signup = () => {
   const [checked, setChecked] = useState(false);
+  const [base64Image, setBase64Image] = useState("");
 
   const [registerUser, { isSuccess }] = useRegisterUserMutation();
 
   const navigate = useNavigate();
+
+  const handleFileChange = (base64) => {
+    setBase64Image(base64);
+  };
 
   const {
     register,
@@ -32,7 +38,7 @@ export const Signup = () => {
 
   const onSubmit = async (data) => {
     try {
-      const newData = await registerUser(data);
+      const newData = await registerUser({ ...data, avatar: base64Image });
       if (newData) {
         console.log(newData);
         localStorage.setItem("token", JSON.stringify(newData.data.accessToken));
@@ -76,10 +82,19 @@ export const Signup = () => {
           </Typography>
 
           <div className={css.avatarWrapper}>
-            <Avatar sx={{ width: 100, height: 100 }}></Avatar>
-            <Button className={css.uploadPhoto} href="#text-buttons">
+            <Avatar
+              src={base64Image ?? null}
+              sx={{ width: 100, height: 100 }}
+            />
+            {/* <Button className={css.uploadPhoto} href="#text-buttons">
               Загрузить фото
-            </Button>
+            </Button> */}
+            <UploadButton
+              className={css.uploadPhoto}
+              handleFileChange={handleFileChange}
+            >
+              Загрузить фото
+            </UploadButton>
           </div>
           <div className={css.survey}>
             <Typography className={css.for} variant="h7">

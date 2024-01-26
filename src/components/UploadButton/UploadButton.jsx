@@ -14,7 +14,7 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
-export default function UploadButton({ handleFileChange }) {
+export default function UploadButton({ handleFileChange, children }) {
   const handleInputChange = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -41,6 +41,7 @@ export default function UploadButton({ handleFileChange }) {
           <AddPhotoAlternateIcon sx={{ width: "30px", height: "30px" }} />
         }
       >
+        {children}
         <VisuallyHiddenInput
           type="file"
           onChange={handleInputChange}
