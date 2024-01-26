@@ -10,8 +10,7 @@ import { useGetUserDataQuery } from "../../redux";
 import { setUser } from "../../redux";
 
 export const Posts = () => {
-const { postId, myposts, category } = useParams();
-
+  const { postId, myposts, category } = useParams();
 
   const { data } = useGetUserDataQuery();
   const dispatch = useDispatch();
@@ -63,7 +62,6 @@ const { postId, myposts, category } = useParams();
       </Container>
     );
   }
-
 
   console.log(postId);
   console.log(user);

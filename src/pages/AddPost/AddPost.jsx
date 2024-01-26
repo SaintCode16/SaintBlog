@@ -96,17 +96,8 @@ export const AddPost = () => {
                 />
                 <ClickAway />
               </div>
-              <Controller
-                name="category"
-                control={control}
-                rules={{ required: "Выбор категории обязателен" }}
-                render={({ field }) => (
-                  <ComboBox
-                    handleChange={(event, value) => field.onChange(value)}
-                    value={field.value}
-                  />
-                )}
-              />
+
+              <ComboBox handleChange={handleChange} />
             </div>
 
             <TextareaAutosize
