@@ -23,8 +23,13 @@
 //   { label: "JS" },
 // ];
 
+
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import { useForm } from "react-hook-form";
+
+// export default function ComboBox({ handleChange }) {
+
 
 export const category = [
   { label: "CSS | HTML" },
@@ -34,6 +39,13 @@ export const category = [
 ];
 
 export default function ComboBox({ handleChange, value }) {
+    const {
+      register,
+      formState: { errors },
+    } = useForm({
+      mode: "onBlur",
+    });
+  
   return (
     <Autocomplete
       disablePortal
@@ -43,8 +55,15 @@ export default function ComboBox({ handleChange, value }) {
       onChange={handleChange}
       value={value}
       renderInput={(params) => (
-        <TextField {...params} label="Выберите категорию" />
+        <TextField
+          {...params}
+          label="Select a category"
+          {...register("category", {
+            required: "select a category",
+          })}
+        />
       )}
     />
   );
 }
+

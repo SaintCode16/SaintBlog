@@ -52,37 +52,7 @@ export const Posts = () => {
                     key={post.id}
                     id={post.id}
                     theme={post.title}
-                    text={post.post}
-                    img={post.img.img1x}
-                    tags={post.tags.join(", ")}
-                  />
-                );
-              })}
-        </div>
-      </Container>
-    );
-  }
-
-  console.log(postId);
-  console.log(user);
-
-  if (myposts) {
-    return (
-      <Container maxWidth="lg" className={s.container}>
-        {isAuth && <Profile />}
-
-        <div className={s.hidden}>
-          {posts &&
-            user &&
-            posts
-              .filter((post) => post.userId == user.id)
-              .map((post) => {
-                return (
-                  <PreviewPost
-                    key={post.id}
-                    id={post.id}
-                    theme={post.title}
-                    text={post.post}
+                    text={post.text}
                     img={post.img.img1x}
                     tags={post.tags.join(", ")}
                   />
@@ -126,7 +96,7 @@ export const Posts = () => {
                 key={post.id}
                 id={post.id}
                 theme={post.title}
-                text={post.post}
+                text={post.text}
                 img={post.img.img1x}
                 tags={post.tags.join(", ")}
               />

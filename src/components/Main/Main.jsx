@@ -64,7 +64,7 @@ export const Main = () => {
                 key={post.id}
                 id={post.id}
                 theme={post.title}
-                text={post.post}
+                text={post.text}
                 img={post.img.img1x}
                 tags={post.tags.join(", ")}
               />
