@@ -25,7 +25,7 @@ export const Category = () => {
       (post) =>
         post.tags &&
         post.tags.length > 0 &&
-        post.tags[0].replace(/\s\|\s/g, "-").toLowerCase() === category
+        post.tags[0].replace(/\s\|\s/g, "-").toLowerCase() === category,
     );
     console.log(filteredPosts);
 
