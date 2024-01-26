@@ -34,7 +34,6 @@ export const Posts = () => {
     // isLoading: postsLoading,
   } = useGetPostsQuery();
 
-
   console.log(postId);
   console.log(user);
 
