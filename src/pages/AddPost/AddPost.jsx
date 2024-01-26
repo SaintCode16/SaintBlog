@@ -152,7 +152,7 @@ export const AddPost = () => {
     }
   };
 
-  isSuccess ? navigate(`/posts/${postId}`) : null;
+  isSuccess ? navigate(`/posts`) : null;
 
   return (
     <Container className={s.container} maxWidth="md">

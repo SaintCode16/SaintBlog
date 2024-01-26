@@ -26,6 +26,16 @@ export const router = createBrowserRouter([
       },
 
       {
+        path: ":myposts",
+        element: <Posts />,
+      },
+
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
+
+      {
         path: "posts",
         element: <Posts />,
         children: [
@@ -33,14 +43,11 @@ export const router = createBrowserRouter([
             path: ":postId",
             element: <Post />,
           },
+
           {
             path: "all",
             element: <Posts />,
             children: [],
-          },
-          {
-            path: "favorites",
-            element: <Favorites />,
           },
 
           {
