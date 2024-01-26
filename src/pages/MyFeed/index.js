@@ -1,1 +1,0 @@
-export { MyFeed } from "./MyFeed";

@@ -39,7 +39,7 @@ export const Favorites = () => {
   if (favoritesPosts.length === 0) {
     return (
       <Container maxWidth="lg" className={s.container}>
-        <h2>Nothing added to favorites</h2>
+        <h2 className={s.warning}>Nothing added to favorites</h2>
       </Container>
     );
   }
@@ -77,7 +77,7 @@ export const Favorites = () => {
                   key={post.id}
                   id={post.id}
                   theme={post.title}
-                  text={post.post}
+                  text={post.text}
                   img={post.img.img1x}
                   tags={post.tags.join(", ")}
                 />

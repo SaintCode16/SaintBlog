@@ -71,7 +71,7 @@ export const Post = () => {
   useEffect(() => {
     if (comments && post) {
       setPostComments(
-        comments.filter((comment) => +comment.postId === post.id),
+        comments.filter((comment) => +comment.postId === post.id)
       );
     }
   }, [comments, post]);
@@ -114,7 +114,7 @@ export const Post = () => {
 
         <img className={s.post__img} src={post.img.img1x} alt={post.title} />
 
-        <p className={s.post__text}>{post.post}</p>
+        <p className={s.post__text}>{post.text}</p>
       </div>
       <div className={s.post__btn}>
         <p className={s.post__username}>{post.author}</p>
@@ -125,8 +125,6 @@ export const Post = () => {
             className={s.like}
             color="primary"
           />
-
-          <GradeIcon className={s.finger} color="primary" />
         </div>
       </div>
 

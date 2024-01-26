@@ -1,7 +1,5 @@
 import { Post } from "../../../pages/Post";
-import { WritePost } from "../../../pages/WritePost";
 import { Favorites } from "../../../pages/Favorites";
-import { MyFeed } from "../../../pages/MyFeed";
 import { Category } from "../../../pages/Category";
 import { NotFound } from "../../../pages/NotFound";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -58,11 +56,6 @@ export const router = createBrowserRouter([
                 children: [],
               },
             ],
-          },
-
-          {
-            path: "feed",
-            element: <MyFeed />,
           },
         ],
       },
