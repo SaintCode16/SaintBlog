@@ -36,11 +36,11 @@ export const Header = () => {
 
           {isAuth ? (
             <button className={s.header__btn} onClick={btnHandler}>
-              Выход
+              Log out
             </button>
           ) : (
             <Link to={"/authtorize"}>
-              <button className={s.header__btn}>вход и регистрация</button>
+              <button className={s.header__btn}>login or registration</button>
             </Link>
           )}
         </Container>

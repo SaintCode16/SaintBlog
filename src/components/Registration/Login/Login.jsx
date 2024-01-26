@@ -1,135 +1,3 @@
-// import {
-//   Button,
-//   Container,
-//   IconButton,
-//   TextField,
-//   Typography,
-// } from "@mui/material";
-// import { useForm } from "react-hook-form";
-// import css from "./Login.module.scss";
-// import { Link as LinkRRD, useNavigate } from "react-router-dom";
-// import { useLoginUserMutation } from "../../../redux";
-// import { Visibility, VisibilityOff } from "@mui/icons-material";
-// import { useState } from "react";
-
-// export const Login = () => {
-//   const {
-//     register,
-//     handleSubmit,
-//     reset,
-//     formState: { errors, isValid },
-//   } = useForm({
-//     mode: "onBlur",
-//   });
-
-//   const onSubmit = (data) => {
-//     console.log(JSON.stringify(data));
-//     reset();
-//   };
-
-//   const [showPassword, setShowPassword] = useState(false);
-
-//   const handleTogglePassword = () => {
-//     setShowPassword((prevShowPassword) => !prevShowPassword);
-//   };
-
-//   return (
-//     <>
-//       <Container maxWidth="sm">
-//         <div className={css.holder}>
-//           <LinkRRD to={"/register"}>
-//             <Button className={css.switch}>зарегистрироваться</Button>
-//           </LinkRRD>
-//           <span className={css.separatop}>|</span>
-//           <Button className={css.switch}>войти</Button>
-
-//           <Typography className={css.mainTitle} variant="h5">
-//             Вход
-//           </Typography>
-
-//           <form onSubmit={handleSubmit(onSubmit)}>
-//             <div className={css.inputWrapper}>
-//               <TextField
-//                 {...register("email", {
-//                   required: "Введите почту",
-//                   maxLength: {
-//                     value: 256,
-//                     message: "Почта должна быть менее 256 символов",
-//                   },
-//                   pattern: {
-//                     value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-//                     message: "Введите корректную почту",
-//                   },
-//                 })}
-//                 {...register("email", {
-//                   required: "Введите почту",
-//                   maxLength: {
-//                     value: 256,
-//                     message: "Почта должна быть менее 256 символов",
-//                   },
-//                   pattern: {
-//                     value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-//                     message: "Введите корректную почту",
-//                   },
-//                 })}
-//                 sx={{ width: 528, height: 49 }}
-//                 label="Почта"
-//                 id="outlined-size-normal"
-//                 required
-//               />
-//               {errors.email && (
-//                 <p className={css.err}>{errors.email.message}</p>
-//               )}
-
-//               <div className={css.password}>
-//                 <TextField
-//                   {...register("password", {
-//                     required: true,
-//                     maxLength: 128,
-//                     minLength: 8,
-//                   })}
-//                   sx={{ width: 528, height: 49 }}
-//                   label="Пароль"
-//                   id="outlined-size-normal"
-//                   type={showPassword ? "text" : "password"}
-//                   required
-//                 />
-
-//                 <div className={css.showBtn}>
-//                   <IconButton onClick={handleTogglePassword}>
-//                     {showPassword ? <VisibilityOff /> : <Visibility />}
-//                   </IconButton>
-//                 </div>
-//               </div>
-
-//               {errors.password && errors.password.type === "required" && (
-//                 <p className={css.err}>введите пароль</p>
-//               )}
-//               {errors.password && errors.password.type === "maxLength" && (
-//                 <p className={css.err}>пароль должен быть менее 128 символов</p>
-//               )}
-//               {errors.password && errors.password.type === "minLength" && (
-//                 <p className={css.err}>пароль должен быть более 8 символов</p>
-//               )}
-//             </div>
-
-//             <Button
-//               type="submit"
-//               className={css.btn}
-//               sx={{ width: 528 }}
-//               variant="contained"
-//               color="primary"
-//               disabled={!isValid}
-//             >
-//               ВОЙТИ
-//             </Button>
-//           </form>
-//         </div>
-//       </Container>
-//     </>
-//   );
-// };
-
 import {
   Button,
   Container,
@@ -145,14 +13,14 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 
 export const Login = () => {
-  const [loginUser, { isSuccess }] = useLoginUserMutation();
+  const [loginUser, { isSuccess, isError }] = useLoginUserMutation();
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isValid },
+    setError,
   } = useForm({
     mode: "onBlur",
   });
@@ -170,6 +38,9 @@ export const Login = () => {
       }
     } catch (err) {
       console.error(err);
+      if (isError) {
+        setError("password", { message: "wrong data" });
+      }
     }
   };
 
@@ -184,42 +55,31 @@ export const Login = () => {
       <Container maxWidth="sm">
         <div className={css.holder}>
           <LinkRRD to={"/register"}>
-            <Button className={css.switch}>зарегистрироваться</Button>
+            <Button className={css.switch}>sign up</Button>
           </LinkRRD>
           <span className={css.separatop}>|</span>
-          <Button className={css.switch}>войти</Button>
+          <Button className={css.switch}>log in</Button>
 
           <Typography className={css.mainTitle} variant="h5">
-            Вход
+            Log in
           </Typography>
 
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className={css.inputWrapper}>
               <TextField
                 {...register("email", {
-                  required: "Введите почту",
+                  required: "enter email",
                   maxLength: {
                     value: 256,
-                    message: "Почта должна быть менее 256 символов",
+                    message: "Mail must be less than 256 characters",
                   },
                   pattern: {
                     value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                    message: "Введите корректную почту",
-                  },
-                })}
-                {...register("email", {
-                  required: "Введите почту",
-                  maxLength: {
-                    value: 256,
-                    message: "Почта должна быть менее 256 символов",
-                  },
-                  pattern: {
-                    value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
-                    message: "Введите корректную почту",
+                    message: "enter correct email",
                   },
                 })}
                 sx={{ width: 528, height: 49 }}
-                label="Почта"
+                label="Email"
                 id="outlined-size-normal"
                 required
               />
@@ -235,7 +95,7 @@ export const Login = () => {
                     minLength: 8,
                   })}
                   sx={{ width: 528, height: 49 }}
-                  label="Пароль"
+                  label="Password"
                   id="outlined-size-normal"
                   type={showPassword ? "text" : "password"}
                   required
@@ -247,14 +107,22 @@ export const Login = () => {
                   </IconButton>
                 </div>
               </div>
+
+              {errors.password && errors.password.message === "wrong data" && (
+                <p className={css.err}>{errors.password.message}</p>
+              )}
               {errors.password && errors.password.type === "required" && (
-                <p className={css.err}>введите пароль</p>
+                <p className={css.err}>enter password</p>
               )}
               {errors.password && errors.password.type === "maxLength" && (
-                <p className={css.err}>пароль должен быть менее 128 символов</p>
+                <p className={css.err}>
+                  password must be less than 128 characters
+                </p>
               )}
               {errors.password && errors.password.type === "minLength" && (
-                <p className={css.err}>пароль должен быть более 8 символов</p>
+                <p className={css.err}>
+                  password must be more than 8 characters
+                </p>
               )}
             </div>
 
@@ -266,7 +134,7 @@ export const Login = () => {
               color="primary"
               disabled={!isValid}
             >
-              ВОЙТИ
+              LOG IN
             </Button>
           </form>
         </div>

@@ -134,3 +134,25 @@
   align-items: start;
   gap: 18px;
 }
+
+.colorLikeChange {
+  fill: red !important;
+  cursor: pointer;
+}
+
+.commentAuthor {
+  color: rgba(148, 148, 148, 0.94);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.commentDate {
+  margin-bottom: 5px;
+  color: #000;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
