@@ -26,7 +26,7 @@ export const Profile = () => {
           color="success"
           size="large"
         >
-          МОИ ПОСТЫ
+          Мои посты
         </Button>
       </Link>
 
@@ -37,7 +37,7 @@ export const Profile = () => {
           color="success"
           size="large"
         >
-          ИЗБРАННОЕ
+          Избранное
         </Button>
       </Link>
 
