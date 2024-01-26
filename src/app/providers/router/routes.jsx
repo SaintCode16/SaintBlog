@@ -45,9 +45,19 @@ export const router = createBrowserRouter([
           },
 
           {
-            path: "all",
-            element: <Posts />,
-            children: [],
+            path: "category",
+            children: [
+              {
+                path: ":category",
+                element: <Category />,
+              },
+
+              {
+                path: "all",
+                element: <Posts />,
+                children: [],
+              },
+            ],
           },
 
           {
@@ -79,39 +89,3 @@ export const router = createBrowserRouter([
     element: <Signup />,
   },
 ]);
-
-// пример:
-// createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Root />,
-//     children: [
-//       {
-//         path: "contact",
-//         element: <Contact />,
-//       },
-//       {
-//         path: "dashboard",
-//         element: <Dashboard />,
-//         loader: ({ request }) =>
-//           fetch("/api/dashboard.json", {
-//             signal: request.signal,
-//           }),
-//       },
-//       {
-//         element: <AuthLayout />,
-//         children: [
-//           {
-//             path: "login",
-//             element: <Login />,
-//             loader: redirectIfUser,
-//           },
-//           {
-//             path: "logout",
-//             action: logoutUser,
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// ]);

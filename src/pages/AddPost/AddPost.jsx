@@ -1,5 +1,5 @@
 import { Container, TextField, TextareaAutosize, Button } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import s from "./AddPost.module.scss";
 import ComboBox from "../../components/ComboBox/ComboBox";
 import ClickAway from "../../components/ClickAway/ClickAway";
@@ -26,6 +26,7 @@ export const AddPost = () => {
     setValue(value);
   };
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -49,8 +50,7 @@ export const AddPost = () => {
     }
   };
 
-  isSuccess ? navigate(`/posts`) : null;
-
+  isSuccess ? navigate(`/`) : null;
   return (
     <Container className={s.container} maxWidth="md">
       <div className={s.post}>

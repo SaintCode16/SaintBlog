@@ -3,6 +3,7 @@
 }
 
 .container {
+  padding-top: 25px;
   padding-bottom: 25px;
   border: 1px solid rgba(54, 42, 42, 0.258);
   border-radius: 12px;
@@ -19,6 +20,7 @@
 
 .post {
   padding-top: 25px;
+
   &__top {
     display: flex;
     align-items: center;
