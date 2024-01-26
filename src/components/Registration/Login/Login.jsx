@@ -13,14 +13,14 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
 
 export const Login = () => {
-  const [loginUser, { isSuccess }] = useLoginUserMutation();
+  const [loginUser, { isSuccess, isError }] = useLoginUserMutation();
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isValid },
+    setError,
   } = useForm({
     mode: "onBlur",
   });
@@ -38,6 +38,9 @@ export const Login = () => {
       }
     } catch (err) {
       console.error(err);
+      if (isError) {
+        setError("password", { message: "wrong data" });
+      }
     }
   };
 
@@ -104,6 +107,10 @@ export const Login = () => {
                   </IconButton>
                 </div>
               </div>
+
+              {errors.password && errors.password.message === "wrong data" && (
+                <p className={css.err}>{errors.password.message}</p>
+              )}
               {errors.password && errors.password.type === "required" && (
                 <p className={css.err}>enter password</p>
               )}
