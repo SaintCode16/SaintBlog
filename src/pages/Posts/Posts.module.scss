@@ -9,7 +9,7 @@
 .hidden {
   max-height: 80vh;
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column-reverse !important;
   align-items: end !important;
   gap: 20px !important;
   overflow: scroll;

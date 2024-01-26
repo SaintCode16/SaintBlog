@@ -21,7 +21,10 @@ export const AddComment = ({ postId, onCommentAdded }) => {
 
     try {
       // ДОБАВЛЯЕМ КОММЕНТАРИЙ В БАЗУ ДАННЫХ
-      await addComment({ postId, text: inputValue }).unwrap();
+      await addComment({
+        postId,
+        text: inputValue,
+      }).unwrap();
       // ОТПРАВЛЯЕМ ДАННЫЕ ДЛЯ ОБНОВЛЕНИЯ СОСТОЯНИЯ КОММЕНТОВ
       onCommentAdded(inputValue);
       setValue("");
