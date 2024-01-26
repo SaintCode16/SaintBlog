@@ -95,7 +95,7 @@ export const Post = () => {
 
         <img className={s.post__img} src={post.img.img1x} alt={post.title} />
 
-        <p className={s.post__text}>{post.text}</p>
+        <p className={s.post__text}>{post.post}</p>
       </div>
       <div className={s.post__btn}>
         <p className={s.post__username}>{post.author}</p>

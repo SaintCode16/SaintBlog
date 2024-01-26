@@ -48,7 +48,7 @@ export const Profile = () => {
           color="inherit"
           size="large"
         >
-          Написать пост
+          ДОБАВИТЬ ПОСТ
         </Button>
       </LinkRRD>
       <Button
